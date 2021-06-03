@@ -4618,6 +4618,8 @@ const logHandler = (err, result) => {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(err)
     return
   }
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`${result.all.length} commits`)
+  result.all.forEach(log => _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(log))
   _actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput('titles', extract_pr_titles__WEBPACK_IMPORTED_MODULE_1___default()(result.all, extractOpts).join('\n'))
 }
 
