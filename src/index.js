@@ -20,7 +20,7 @@ const logHandler = (err, result) => {
     core.setFailed(err)
     return
   }
-  core.info(`${result.all.length} commits`)
+  core.info(`- ${result.all.length} commits`)
   result.all.forEach(log => core.info(log.message))
   core.setOutput('titles', extractPRTitles(result.all, extractOpts).join('\n'))
 }
