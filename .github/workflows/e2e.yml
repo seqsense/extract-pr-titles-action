@@ -3,22 +3,25 @@ on:
   pull_request:
     branches: main
 
+permissions:
+  pull-requests: write
+  issues: write
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      issues: write
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: refs/remotes/origin/main
+          ref: refs/remotes/origin/${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-      - uses: .
+      - run: git fetch origin ${{ github.event.pull_request.base.ref }}
+      - uses: ./
         id: titles
         with:
-          from: ${{ github.event.pull_request.head.ref }}
-          to: ${{ github.event.pull_request.base.ref }}
+          from: origin/${{ github.event.pull_request.base.ref }}
+          to: origin/${{ github.event.pull_request.head.ref }}
           format: "- {title} #{number}"
           reverse: true
 

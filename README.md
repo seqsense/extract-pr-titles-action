@@ -14,8 +14,8 @@ jobs:
       - uses: seqsense/extract-pr-titles-action@v0
         id: titles
         with:
-          from: origin/release
-          to: origin/main
+          from: origin/main
+          to: origin/release
           format: "- {title} #{number}"
           reverse: true
       - run: echo ${{ steps.titles.outputs.titles }}
