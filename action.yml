@@ -1,0 +1,25 @@
+name: 'Extract PR titles'
+description: 'Extract PR titles between the given two git refs'
+inputs:
+  from:
+    description: 'Git ref from where PR titles are extracted'
+    required: true
+  to:
+    description: 'Git ref to where PR titles are extracted'
+    required: true
+  format:
+    description: 'Pupa template of the output format'
+    default: '{title} ${number}'
+    required: true
+  reverse:
+    description: 'Reverse order when "true" is set'
+    required: false
+outputs:
+  titles:
+    description: 'Extracted PR titles'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+branding:
+  icon: 'droplet'
+  color: 'gray-dark'
