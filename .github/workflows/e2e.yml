@@ -20,8 +20,8 @@ jobs:
       - uses: ./
         id: titles
         with:
-          from: ${{ github.event.pull_request.base.ref }}^
-          to: ${{ github.event.pull_request.base.ref }}
+          from: origin/${{ github.event.pull_request.base.ref }}^
+          to: origin/${{ github.event.pull_request.base.ref }}
           format: "- {title} #{number}"
           reverse: true
 
