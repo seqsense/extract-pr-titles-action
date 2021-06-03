@@ -12,13 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: refs/remotes/origin/main
+          ref: refs/remote/origin/${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
+      - run: git fetch origin
       - uses: ./
         id: titles
         with:
-          from: ${{ github.event.pull_request.head.ref }}
-          to: ${{ github.event.pull_request.base.ref }}
+          from: origin/${{ github.event.pull_request.head.ref }}
+          to: origin/${{ github.event.pull_request.base.ref }}
           format: "- {title} #{number}"
           reverse: true
 
