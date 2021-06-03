@@ -21,7 +21,7 @@ const logHandler = (err, result) => {
     return
   }
   core.info(`${result.all.length} commits`)
-  result.all.forEach(log => core.info(log))
+  result.all.forEach(log => core.info(log.toString()))
   core.setOutput('titles', extractPRTitles(result.all, extractOpts).join('\n'))
 }
 
