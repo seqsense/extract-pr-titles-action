@@ -12,7 +12,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@actions/core": "1.8.0",
-    "extract-pr-titles": "1.1.0"
+    "extract-pr-titles": "github:kt3k/extract-pr-titles#0136f9d41942080ec05bf45b7c41cb1c77abad99"
   },
   "devDependencies": {
     "@vercel/ncc": "0.33.4",

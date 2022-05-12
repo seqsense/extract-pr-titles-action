@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 7351:
+/***/ 351:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -27,8 +27,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.issue = exports.issueCommand = void 0;
-const os = __importStar(__nccwpck_require__(2037));
-const utils_1 = __nccwpck_require__(5278);
+const os = __importStar(__nccwpck_require__(37));
+const utils_1 = __nccwpck_require__(278);
 /**
  * Commands
  *
@@ -100,7 +100,7 @@ function escapeProperty(s) {
 
 /***/ }),
 
-/***/ 2186:
+/***/ 186:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -135,12 +135,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getIDToken = exports.getState = exports.saveState = exports.group = exports.endGroup = exports.startGroup = exports.info = exports.notice = exports.warning = exports.error = exports.debug = exports.isDebug = exports.setFailed = exports.setCommandEcho = exports.setOutput = exports.getBooleanInput = exports.getMultilineInput = exports.getInput = exports.addPath = exports.setSecret = exports.exportVariable = exports.ExitCode = void 0;
-const command_1 = __nccwpck_require__(7351);
+const command_1 = __nccwpck_require__(351);
 const file_command_1 = __nccwpck_require__(717);
-const utils_1 = __nccwpck_require__(5278);
-const os = __importStar(__nccwpck_require__(2037));
-const path = __importStar(__nccwpck_require__(1017));
-const oidc_utils_1 = __nccwpck_require__(8041);
+const utils_1 = __nccwpck_require__(278);
+const os = __importStar(__nccwpck_require__(37));
+const path = __importStar(__nccwpck_require__(17));
+const oidc_utils_1 = __nccwpck_require__(41);
 /**
  * The code to exit an action
  */
@@ -418,12 +418,12 @@ exports.getIDToken = getIDToken;
 /**
  * Summary exports
  */
-var summary_1 = __nccwpck_require__(1327);
+var summary_1 = __nccwpck_require__(327);
 Object.defineProperty(exports, "summary", ({ enumerable: true, get: function () { return summary_1.summary; } }));
 /**
  * @deprecated use core.summary
  */
-var summary_2 = __nccwpck_require__(1327);
+var summary_2 = __nccwpck_require__(327);
 Object.defineProperty(exports, "markdownSummary", ({ enumerable: true, get: function () { return summary_2.markdownSummary; } }));
 //# sourceMappingURL=core.js.map
 
@@ -458,9 +458,9 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.issueCommand = void 0;
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const fs = __importStar(__nccwpck_require__(7147));
-const os = __importStar(__nccwpck_require__(2037));
-const utils_1 = __nccwpck_require__(5278);
+const fs = __importStar(__nccwpck_require__(147));
+const os = __importStar(__nccwpck_require__(37));
+const utils_1 = __nccwpck_require__(278);
 function issueCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
     if (!filePath) {
@@ -478,7 +478,7 @@ exports.issueCommand = issueCommand;
 
 /***/ }),
 
-/***/ 8041:
+/***/ 41:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -494,9 +494,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.OidcClient = void 0;
-const http_client_1 = __nccwpck_require__(9925);
-const auth_1 = __nccwpck_require__(3702);
-const core_1 = __nccwpck_require__(2186);
+const http_client_1 = __nccwpck_require__(925);
+const auth_1 = __nccwpck_require__(702);
+const core_1 = __nccwpck_require__(186);
 class OidcClient {
     static createHttpClient(allowRetry = true, maxRetry = 10) {
         const requestOptions = {
@@ -562,7 +562,7 @@ exports.OidcClient = OidcClient;
 
 /***/ }),
 
-/***/ 1327:
+/***/ 327:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -578,8 +578,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.summary = exports.markdownSummary = exports.SUMMARY_DOCS_URL = exports.SUMMARY_ENV_VAR = void 0;
-const os_1 = __nccwpck_require__(2037);
-const fs_1 = __nccwpck_require__(7147);
+const os_1 = __nccwpck_require__(37);
+const fs_1 = __nccwpck_require__(147);
 const { access, appendFile, writeFile } = fs_1.promises;
 exports.SUMMARY_ENV_VAR = 'GITHUB_STEP_SUMMARY';
 exports.SUMMARY_DOCS_URL = 'https://docs.github.com/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary';
@@ -852,7 +852,7 @@ exports.summary = _summary;
 
 /***/ }),
 
-/***/ 5278:
+/***/ 278:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -899,7 +899,7 @@ exports.toCommandProperties = toCommandProperties;
 
 /***/ }),
 
-/***/ 3702:
+/***/ 702:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -965,15 +965,15 @@ exports.PersonalAccessTokenCredentialHandler = PersonalAccessTokenCredentialHand
 
 /***/ }),
 
-/***/ 9925:
+/***/ 925:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const http = __nccwpck_require__(3685);
-const https = __nccwpck_require__(5687);
-const pm = __nccwpck_require__(6443);
+const http = __nccwpck_require__(685);
+const https = __nccwpck_require__(687);
+const pm = __nccwpck_require__(443);
 let tunnel;
 var HttpCodes;
 (function (HttpCodes) {
@@ -1392,7 +1392,7 @@ class HttpClient {
         if (useProxy) {
             // If using proxy, need tunnel
             if (!tunnel) {
-                tunnel = __nccwpck_require__(4294);
+                tunnel = __nccwpck_require__(294);
             }
             const agentOptions = {
                 maxSockets: maxSockets,
@@ -1510,7 +1510,7 @@ exports.HttpClient = HttpClient;
 
 /***/ }),
 
-/***/ 6443:
+/***/ 443:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1575,7 +1575,150 @@ exports.checkBypass = checkBypass;
 
 /***/ }),
 
-/***/ 8222:
+/***/ 751:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+__export(__nccwpck_require__(825));
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 825:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const fs_1 = __nccwpck_require__(147);
+const debug_1 = __importDefault(__nccwpck_require__(237));
+const log = debug_1.default('@kwsites/file-exists');
+function check(path, isFile, isDirectory) {
+    log(`checking %s`, path);
+    try {
+        const stat = fs_1.statSync(path);
+        if (stat.isFile() && isFile) {
+            log(`[OK] path represents a file`);
+            return true;
+        }
+        if (stat.isDirectory() && isDirectory) {
+            log(`[OK] path represents a directory`);
+            return true;
+        }
+        log(`[FAIL] path represents something other than a file or directory`);
+        return false;
+    }
+    catch (e) {
+        if (e.code === 'ENOENT') {
+            log(`[FAIL] path is not accessible: %o`, e);
+            return false;
+        }
+        log(`[FATAL] %o`, e);
+        throw e;
+    }
+}
+/**
+ * Synchronous validation of a path existing either as a file or as a directory.
+ *
+ * @param {string} path The path to check
+ * @param {number} type One or both of the exported numeric constants
+ */
+function exists(path, type = exports.READABLE) {
+    return check(path, (type & exports.FILE) > 0, (type & exports.FOLDER) > 0);
+}
+exports.exists = exists;
+/**
+ * Constant representing a file
+ */
+exports.FILE = 1;
+/**
+ * Constant representing a folder
+ */
+exports.FOLDER = 2;
+/**
+ * Constant representing either a file or a folder
+ */
+exports.READABLE = exports.FILE + exports.FOLDER;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 819:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+var __webpack_unused_export__;
+
+__webpack_unused_export__ = ({ value: true });
+exports.dD = exports.gX = void 0;
+/**
+ * Creates a new `DeferredPromise`
+ *
+ * ```typescript
+ import {deferred} from '@kwsites/promise-deferred`;
+ ```
+ */
+function deferred() {
+    let done;
+    let fail;
+    let status = 'pending';
+    const promise = new Promise((_done, _fail) => {
+        done = _done;
+        fail = _fail;
+    });
+    return {
+        promise,
+        done(result) {
+            if (status === 'pending') {
+                status = 'resolved';
+                done(result);
+            }
+        },
+        fail(error) {
+            if (status === 'pending') {
+                status = 'rejected';
+                fail(error);
+            }
+        },
+        get fulfilled() {
+            return status !== 'pending';
+        },
+        get status() {
+            return status;
+        },
+    };
+}
+exports.gX = deferred;
+/**
+ * Alias of the exported `deferred` function, to help consumers wanting to use `deferred` as the
+ * local variable name rather than the factory import name, without needing to rename on import.
+ *
+ * ```typescript
+ import {createDeferred} from '@kwsites/promise-deferred`;
+ ```
+ */
+exports.dD = deferred;
+/**
+ * Default export allows use as:
+ *
+ * ```typescript
+ import deferred from '@kwsites/promise-deferred`;
+ ```
+ */
+__webpack_unused_export__ = deferred;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 222:
 /***/ ((module, exports, __nccwpck_require__) => {
 
 /* eslint-env browser */
@@ -1832,7 +1975,7 @@ function localstorage() {
 	}
 }
 
-module.exports = __nccwpck_require__(6243)(exports);
+module.exports = __nccwpck_require__(243)(exports);
 
 const {formatters} = module.exports;
 
@@ -1851,7 +1994,7 @@ formatters.j = function (v) {
 
 /***/ }),
 
-/***/ 6243:
+/***/ 243:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -2132,7 +2275,7 @@ module.exports = setup;
 
 /***/ }),
 
-/***/ 8237:
+/***/ 237:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 /**
@@ -2141,23 +2284,23 @@ module.exports = setup;
  */
 
 if (typeof process === 'undefined' || process.type === 'renderer' || process.browser === true || process.__nwjs) {
-	module.exports = __nccwpck_require__(8222);
+	module.exports = __nccwpck_require__(222);
 } else {
-	module.exports = __nccwpck_require__(5332);
+	module.exports = __nccwpck_require__(332);
 }
 
 
 /***/ }),
 
-/***/ 5332:
+/***/ 332:
 /***/ ((module, exports, __nccwpck_require__) => {
 
 /**
  * Module dependencies.
  */
 
-const tty = __nccwpck_require__(6224);
-const util = __nccwpck_require__(3837);
+const tty = __nccwpck_require__(224);
+const util = __nccwpck_require__(837);
 
 /**
  * This is the Node.js implementation of `debug()`.
@@ -2391,7 +2534,7 @@ function init(debug) {
 	}
 }
 
-module.exports = __nccwpck_require__(6243)(exports);
+module.exports = __nccwpck_require__(243)(exports);
 
 const {formatters} = module.exports;
 
@@ -2419,7 +2562,7 @@ formatters.O = function (v) {
 
 /***/ }),
 
-/***/ 4743:
+/***/ 743:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -2460,10 +2603,10 @@ exports.htmlUnescapeTag = (strings, ...values) => {
 
 /***/ }),
 
-/***/ 5185:
+/***/ 185:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const pupa = __nccwpck_require__(7491)
+const pupa = __nccwpck_require__(229)
 
 const DEFAULT_FORMAT = '{title} #{number}'
 
@@ -2684,12 +2827,12 @@ function plural(ms, msAbs, n, name) {
 
 /***/ }),
 
-/***/ 7491:
+/***/ 229:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
-const {htmlEscape} = __nccwpck_require__(4743);
+const {htmlEscape} = __nccwpck_require__(743);
 
 module.exports = (template, data) => {
 	if (typeof template !== 'string') {
@@ -2731,2720 +2874,27 @@ module.exports = (template, data) => {
 
 /***/ }),
 
-/***/ 4966:
+/***/ 294:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-(function () {
-
-   'use strict';
-
-   var debug = __nccwpck_require__(8237)('simple-git');
-   var deferred = __nccwpck_require__(4299);
-   var exists = __nccwpck_require__(6153);
-   var NOOP = function () {};
-   var responses = __nccwpck_require__(5301);
-
-   /**
-    * Git handling for node. All public functions can be chained and all `then` handlers are optional.
-    *
-    * @param {string} baseDir base directory for all processes to run
-    *
-    * @param {Object} ChildProcess The ChildProcess module
-    * @param {Function} Buffer The Buffer implementation to use
-    *
-    * @constructor
-    */
-   function Git (baseDir, ChildProcess, Buffer) {
-      this._baseDir = baseDir;
-      this._runCache = [];
-
-      this.ChildProcess = ChildProcess;
-      this.Buffer = Buffer;
-   }
-
-   /**
-    * @type {string} The command to use to reference the git binary
-    */
-   Git.prototype._command = 'git';
-
-   /**
-    * @type {[key: string]: string} An object of key=value pairs to be passed as environment variables to the
-    *                               spawned child process.
-    */
-   Git.prototype._env = null;
-
-   /**
-    * @type {Function} An optional handler to use when a child process is created
-    */
-   Git.prototype._outputHandler = null;
-
-   /**
-    * @type {boolean} Property showing whether logging will be silenced - defaults to true in a production environment
-    */
-   Git.prototype._silentLogging = /prod/.test(process.env.NODE_ENV);
-
-   /**
-    * Sets the path to a custom git binary, should either be `git` when there is an installation of git available on
-    * the system path, or a fully qualified path to the executable.
-    *
-    * @param {string} command
-    * @returns {Git}
-    */
-   Git.prototype.customBinary = function (command) {
-      this._command = command;
-      return this;
-   };
-
-   /**
-    * Sets an environment variable for the spawned child process, either supply both a name and value as strings or
-    * a single object to entirely replace the current environment variables.
-    *
-    * @param {string|Object} name
-    * @param {string} [value]
-    * @returns {Git}
-    */
-   Git.prototype.env = function (name, value) {
-      if (arguments.length === 1 && typeof name === 'object') {
-         this._env = name;
-      }
-      else {
-         (this._env = this._env || {})[name] = value;
-      }
-
-      return this;
-   };
-
-   /**
-    * Sets the working directory of the subsequent commands.
-    *
-    * @param {string} workingDirectory
-    * @param {Function} [then]
-    * @returns {Git}
-    */
-   Git.prototype.cwd = function (workingDirectory, then) {
-      var git = this;
-      var next = Git.trailingFunctionArgument(arguments);
-
-      return this.exec(function () {
-         git._baseDir = workingDirectory;
-         if (!exists(workingDirectory, exists.FOLDER)) {
-            Git.exception(git, 'Git.cwd: cannot change to non-directory "' + workingDirectory + '"', next);
-         }
-         else {
-            next && next(null, workingDirectory);
-         }
-      });
-   };
-
-   /**
-    * Sets a handler function to be called whenever a new child process is created, the handler function will be called
-    * with the name of the command being run and the stdout & stderr streams used by the ChildProcess.
-    *
-    * @example
-    * require('simple-git')
-    *    .outputHandler(function (command, stdout, stderr) {
-    *       stdout.pipe(process.stdout);
-    *    })
-    *    .checkout('https://github.com/user/repo.git');
-    *
-    * @see https://nodejs.org/api/child_process.html#child_process_class_childprocess
-    * @see https://nodejs.org/api/stream.html#stream_class_stream_readable
-    * @param {Function} outputHandler
-    * @returns {Git}
-    */
-   Git.prototype.outputHandler = function (outputHandler) {
-      this._outputHandler = outputHandler;
-      return this;
-   };
-
-   /**
-    * Initialize a git repo
-    *
-    * @param {Boolean} [bare=false]
-    * @param {Function} [then]
-    */
-   Git.prototype.init = function (bare, then) {
-      var commands = ['init'];
-      var next = Git.trailingFunctionArgument(arguments);
-
-      if (bare === true) {
-         commands.push('--bare');
-      }
-
-      return this._run(commands, function (err) {
-         next && next(err);
-      });
-   };
-
-   /**
-    * Check the status of the local repo
-    *
-    * @param {Function} [then]
-    */
-   Git.prototype.status = function (then) {
-      return this._run(
-         ['status', '--porcelain', '-b', '-u'],
-         Git._responseHandler(then, 'StatusSummary')
-      );
-   };
-
-   /**
-    * List the stash(s) of the local repo
-    *
-    * @param {Object|Array} [options]
-    * @param {Function} [then]
-    */
-   Git.prototype.stashList = function (options, then) {
-      var handler = Git.trailingFunctionArgument(arguments);
-      var opt = (handler === then ? options : null) || {};
-
-      var splitter = opt.splitter || requireResponseHandler('ListLogSummary').SPLITTER;
-      var command = ["stash", "list", "--pretty=format:"
-         + requireResponseHandler('ListLogSummary').START_BOUNDARY
-         + "%H %ai %s%d %aN %ae".replace(/\s+/g, splitter)
-         + requireResponseHandler('ListLogSummary').COMMIT_BOUNDARY
-      ];
-
-      if (Array.isArray(opt)) {
-         command = command.concat(opt);
-      }
-
-      return this._run(command,
-         Git._responseHandler(handler, 'ListLogSummary', splitter)
-      );
-   };
-
-   /**
-    * Stash the local repo
-    *
-    * @param {Object|Array} [options]
-    * @param {Function} [then]
-    */
-   Git.prototype.stash = function (options, then) {
-      var command = ['stash'];
-      Git._appendOptions(command, Git.trailingOptionsArgument(arguments));
-      command.push.apply(command, Git.trailingArrayArgument(arguments));
-
-      return this._run(command, Git._responseHandler(Git.trailingFunctionArgument(arguments)));
-   };
-
-   /**
-    * Clone a git repo
-    *
-    * @param {string} repoPath
-    * @param {string} localPath
-    * @param {String[]} [options] Optional array of options to pass through to the clone command
-    * @param {Function} [then]
-    */
-   Git.prototype.clone = function (repoPath, localPath, options, then) {
-      var next = Git.trailingFunctionArgument(arguments);
-      var command = ['clone'].concat(Git.trailingArrayArgument(arguments));
-
-      for (var i = 0, iMax = arguments.length; i < iMax; i++) {
-         if (typeof arguments[i] === 'string') {
-            command.push(arguments[i]);
-         }
-      }
-
-      return this._run(command, function (err, data) {
-         next && next(err, data);
-      });
-   };
-
-   /**
-    * Mirror a git repo
-    *
-    * @param {string} repoPath
-    * @param {string} localPath
-    * @param {Function} [then]
-    */
-   Git.prototype.mirror = function (repoPath, localPath, then) {
-      return this.clone(repoPath, localPath, ['--mirror'], then);
-   };
-
-   /**
-    * Moves one or more files to a new destination.
-    *
-    * @see https://git-scm.com/docs/git-mv
-    *
-    * @param {string|string[]} from
-    * @param {string} to
-    * @param {Function} [then]
-    */
-   Git.prototype.mv = function (from, to, then) {
-      var handler = Git.trailingFunctionArgument(arguments);
-
-      var command = [].concat(from);
-      command.unshift('mv', '-v');
-      command.push(to);
-
-      this._run(command, Git._responseHandler(handler, 'MoveSummary'))
-   };
-
-   /**
-    * Internally uses pull and tags to get the list of tags then checks out the latest tag.
-    *
-    * @param {Function} [then]
-    */
-   Git.prototype.checkoutLatestTag = function (then) {
-      var git = this;
-      return this.pull(function () {
-         git.tags(function (err, tags) {
-            git.checkout(tags.latest, then);
-         });
-      });
-   };
-
-   /**
-    * Adds one or more files to source control
-    *
-    * @param {string|string[]} files
-    * @param {Function} [then]
-    */
-   Git.prototype.add = function (files, then) {
-      return this._run(['add'].concat(files), function (err, data) {
-         then && then(err);
-      });
-   };
-
-   /**
-    * Commits changes in the current working directory - when specific file paths are supplied, only changes on those
-    * files will be committed.
-    *
-    * @param {string|string[]} message
-    * @param {string|string[]} [files]
-    * @param {Object} [options]
-    * @param {Function} [then]
-    */
-   Git.prototype.commit = function (message, files, options, then) {
-      var handler = Git.trailingFunctionArgument(arguments);
-
-      var command = ['commit'];
-
-      [].concat(message).forEach(function (message) {
-         command.push('-m', message);
-      });
-
-      [].push.apply(command, [].concat(typeof files === "string" || Array.isArray(files) ? files : []));
-
-      Git._appendOptions(command, Git.trailingOptionsArgument(arguments));
-
-      return this._run(
-         command,
-         Git._responseHandler(handler, 'CommitSummary')
-      );
-   };
-
-   /**
-    * Gets a function to be used for logging.
-    *
-    * @param {string} level
-    * @param {string} [message]
-    *
-    * @returns {Function}
-    * @private
-    */
-   Git.prototype._getLog = function (level, message) {
-      var log = this._silentLogging ? NOOP : console[level].bind(console);
-      if (arguments.length > 1) {
-         log(message);
-      }
-      return log;
-   };
-
-   /**
-    * Pull the updated contents of the current repo
-    *
-    * @param {string} [remote] When supplied must also include the branch
-    * @param {string} [branch] When supplied must also include the remote
-    * @param {Object} [options] Optionally include set of options to merge into the command
-    * @param {Function} [then]
-    */
-   Git.prototype.pull = function (remote, branch, options, then) {
-      var command = ["pull"];
-      var handler = Git.trailingFunctionArgument(arguments);
-
-      if (typeof remote === 'string' && typeof branch === 'string') {
-         command.push(remote, branch);
-      }
-
-      Git._appendOptions(command, Git.trailingOptionsArgument(arguments));
-
-      return this._run(command, Git._responseHandler(handler, 'PullSummary'));
-   };
-
-   /**
-    * Fetch the updated contents of the current repo.
-    *
-    * @example
-    *   .fetch('upstream', 'master') // fetches from master on remote named upstream
-    *   .fetch(function () {}) // runs fetch against default remote and branch and calls function
-    *
-    * @param {string} [remote]
-    * @param {string} [branch]
-    * @param {Function} [then]
-    */
-   Git.prototype.fetch = function (remote, branch, then) {
-      var command = ["fetch"];
-      var next = Git.trailingFunctionArgument(arguments);
-      Git._appendOptions(command, Git.trailingOptionsArgument(arguments));
-
-      if (typeof remote === 'string' && typeof branch === 'string') {
-         command.push(remote, branch);
-      }
-
-      if (Array.isArray(remote)) {
-         command = command.concat(remote);
-      }
-
-      return this._run(
-         command,
-         Git._responseHandler(next, 'FetchSummary'),
-         {
-            concatStdErr: true
-         }
-      );
-   };
-
-   /**
-    * Disables/enables the use of the console for printing warnings and errors, by default messages are not shown in
-    * a production environment.
-    *
-    * @param {boolean} silence
-    * @returns {Git}
-    */
-   Git.prototype.silent = function (silence) {
-      this._silentLogging = !!silence;
-      return this;
-   };
-
-   /**
-    * List all tags. When using git 2.7.0 or above, include an options object with `"--sort": "property-name"` to
-    * sort the tags by that property instead of using the default semantic versioning sort.
-    *
-    * Note, supplying this option when it is not supported by your Git version will cause the operation to fail.
-    *
-    * @param {Object} [options]
-    * @param {Function} [then]
-    */
-   Git.prototype.tags = function (options, then) {
-      var next = Git.trailingFunctionArgument(arguments);
-
-      var command = ['-l'];
-      Git._appendOptions(command, Git.trailingOptionsArgument(arguments));
-
-      var hasCustomSort = command.some(function (option) {
-         return /^--sort=/.test(option);
-      });
-
-      return this.tag(
-         command,
-         Git._responseHandler(next, 'TagList', [hasCustomSort])
-      );
-   };
-
-   /**
-    * Rebases the current working copy. Options can be supplied either as an array of string parameters
-    * to be sent to the `git rebase` command, or a standard options object.
-    *
-    * @param {Object|String[]} [options]
-    * @param {Function} [then]
-    * @returns {Git}
-    */
-   Git.prototype.rebase = function (options, then) {
-      var command = ['rebase'];
-      Git._appendOptions(command, Git.trailingOptionsArgument(arguments));
-      command.push.apply(command, Git.trailingArrayArgument(arguments));
-
-
-      return this._run(command, Git._responseHandler(Git.trailingFunctionArgument(arguments)));
-   };
-
-   /**
-    * Reset a repo
-    *
-    * @param {string|string[]} [mode=soft] Either an array of arguments supported by the 'git reset' command, or the
-    *                                        string value 'soft' or 'hard' to set the reset mode.
-    * @param {Function} [then]
-    */
-   Git.prototype.reset = function (mode, then) {
-      var command = ['reset'];
-      var next = Git.trailingFunctionArgument(arguments);
-      if (next === mode || typeof mode === 'string' || !mode) {
-         var modeStr = ['mixed', 'soft', 'hard'].includes(mode) ? mode : 'soft';
-         command.push('--' + modeStr);
-      }
-      else if (Array.isArray(mode)) {
-         command.push.apply(command, mode);
-      }
-
-      return this._run(command, function (err) {
-         next && next(err || null);
-      });
-   };
-
-   /**
-    * Revert one or more commits in the local working copy
-    *
-    * @param {string} commit The commit to revert. Can be any hash, offset (eg: `HEAD~2`) or range (eg: `master~5..master~2`)
-    * @param {Object} [options] Optional options object
-    * @param {Function} [then]
-    */
-   Git.prototype.revert = function (commit, options, then) {
-      var next = Git.trailingFunctionArgument(arguments);
-      var command = ['revert'];
-
-      Git._appendOptions(command, Git.trailingOptionsArgument(arguments));
-
-      if (typeof commit !== 'string') {
-         return this.exec(function () {
-            next && next(new TypeError("Commit must be a string"));
-         });
-      }
-
-      command.push(commit);
-      return this._run(command, function (err) {
-         next && next(err || null);
-      });
-   };
-
-   /**
-    * Add a lightweight tag to the head of the current branch
-    *
-    * @param {string} name
-    * @param {Function} [then]
-    */
-   Git.prototype.addTag = function (name, then) {
-      if (typeof name !== "string") {
-         return this.exec(function () {
-            then && then(new TypeError("Git.addTag requires a tag name"));
-         });
-      }
-
-      var command = [name];
-      return then ? this.tag(command, then) : this.tag(command);
-   };
-
-   /**
-    * Add an annotated tag to the head of the current branch
-    *
-    * @param {string} tagName
-    * @param {string} tagMessage
-    * @param {Function} [then]
-    */
-   Git.prototype.addAnnotatedTag = function (tagName, tagMessage, then) {
-      return this.tag(['-a', '-m', tagMessage, tagName], function (err) {
-         then && then(err);
-      });
-   };
-
-   /**
-    * Check out a tag or revision, any number of additional arguments can be passed to the `git checkout` command
-    * by supplying either a string or array of strings as the `what` parameter.
-    *
-    * @param {string|string[]} what One or more commands to pass to `git checkout`
-    * @param {Function} [then]
-    */
-   Git.prototype.checkout = function (what, then) {
-      var command = ['checkout'];
-      command = command.concat(what);
-
-      return this._run(command, function (err, data) {
-         then && then(err, !err && this._parseCheckout(data));
-      });
-   };
-
-   /**
-    * Check out a remote branch
-    *
-    * @param {string} branchName name of branch
-    * @param {string} startPoint (e.g origin/development)
-    * @param {Function} [then]
-    */
-   Git.prototype.checkoutBranch = function (branchName, startPoint, then) {
-      return this.checkout(['-b', branchName, startPoint], then);
-   };
-
-   /**
-    * Check out a local branch
-    *
-    * @param {string} branchName of branch
-    * @param {Function} [then]
-    */
-   Git.prototype.checkoutLocalBranch = function (branchName, then) {
-      return this.checkout(['-b', branchName], then);
-   };
-
-   /**
-    * Delete a local branch
-    *
-    * @param {string} branchName name of branch
-    * @param {Function} [then]
-    */
-   Git.prototype.deleteLocalBranch = function (branchName, then) {
-      return this.branch(['-d', branchName], then);
-   };
-
-   /**
-    * List all branches
-    *
-    * @param {Object | string[]} [options]
-    * @param {Function} [then]
-    */
-   Git.prototype.branch = function (options, then) {
-      var isDelete, responseHandler;
-      var next = Git.trailingFunctionArgument(arguments);
-      var command = ['branch'];
-
-      command.push.apply(command, Git.trailingArrayArgument(arguments));
-      Git._appendOptions(command, Git.trailingOptionsArgument(arguments));
-
-      if (!arguments.length || next === options) {
-         command.push('-a');
-      }
-
-      isDelete = ['-d', '-D', '--delete'].reduce(function (isDelete, flag) {
-         return isDelete || command.indexOf(flag) > 0;
-      }, false);
-
-      if (command.indexOf('-v') < 0) {
-         command.splice(1, 0, '-v');
-      }
-
-      responseHandler = isDelete
-         ? Git._responseHandler(next, 'BranchDeleteSummary', false)
-         : Git._responseHandler(next, 'BranchSummary');
-
-      return this._run(command, responseHandler);
-   };
-
-   /**
-    * Return list of local branches
-    *
-    * @param {Function} [then]
-    */
-   Git.prototype.branchLocal = function (then) {
-      return this.branch(['-v'], then);
-   };
-
-   /**
-    * Add config to local git instance
-    *
-    * @param {string} key configuration key (e.g user.name)
-    * @param {string} value for the given key (e.g your name)
-    * @param {Function} [then]
-    */
-   Git.prototype.addConfig = function (key, value, then) {
-      return this._run(['config', '--local', key, value], function (err, data) {
-         then && then(err, !err && data);
-      });
-   };
-
-   /**
-    * Executes any command against the git binary.
-    *
-    * @param {string[]|Object} commands
-    * @param {Function} [then]
-    *
-    * @returns {Git}
-    */
-   Git.prototype.raw = function (commands, then) {
-      var command = [];
-      if (Array.isArray(commands)) {
-         command = commands.slice(0);
-      }
-      else {
-         Git._appendOptions(command, Git.trailingOptionsArgument(arguments));
-      }
-
-      var next = Git.trailingFunctionArgument(arguments);
-
-      if (!command.length) {
-         return this.exec(function () {
-            next && next(new Error('Raw: must supply one or more command to execute'), null);
-         });
-      }
-
-      return this._run(command, function (err, data) {
-         next && next(err, !err && data || null);
-      });
-   };
-
-   /**
-    * Add a submodule
-    *
-    * @param {string} repo
-    * @param {string} path
-    * @param {Function} [then]
-    */
-   Git.prototype.submoduleAdd = function (repo, path, then) {
-      return this._run(['submodule', 'add', repo, path], function (err) {
-         then && then(err);
-      });
-   };
-
-   /**
-    * Update submodules
-    *
-    * @param {string[]} [args]
-    * @param {Function} [then]
-    */
-   Git.prototype.submoduleUpdate = function (args, then) {
-      if (typeof args === 'string') {
-         this._getLog('warn', 'Git#submoduleUpdate: args should be supplied as an array of individual arguments');
-      }
-
-      var next = Git.trailingFunctionArgument(arguments);
-      var command = (args !== next) ? args : [];
-
-      return this.subModule(['update'].concat(command), function (err, args) {
-         next && next(err, args);
-      });
-   };
-
-   /**
-    * Initialize submodules
-    *
-    * @param {string[]} [args]
-    * @param {Function} [then]
-    */
-   Git.prototype.submoduleInit = function (args, then) {
-      if (typeof args === 'string') {
-         this._getLog('warn', 'Git#submoduleInit: args should be supplied as an array of individual arguments');
-      }
-
-      var next = Git.trailingFunctionArgument(arguments);
-      var command = (args !== next) ? args : [];
-
-      return this.subModule(['init'].concat(command), function (err, args) {
-         next && next(err, args);
-      });
-   };
-
-   /**
-    * Call any `git submodule` function with arguments passed as an array of strings.
-    *
-    * @param {string[]} options
-    * @param {Function} [then]
-    */
-   Git.prototype.subModule = function (options, then) {
-      if (!Array.isArray(options)) {
-         return this.exec(function () {
-            then && then(new TypeError("Git.subModule requires an array of arguments"));
-         });
-      }
-
-      if (options[0] !== 'submodule') {
-         options.unshift('submodule');
-      }
-
-      return this._run(options, function (err, data) {
-         then && then(err || null, err ? null : data);
-      });
-   };
-
-   /**
-    * List remote
-    *
-    * @param {string[]} [args]
-    * @param {Function} [then]
-    */
-   Git.prototype.listRemote = function (args, then) {
-      var next = Git.trailingFunctionArgument(arguments);
-      var data = next === args || args === undefined ? [] : args;
-
-      if (typeof data === 'string') {
-         this._getLog('warn', 'Git#listRemote: args should be supplied as an array of individual arguments');
-      }
-
-      return this._run(['ls-remote'].concat(data), function (err, data) {
-         next && next(err, data);
-      });
-   };
-
-   /**
-    * Adds a remote to the list of remotes.
-    *
-    * @param {string} remoteName Name of the repository - eg "upstream"
-    * @param {string} remoteRepo Fully qualified SSH or HTTP(S) path to the remote repo
-    * @param {Function} [then]
-    * @returns {*}
-    */
-   Git.prototype.addRemote = function (remoteName, remoteRepo, then) {
-      return this._run(['remote', 'add', remoteName, remoteRepo], function (err) {
-         then && then(err);
-      });
-   };
-
-   /**
-    * Removes an entry from the list of remotes.
-    *
-    * @param {string} remoteName Name of the repository - eg "upstream"
-    * @param {Function} [then]
-    * @returns {*}
-    */
-   Git.prototype.removeRemote = function (remoteName, then) {
-      return this._run(['remote', 'remove', remoteName], function (err) {
-         then && then(err);
-      });
-   };
-
-   /**
-    * Gets the currently available remotes, setting the optional verbose argument to true includes additional
-    * detail on the remotes themselves.
-    *
-    * @param {boolean} [verbose=false]
-    * @param {Function} [then]
-    */
-   Git.prototype.getRemotes = function (verbose, then) {
-      var next = Git.trailingFunctionArgument(arguments);
-      var args = verbose === true ? ['-v'] : [];
-
-      return this.remote(args, function (err, data) {
-         next && next(err, !err && function () {
-            return data.trim().split('\n').filter(Boolean).reduce(function (remotes, remote) {
-               var detail = remote.trim().split(/\s+/);
-               var name = detail.shift();
-
-               if (!remotes[name]) {
-                  remotes[name] = remotes[remotes.length] = {
-                     name: name,
-                     refs: {}
-                  };
-               }
-
-               if (detail.length) {
-                  remotes[name].refs[detail.pop().replace(/[^a-z]/g, '')] = detail.pop();
-               }
-
-               return remotes;
-            }, []).slice(0);
-         }());
-      });
-   };
-
-   /**
-    * Call any `git remote` function with arguments passed as an array of strings.
-    *
-    * @param {string[]} options
-    * @param {Function} [then]
-    */
-   Git.prototype.remote = function (options, then) {
-      if (!Array.isArray(options)) {
-         return this.exec(function () {
-            then && then(new TypeError("Git.remote requires an array of arguments"));
-         });
-      }
-
-      if (options[0] !== 'remote') {
-         options.unshift('remote');
-      }
-
-      return this._run(options, function (err, data) {
-         then && then(err || null, err ? null : data);
-      });
-   };
-
-   /**
-    * Merges from one branch to another, equivalent to running `git merge ${from} $[to}`, the `options` argument can
-    * either be an array of additional parameters to pass to the command or null / omitted to be ignored.
-    *
-    * @param {string} from
-    * @param {string} to
-    * @param {string[]} [options]
-    * @param {Function} [then]
-    */
-   Git.prototype.mergeFromTo = function (from, to, options, then) {
-      var commands = [
-         from,
-         to
-      ];
-      var callback = Git.trailingFunctionArgument(arguments);
-
-      if (Array.isArray(options)) {
-         commands = commands.concat(options);
-      }
-
-      return this.merge(commands, callback);
-   };
-
-   /**
-    * Runs a merge, `options` can be either an array of arguments
-    * supported by the [`git merge`](https://git-scm.com/docs/git-merge)
-    * or an options object.
-    *
-    * Conflicts during the merge result in an error response,
-    * the response type whether it was an error or success will be a MergeSummary instance.
-    * When successful, the MergeSummary has all detail from a the PullSummary
-    *
-    * @param {Object | string[]} [options]
-    * @param {Function} [then]
-    * @returns {*}
-    *
-    * @see ./responses/MergeSummary.js
-    * @see ./responses/PullSummary.js
-    */
-   Git.prototype.merge = function (options, then) {
-      var self = this;
-      var userHandler = Git.trailingFunctionArgument(arguments) || NOOP;
-      var mergeHandler = function (err, mergeSummary) {
-         if (!err && mergeSummary.failed) {
-            return Git.fail(self, mergeSummary, userHandler);
-         }
-
-         userHandler(err, mergeSummary);
-      };
-
-      var command = [];
-      Git._appendOptions(command, Git.trailingOptionsArgument(arguments));
-      command.push.apply(command, Git.trailingArrayArgument(arguments));
-
-      if (command[0] !== 'merge') {
-         command.unshift('merge');
-      }
-
-      if (command.length === 1) {
-         return this.exec(function () {
-            then && then(new TypeError("Git.merge requires at least one option"));
-         });
-      }
-
-      return this._run(command, Git._responseHandler(mergeHandler, 'MergeSummary'), {
-         concatStdErr: true
-      });
-   };
-
-   /**
-    * Call any `git tag` function with arguments passed as an array of strings.
-    *
-    * @param {string[]} options
-    * @param {Function} [then]
-    */
-   Git.prototype.tag = function (options, then) {
-      var command = [];
-      Git._appendOptions(command, Git.trailingOptionsArgument(arguments));
-      command.push.apply(command, Git.trailingArrayArgument(arguments));
-
-      if (command[0] !== 'tag') {
-         command.unshift('tag');
-      }
-
-      return this._run(command, Git._responseHandler(Git.trailingFunctionArgument(arguments)));
-   };
-
-   /**
-    * Updates repository server info
-    *
-    * @param {Function} [then]
-    */
-   Git.prototype.updateServerInfo = function (then) {
-      return this._run(["update-server-info"], function (err, data) {
-         then && then(err, !err && data);
-      });
-   };
-
-   /**
-    * Pushes the current committed changes to a remote, optionally specify the names of the remote and branch to use
-    * when pushing. Supply multiple options as an array of strings in the first argument - see examples below.
-    *
-    * @param {string|string[]} [remote]
-    * @param {string} [branch]
-    * @param {Function} [then]
-    */
-   Git.prototype.push = function (remote, branch, then) {
-      var command = [];
-      var handler = Git.trailingFunctionArgument(arguments);
-
-      if (typeof remote === 'string' && typeof branch === 'string') {
-         command.push(remote, branch);
-      }
-
-      if (Array.isArray(remote)) {
-         command = command.concat(remote);
-      }
-
-      Git._appendOptions(command, Git.trailingOptionsArgument(arguments));
-
-      if (command[0] !== 'push') {
-         command.unshift('push');
-      }
-
-      return this._run(command, function (err, data) {
-         handler && handler(err, !err && data);
-      });
-   };
-
-   /**
-    * Pushes the current tag changes to a remote which can be either a URL or named remote. When not specified uses the
-    * default configured remote spec.
-    *
-    * @param {string} [remote]
-    * @param {Function} [then]
-    */
-   Git.prototype.pushTags = function (remote, then) {
-      var command = ['push'];
-      if (typeof remote === "string") {
-         command.push(remote);
-      }
-      command.push('--tags');
-
-      then = typeof arguments[arguments.length - 1] === "function" ? arguments[arguments.length - 1] : null;
-
-      return this._run(command, function (err, data) {
-         then && then(err, !err && data);
-      });
-   };
-
-   /**
-    * Removes the named files from source control.
-    *
-    * @param {string|string[]} files
-    * @param {Function} [then]
-    */
-   Git.prototype.rm = function (files, then) {
-      return this._rm(files, '-f', then);
-   };
-
-   /**
-    * Removes the named files from source control but keeps them on disk rather than deleting them entirely. To
-    * completely remove the files, use `rm`.
-    *
-    * @param {string|string[]} files
-    * @param {Function} [then]
-    */
-   Git.prototype.rmKeepLocal = function (files, then) {
-      return this._rm(files, '--cached', then);
-   };
-
-   /**
-    * Returns a list of objects in a tree based on commit hash. Passing in an object hash returns the object's content,
-    * size, and type.
-    *
-    * Passing "-p" will instruct cat-file to determine the object type, and display its formatted contents.
-    *
-    * @param {string[]} [options]
-    * @param {Function} [then]
-    */
-   Git.prototype.catFile = function (options, then) {
-      return this._catFile('utf-8', arguments);
-   };
-
-   /**
-    * Equivalent to `catFile` but will return the native `Buffer` of content from the git command's stdout.
-    *
-    * @param {string[]} options
-    * @param then
-    */
-   Git.prototype.binaryCatFile = function (options, then) {
-      return this._catFile('buffer', arguments);
-   };
-
-   Git.prototype._catFile = function (format, args) {
-      var handler = Git.trailingFunctionArgument(args);
-      var command = ['cat-file'];
-      var options = args[0];
-
-      if (typeof options === 'string') {
-         throw new TypeError('Git#catFile: options must be supplied as an array of strings');
-      }
-      else if (Array.isArray(options)) {
-         command.push.apply(command, options);
-      }
-
-      return this._run(command, function (err, data) {
-         handler && handler(err, data);
-      }, {
-         format: format
-      });
-   };
-
-   /**
-    * Return repository changes.
-    *
-    * @param {string[]} [options]
-    * @param {Function} [then]
-    */
-   Git.prototype.diff = function (options, then) {
-      var command = ['diff'];
-
-      if (typeof options === 'string') {
-         command[0] += ' ' + options;
-         this._getLog('warn',
-            'Git#diff: supplying options as a single string is now deprecated, switch to an array of strings');
-      }
-      else if (Array.isArray(options)) {
-         command.push.apply(command, options);
-      }
-
-      if (typeof arguments[arguments.length - 1] === 'function') {
-         then = arguments[arguments.length - 1];
-      }
-
-      return this._run(command, function (err, data) {
-         then && then(err, data);
-      });
-   };
-
-   Git.prototype.diffSummary = function (options, then) {
-      var next = Git.trailingFunctionArgument(arguments);
-      var command = ['--stat=4096'];
-
-      if (options && options !== next) {
-         command.push.apply(command, [].concat(options));
-      }
-
-      return this.diff(command, Git._responseHandler(next, 'DiffSummary'));
-   };
-
-   /**
-    * Wraps `git rev-parse`. Primarily used to convert friendly commit references (ie branch names) to SHA1 hashes.
-    *
-    * Options should be an array of string options compatible with the `git rev-parse`
-    *
-    * @param {string|string[]} [options]
-    * @param {Function} [then]
-    *
-    * @see https://git-scm.com/docs/git-rev-parse
-    */
-   Git.prototype.revparse = function (options, then) {
-      var command = ['rev-parse'];
-
-      if (typeof options === 'string') {
-         command = command + ' ' + options;
-         this._getLog('warn',
-            'Git#revparse: supplying options as a single string is now deprecated, switch to an array of strings');
-      }
-      else if (Array.isArray(options)) {
-         command.push.apply(command, options);
-      }
-
-      if (typeof arguments[arguments.length - 1] === 'function') {
-         then = arguments[arguments.length - 1];
-      }
-
-      return this._run(command, function (err, data) {
-         then && then(err, err ? null : String(data).trim());
-      });
-   };
-
-   /**
-    * Show various types of objects, for example the file at a certain commit
-    *
-    * @param {string[]} [options]
-    * @param {Function} [then]
-    */
-   Git.prototype.show = function (options, then) {
-      var args = [].slice.call(arguments, 0);
-      var handler = typeof args[args.length - 1] === "function" ? args.pop() : null;
-      var command = ['show'];
-      if (typeof options === 'string') {
-         command = command + ' ' + options;
-         this._getLog('warn',
-            'Git#show: supplying options as a single string is now deprecated, switch to an array of strings');
-      }
-      else if (Array.isArray(options)) {
-         command.push.apply(command, options);
-      }
-
-      return this._run(command, function (err, data) {
-         handler && handler(err, !err && data);
-      });
-   };
-
-   /**
-    * @param {string} mode Required parameter "n" or "f"
-    * @param {string[]} options
-    * @param {Function} [then]
-    */
-   Git.prototype.clean = function (mode, options, then) {
-      var handler = Git.trailingFunctionArgument(arguments);
-
-      if (typeof mode !== 'string' || !/[nf]/.test(mode)) {
-         return this.exec(function () {
-            handler && handler(new TypeError('Git clean mode parameter ("n" or "f") is required'));
-         });
-      }
-
-      if (/[^dfinqxX]/.test(mode)) {
-         return this.exec(function () {
-            handler && handler(new TypeError('Git clean unknown option found in ' + JSON.stringify(mode)));
-         });
-      }
-
-      var command = ['clean', '-' + mode];
-      if (Array.isArray(options)) {
-         command = command.concat(options);
-      }
-
-      if (command.some(interactiveMode)) {
-         return this.exec(function () {
-            handler && handler(new TypeError('Git clean interactive mode is not supported'));
-         });
-      }
-
-      return this._run(command, function (err, data) {
-         handler && handler(err, !err && data);
-      });
-
-      function interactiveMode (option) {
-         if (/^-[^\-]/.test(option)) {
-            return option.indexOf('i') > 0;
-         }
-
-         return option === '--interactive';
-      }
-   };
-
-   /**
-    * Call a simple function at the next step in the chain.
-    * @param {Function} [then]
-    */
-   Git.prototype.exec = function (then) {
-      this._run([], function () {
-         typeof then === 'function' && then();
-      });
-      return this;
-   };
-
-   /**
-    * Deprecated means of adding a regular function call at the next step in the chain. Use the replacement
-    * Git#exec, the Git#then method will be removed in version 2.x
-    *
-    * @see exec
-    * @deprecated
-    */
-   Git.prototype.then = function (then) {
-      this._getLog(
-         'error', `
-Git#then is deprecated after version 1.72 and will be removed in version 2.x
-To use promises switch to importing 'simple-git/promise'.`);
-
-      return this.exec(then);
-   };
-
-   /**
-    * Show commit logs from `HEAD` to the first commit.
-    * If provided between `options.from` and `options.to` tags or branch.
-    *
-    * Additionally you can provide options.file, which is the path to a file in your repository. Then only this file will be considered.
-    *
-    * To use a custom splitter in the log format, set `options.splitter` to be the string the log should be split on.
-    *
-    * Options can also be supplied as a standard options object for adding custom properties supported by the git log command.
-    * For any other set of options, supply options as an array of strings to be appended to the git log command.
-    *
-    * @param {Object|string[]} [options]
-    * @param {string} [options.from] The first commit to include
-    * @param {string} [options.to] The most recent commit to include
-    * @param {string} [options.file] A single file to include in the result
-    * @param {boolean} [options.multiLine] Optionally include multi-line commit messages
-    *
-    * @param {Function} [then]
-    */
-   Git.prototype.log = function (options, then) {
-      var handler = Git.trailingFunctionArgument(arguments);
-      var opt = (handler === then ? options : null) || {};
-
-      var splitter = opt.splitter || requireResponseHandler('ListLogSummary').SPLITTER;
-      var format = opt.format || {
-         hash: '%H',
-         date: '%ai',
-         message: '%s',
-         refs: '%D',
-         body: opt.multiLine ? '%B' : '%b',
-         author_name: '%aN',
-         author_email: '%ae'
-      };
-      var rangeOperator = (opt.symmetric !== false) ? '...' : '..';
-
-      var fields = Object.keys(format);
-      var formatstr = fields.map(function (k) {
-         return format[k];
-      }).join(splitter);
-      var suffix = [];
-      var command = ["log", "--pretty=format:"
-         + requireResponseHandler('ListLogSummary').START_BOUNDARY
-         + formatstr
-         + requireResponseHandler('ListLogSummary').COMMIT_BOUNDARY
-      ];
-
-      if (Array.isArray(opt)) {
-         command = command.concat(opt);
-         opt = {};
-      }
-      else if (typeof arguments[0] === "string" || typeof arguments[1] === "string") {
-         this._getLog('warn',
-            'Git#log: supplying to or from as strings is now deprecated, switch to an options configuration object');
-         opt = {
-            from: arguments[0],
-            to: arguments[1]
-         };
-      }
-
-      if (opt.n || opt['max-count']) {
-         command.push("--max-count=" + (opt.n || opt['max-count']));
-      }
-
-      if (opt.from && opt.to) {
-         command.push(opt.from + rangeOperator + opt.to);
-      }
-
-      if (opt.file) {
-         suffix.push("--follow", options.file);
-      }
-
-      'splitter n max-count file from to --pretty format symmetric multiLine'.split(' ').forEach(function (key) {
-         delete opt[key];
-      });
-
-      Git._appendOptions(command, opt);
-
-      return this._run(
-         command.concat(suffix),
-         Git._responseHandler(handler, 'ListLogSummary', [splitter, fields])
-      );
-   };
-
-   /**
-    * Clears the queue of pending commands and returns the wrapper instance for chaining.
-    *
-    * @returns {Git}
-    */
-   Git.prototype.clearQueue = function () {
-      this._runCache.length = 0;
-      return this;
-   };
-
-   /**
-    * Check if a pathname or pathnames are excluded by .gitignore
-    *
-    * @param {string|string[]} pathnames
-    * @param {Function} [then]
-    */
-   Git.prototype.checkIgnore = function (pathnames, then) {
-      var handler = Git.trailingFunctionArgument(arguments);
-      var command = ["check-ignore"];
-
-      if (handler !== pathnames) {
-         command = command.concat(pathnames);
-      }
-
-      return this._run(command, function (err, data) {
-         handler && handler(err, !err && this._parseCheckIgnore(data));
-      });
-   };
-
-   /**
-    * Validates that the current repo is a Git repo.
-    *
-    * @param {Function} [then]
-    */
-   Git.prototype.checkIsRepo = function (then) {
-      function onError (exitCode, stdErr, done, fail) {
-         if (exitCode === 128 && /(Not a git repository|Kein Git-Repository)/i.test(stdErr)) {
-            return done(false);
-         }
-
-         fail(stdErr);
-      }
-
-      function handler (err, isRepo) {
-         then && then(err, String(isRepo).trim() === 'true');
-      }
-
-      return this._run(['rev-parse', '--is-inside-work-tree'], handler, {onError: onError});
-   };
-
-   Git.prototype._rm = function (_files, options, then) {
-      var files = [].concat(_files);
-      var args = ['rm', options];
-      args.push.apply(args, files);
-
-      return this._run(args, function (err) {
-         then && then(err);
-      });
-   };
-
-   Git.prototype._parseCheckout = function (checkout) {
-      // TODO
-   };
-
-   /**
-    * Parser for the `check-ignore` command - returns each
-    * @param {string} [files]
-    * @returns {string[]}
-    */
-   Git.prototype._parseCheckIgnore = function (files) {
-      return files.split(/\n/g).filter(Boolean).map(function (file) {
-         return file.trim()
-      });
-   };
-
-   /**
-    * Schedules the supplied command to be run, the command should not include the name of the git binary and should
-    * be an array of strings passed as the arguments to the git binary.
-    *
-    * @param {string[]} command
-    * @param {Function} then
-    * @param {Object} [opt]
-    * @param {boolean} [opt.concatStdErr=false] Optionally concatenate stderr output into the stdout
-    * @param {boolean} [opt.format="utf-8"] The format to use when reading the content of stdout
-    * @param {Function} [opt.onError] Optional error handler for this command - can be used to allow non-clean exits
-    *                                  without killing the remaining stack of commands
-    * @param {number} [opt.onError.exitCode]
-    * @param {string} [opt.onError.stdErr]
-    *
-    * @returns {Git}
-    */
-   Git.prototype._run = function (command, then, opt) {
-      if (typeof command === "string") {
-         command = command.split(" ");
-      }
-      this._runCache.push([command, then, opt || {}]);
-      this._schedule();
-
-      return this;
-   };
-
-   Git.prototype._schedule = function () {
-      if (!this._childProcess && this._runCache.length) {
-         var git = this;
-         var Buffer = git.Buffer;
-         var task = git._runCache.shift();
-
-         var command = task[0];
-         var then = task[1];
-         var options = task[2];
-
-         debug(command);
-
-         var result = deferred();
-
-         var attempted = false;
-         var attemptClose = function attemptClose (e) {
-
-            // closing when there is content, terminate immediately
-            if (attempted || stdErr.length || stdOut.length) {
-               result.resolve(e);
-               attempted = true;
-            }
-
-            // first attempt at closing but no content yet, wait briefly for the close/exit that may follow
-            if (!attempted) {
-               attempted = true;
-               setTimeout(attemptClose.bind(this, e), 50);
-            }
-
-         };
-
-         var stdOut = [];
-         var stdErr = [];
-         var spawned = git.ChildProcess.spawn(git._command, command.slice(0), {
-            cwd: git._baseDir,
-            env: git._env,
-            windowsHide: true
-         });
-
-         spawned.stdout.on('data', function (buffer) {
-            stdOut.push(buffer);
-         });
-
-         spawned.stderr.on('data', function (buffer) {
-            stdErr.push(buffer);
-         });
-
-         spawned.on('error', function (err) {
-            stdErr.push(Buffer.from(err.stack, 'ascii'));
-         });
-
-         spawned.on('close', attemptClose);
-         spawned.on('exit', attemptClose);
-
-         result.promise.then(function (exitCode) {
-            function done (output) {
-               then.call(git, null, output);
-            }
-
-            function fail (error) {
-               Git.fail(git, error, then);
-            }
-
-            delete git._childProcess;
-
-            if (exitCode && stdErr.length && options.onError) {
-               options.onError(exitCode, Buffer.concat(stdErr).toString('utf-8'), done, fail);
-            }
-            else if (exitCode && stdErr.length) {
-               fail(Buffer.concat(stdErr).toString('utf-8'));
-            }
-            else {
-               if (options.concatStdErr) {
-                  [].push.apply(stdOut, stdErr);
-               }
-
-               var stdOutput = Buffer.concat(stdOut);
-               if (options.format !== 'buffer') {
-                  stdOutput = stdOutput.toString(options.format || 'utf-8');
-               }
-
-               done(stdOutput);
-            }
-
-            process.nextTick(git._schedule.bind(git));
-         });
-
-         git._childProcess = spawned;
-
-         if (git._outputHandler) {
-            git._outputHandler(command[0], git._childProcess.stdout, git._childProcess.stderr);
-         }
-      }
-   };
-
-   /**
-    * Handles an exception in the processing of a command.
-    */
-   Git.fail = function (git, error, handler) {
-      git._getLog('error', error);
-      git._runCache.length = 0;
-      if (typeof handler === 'function') {
-         handler.call(git, error, null);
-      }
-   };
-
-   /**
-    * Given any number of arguments, returns the last argument if it is a function, otherwise returns null.
-    * @returns {Function|null}
-    */
-   Git.trailingFunctionArgument = function (args) {
-      var trailing = args[args.length - 1];
-      return (typeof trailing === "function") ? trailing : null;
-   };
-
-   /**
-    * Given any number of arguments, returns the trailing options argument, ignoring a trailing function argument
-    * if there is one. When not found, the return value is null.
-    * @returns {Object|null}
-    */
-   Git.trailingOptionsArgument = function (args) {
-      var options = args[(args.length - (Git.trailingFunctionArgument(args) ? 2 : 1))];
-      return Object.prototype.toString.call(options) === '[object Object]' ? options : null;
-   };
-
-   /**
-    * Given any number of arguments, returns the trailing options array argument, ignoring a trailing function argument
-    * if there is one. When not found, the return value is an empty array.
-    * @returns {Array}
-    */
-   Git.trailingArrayArgument = function (args) {
-      var options = args[(args.length - (Git.trailingFunctionArgument(args) ? 2 : 1))];
-      return Object.prototype.toString.call(options) === '[object Array]' ? options : [];
-   };
-
-   /**
-    * Mutates the supplied command array by merging in properties in the options object. When the
-    * value of the item in the options object is a string it will be concatenated to the key as
-    * a single `name=value` item, otherwise just the name will be used.
-    *
-    * @param {string[]} command
-    * @param {Object} options
-    * @private
-    */
-   Git._appendOptions = function (command, options) {
-      if (options === null) {
-         return;
-      }
-
-      Object.keys(options).forEach(function (key) {
-         var value = options[key];
-         if (typeof value === 'string') {
-            command.push(key + '=' + value);
-         }
-         else {
-            command.push(key);
-         }
-      });
-   };
-
-   /**
-    * Given the type of response and the callback to receive the parsed response,
-    * uses the correct parser and calls back the callback.
-    *
-    * @param {Function} callback
-    * @param {string} [type]
-    * @param {Object[]} [args]
-    *
-    * @private
-    */
-   Git._responseHandler = function (callback, type, args) {
-      return function (error, data) {
-         if (typeof callback !== 'function') {
-            return;
-         }
-
-         if (error) {
-            return callback(error, null);
-         }
-
-         if (!type) {
-            return callback(null, data);
-         }
-
-         var handler = requireResponseHandler(type);
-         var result = handler.parse.apply(handler, [data].concat(args === undefined ? [] : args));
-
-         callback(null, result);
-      };
-
-   };
-
-   /**
-    * Marks the git instance as having had a fatal exception by clearing the pending queue of tasks and
-    * logging to the console.
-    *
-    * @param git
-    * @param error
-    * @param callback
-    */
-   Git.exception = function (git, error, callback) {
-      git._runCache.length = 0;
-      if (typeof callback === 'function') {
-         callback(error instanceof Error ? error : new Error(error));
-      }
-
-      git._getLog('error', error);
-   };
-
-   module.exports = Git;
-
-   /**
-    * Requires and returns a response handler based on its named type
-    * @param {string} type
-    */
-   function requireResponseHandler (type) {
-      return responses[type];
-   }
-
-}());
+module.exports = __nccwpck_require__(219);
 
 
 /***/ }),
 
-/***/ 1477:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-
-var Git = __nccwpck_require__(4966);
-
-module.exports = function (baseDir) {
-
-   var dependencies = __nccwpck_require__(2164);
-
-   if (baseDir && !dependencies.exists(baseDir, dependencies.exists.FOLDER)) {
-       throw new Error("Cannot use simple-git on a directory that does not exist.");
-    }
-
-    return new Git(baseDir || process.cwd(), dependencies.childProcess(), dependencies.buffer());
-};
-
-
-
-/***/ }),
-
-/***/ 45:
-/***/ ((module) => {
-
-
-module.exports = BranchDeletion;
-
-function BranchDeletion (branch, hash) {
-   this.branch = branch;
-   this.hash = hash;
-   this.success = hash !== null;
-}
-
-BranchDeletion.deleteSuccessRegex = /(\S+)\s+\(\S+\s([^\)]+)\)/;
-BranchDeletion.deleteErrorRegex = /^error[^']+'([^']+)'/;
-
-BranchDeletion.parse = function (data, asArray) {
-   var result;
-   var branchDeletions = data.trim().split('\n').map(function (line) {
-         if (result = BranchDeletion.deleteSuccessRegex.exec(line)) {
-            return new BranchDeletion(result[1], result[2]);
-         }
-         else if (result = BranchDeletion.deleteErrorRegex.exec(line)) {
-            return new BranchDeletion(result[1], null);
-         }
-      })
-      .filter(Boolean);
-
-   return asArray ? branchDeletions : branchDeletions.pop();
-};
-
-
-/***/ }),
-
-/***/ 2783:
-/***/ ((module) => {
-
-
-module.exports = BranchSummary;
-
-function BranchSummary () {
-   this.detached = false;
-   this.current = '';
-   this.all = [];
-   this.branches = {};
-}
-
-BranchSummary.prototype.push = function (current, detached, name, commit, label) {
-   if (current) {
-      this.detached = detached;
-      this.current = name;
-   }
-   this.all.push(name);
-   this.branches[name] = {
-      current: current,
-      name: name,
-      commit: commit,
-      label: label
-   };
-};
-
-BranchSummary.detachedRegex = /^(\*?\s+)\((?:HEAD )?detached (?:from|at) (\S+)\)\s+([a-z0-9]+)\s(.*)$/;
-BranchSummary.branchRegex = /^(\*?\s+)(\S+)\s+([a-z0-9]+)\s(.*)$/;
-
-BranchSummary.parse = function (commit) {
-   var branchSummary = new BranchSummary();
-
-   commit.split('\n')
-      .forEach(function (line) {
-         var detached = true;
-         var branch = BranchSummary.detachedRegex.exec(line);
-         if (!branch) {
-            detached = false;
-            branch = BranchSummary.branchRegex.exec(line);
-         }
-
-         if (branch) {
-            branchSummary.push(
-               branch[1].charAt(0) === '*',
-               detached,
-               branch[2],
-               branch[3],
-               branch[4]
-            );
-         }
-      });
-
-   return branchSummary;
-};
-
-
-/***/ }),
-
-/***/ 921:
-/***/ ((module) => {
-
-
-module.exports = CommitSummary;
-
-function CommitSummary () {
-   this.branch = '';
-   this.commit = '';
-   this.summary = {
-      changes: 0,
-      insertions: 0,
-      deletions: 0
-   };
-   this.author = null;
-}
-
-var COMMIT_BRANCH_MESSAGE_REGEX = /\[([^\s]+) ([^\]]+)/;
-var COMMIT_AUTHOR_MESSAGE_REGEX = /\s*Author:\s(.+)/i;
-
-function setBranchFromCommit (commitSummary, commitData) {
-   if (commitData) {
-      commitSummary.branch = commitData[1];
-      commitSummary.commit = commitData[2];
-   }
-}
-
-function setSummaryFromCommit (commitSummary, commitData) {
-   if (commitSummary.branch && commitData) {
-      commitSummary.summary.changes = commitData[1] || 0;
-      commitSummary.summary.insertions = commitData[2] || 0;
-      commitSummary.summary.deletions = commitData[3] || 0;
-   }
-}
-
-function setAuthorFromCommit (commitSummary, commitData) {
-   var parts = commitData[1].split('<');
-   var email = parts.pop();
-
-   if (email.indexOf('@') <= 0) {
-      return;
-   }
-
-   commitSummary.author = {
-      email: email.substr(0, email.length - 1),
-      name: parts.join('<').trim()
-   };
-}
-
-CommitSummary.parse = function (commit) {
-   var lines = commit.trim().split('\n');
-   var commitSummary = new CommitSummary();
-
-   setBranchFromCommit(commitSummary, COMMIT_BRANCH_MESSAGE_REGEX.exec(lines.shift()));
-
-   if (COMMIT_AUTHOR_MESSAGE_REGEX.test(lines[0])) {
-      setAuthorFromCommit(commitSummary, COMMIT_AUTHOR_MESSAGE_REGEX.exec(lines.shift()));
-   }
-
-   setSummaryFromCommit(commitSummary, /(\d+)[^,]*(?:,\s*(\d+)[^,]*)?(?:,\s*(\d+))?/g.exec(lines.shift()));
-
-   return commitSummary;
-};
-
-
-/***/ }),
-
-/***/ 7286:
-/***/ ((module) => {
-
-
-module.exports = DiffSummary;
-
-/**
- * The DiffSummary is returned as a response to getting `git().status()`
- *
- * @constructor
- */
-function DiffSummary () {
-   this.files = [];
-   this.insertions = 0;
-   this.deletions = 0;
-   this.changed = 0;
-}
-
-/**
- * Number of lines added
- * @type {number}
- */
-DiffSummary.prototype.insertions = 0;
-
-/**
- * Number of lines deleted
- * @type {number}
- */
-DiffSummary.prototype.deletions = 0;
-
-/**
- * Number of files changed
- * @type {number}
- */
-DiffSummary.prototype.changed = 0;
-
-DiffSummary.parse = function (text) {
-   var line, handler;
-
-   var lines = text.trim().split('\n');
-   var status = new DiffSummary();
-
-   var summary = lines.pop();
-   if (summary) {
-      summary.trim().split(', ').forEach(function (text) {
-         var summary = /(\d+)\s([a-z]+)/.exec(text);
-         if (!summary) {
-            return;
-         }
-
-         if (/files?/.test(summary[2])) {
-            status.changed = parseInt(summary[1], 10);
-         }
-         else {
-            status[summary[2].replace(/s$/, '') + 's'] = parseInt(summary[1], 10);
-         }
-      });
-   }
-
-   while (line = lines.shift()) {
-      textFileChange(line, status.files) || binaryFileChange(line, status.files);
-   }
-
-   return status;
-};
-
-function textFileChange (line, files) {
-   line = line.trim().match(/^(.+)\s+\|\s+(\d+)(\s+[+\-]+)?$/);
-
-   if (line) {
-      var alterations = (line[3] || '').trim();
-      files.push({
-         file: line[1].trim(),
-         changes: parseInt(line[2], 10),
-         insertions: alterations.replace(/-/g, '').length,
-         deletions: alterations.replace(/\+/g, '').length,
-         binary: false
-      });
-
-      return true;
-   }
-}
-
-function binaryFileChange (line, files) {
-   line = line.match(/^(.+) \|\s+Bin ([0-9.]+) -> ([0-9.]+) ([a-z]+)$/);
-   if (line) {
-      files.push({
-         file: line[1].trim(),
-         before: +line[2],
-         after: +line[3],
-         binary: true
-      });
-      return true;
-   }
-}
-
-
-/***/ }),
-
-/***/ 5169:
-/***/ ((module) => {
-
-"use strict";
-
-
-function FetchSummary (raw) {
-   this.raw = raw;
-
-   this.remote = null;
-   this.branches = [];
-   this.tags = [];
-}
-
-FetchSummary.parsers = [
-   [
-      /From (.+)$/, function (fetchSummary, matches) {
-         fetchSummary.remote = matches[0];
-      }
-   ],
-   [
-      /\* \[new branch\]\s+(\S+)\s*\-> (.+)$/, function (fetchSummary, matches) {
-         fetchSummary.branches.push({
-            name: matches[0],
-            tracking: matches[1]
-         });
-      }
-   ],
-   [
-      /\* \[new tag\]\s+(\S+)\s*\-> (.+)$/, function (fetchSummary, matches) {
-         fetchSummary.tags.push({
-            name: matches[0],
-            tracking: matches[1]
-         });
-      }
-   ]
-];
-
-FetchSummary.parse = function (data) {
-   var fetchSummary = new FetchSummary(data);
-
-   String(data)
-      .trim()
-      .split('\n')
-      .forEach(function (line) {
-         var original = line.trim();
-         FetchSummary.parsers.some(function (parser) {
-            var parsed = parser[0].exec(original);
-            if (parsed) {
-               parser[1](fetchSummary, parsed.slice(1));
-               return true;
-            }
-         });
-      });
-
-   return fetchSummary;
-};
-
-module.exports = FetchSummary;
-
-
-/***/ }),
-
-/***/ 9172:
-/***/ ((module) => {
-
-"use strict";
-
-
-function FileStatusSummary (path, index, working_dir) {
-   this.path = path;
-   this.index = index;
-   this.working_dir = working_dir;
-
-   if ('R' === index + working_dir) {
-      var detail = FileStatusSummary.fromPathRegex.exec(path) || [null, path, path];
-      this.from = detail[1];
-      this.path = detail[2];
-   }
-}
-
-FileStatusSummary.fromPathRegex = /^(.+) -> (.+)$/;
-
-FileStatusSummary.prototype = {
-   path: '',
-   from: ''
-};
-
-module.exports = FileStatusSummary;
-
-
-/***/ }),
-
-/***/ 6507:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-
-module.exports = ListLogSummary;
-
-var DiffSummary = __nccwpck_require__(7286);
-
-/**
- * The ListLogSummary is returned as a response to getting `git().log()` or `git().stashList()`
- *
- * @constructor
- */
-function ListLogSummary (all) {
-   this.all = all;
-   this.latest = all.length && all[0] || null;
-   this.total = all.length;
-}
-
-/**
- * Detail for each of the log lines
- * @type {ListLogLine[]}
- */
-ListLogSummary.prototype.all = null;
-
-/**
- * Most recent entry in the log
- * @type {ListLogLine}
- */
-ListLogSummary.prototype.latest = null;
-
-/**
- * Number of items in the log
- * @type {number}
- */
-ListLogSummary.prototype.total = 0;
-
-function ListLogLine (line, fields) {
-   for (var k = 0; k < fields.length; k++) {
-      this[fields[k]] = line[k] || '';
-   }
-}
-
-/**
- * When the log was generated with a summary, the `diff` property contains as much detail
- * as was provided in the log (whether generated with `--stat` or `--shortstat`.
- * @type {DiffSummary}
- */
-ListLogLine.prototype.diff = null;
-
-ListLogSummary.START_BOUNDARY = 'òòòòòò ';
-
-ListLogSummary.COMMIT_BOUNDARY = ' òò';
-
-ListLogSummary.SPLITTER = ' ò ';
-
-ListLogSummary.parse = function (text, splitter, fields) {
-   fields = fields || ['hash', 'date', 'message', 'refs', 'author_name', 'author_email'];
-   return new ListLogSummary(
-      text
-         .trim()
-         .split(ListLogSummary.START_BOUNDARY)
-         .filter(function(item) { return !!item.trim(); })
-         .map(function (item) {
-            var lineDetail = item.trim().split(ListLogSummary.COMMIT_BOUNDARY);
-            var listLogLine = new ListLogLine(lineDetail[0].trim().split(splitter), fields);
-
-            if (lineDetail.length > 1 && !!lineDetail[1].trim()) {
-               listLogLine.diff = DiffSummary.parse(lineDetail[1]);
-            }
-
-            return listLogLine;
-         })
-   );
-};
-
-
-/***/ }),
-
-/***/ 6192:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-module.exports = MergeSummary;
-module.exports.MergeConflict = MergeConflict;
-
-var PullSummary = __nccwpck_require__(7629);
-
-function MergeConflict (reason, file, meta) {
-   this.reason = reason;
-   this.file = file;
-   if (meta) {
-      this.meta = meta;
-   }
-}
-
-MergeConflict.prototype.meta = null;
-
-MergeConflict.prototype.toString = function () {
-   return this.file + ':' + this.reason;
-};
-
-function MergeSummary () {
-   PullSummary.call(this);
-
-   this.conflicts = [];
-   this.merges = [];
-}
-
-MergeSummary.prototype = Object.create(PullSummary.prototype);
-
-MergeSummary.prototype.result = 'success';
-
-MergeSummary.prototype.toString = function () {
-   if (this.conflicts.length) {
-      return 'CONFLICTS: ' + this.conflicts.join(', ');
-   }
-   return 'OK';
-};
-
-Object.defineProperty(MergeSummary.prototype, 'failed', {
-   get: function () {
-      return this.conflicts.length > 0;
-   }
-});
-
-MergeSummary.parsers = [
-   {
-      test: /^Auto-merging\s+(.+)$/,
-      handle: function (result, mergeSummary) {
-         mergeSummary.merges.push(result[1]);
-      }
-   },
-   {
-      // Parser for standard merge conflicts
-      test: /^CONFLICT\s+\((.+)\): Merge conflict in (.+)$/,
-      handle: function (result, mergeSummary) {
-         mergeSummary.conflicts.push(new MergeConflict(result[1], result[2]));
-      }
-   },
-   {
-      // Parser for modify/delete merge conflicts (modified by us/them, deleted by them/us)
-      test: /^CONFLICT\s+\((.+\/delete)\): (.+) deleted in (.+) and/,
-      handle: function (result, mergeSummary) {
-         mergeSummary.conflicts.push(
-            new MergeConflict(result[1], result[2], {deleteRef: result[3]})
-         );
-      }
-   },
-   {
-      // Catch-all parser for unknown/unparsed conflicts
-      test: /^CONFLICT\s+\((.+)\):/,
-      handle: function (result, mergeSummary) {
-         mergeSummary.conflicts.push(new MergeConflict(result[1], null));
-      }
-   },
-   {
-      test: /^Automatic merge failed;\s+(.+)$/,
-      handle: function (result, mergeSummary) {
-         mergeSummary.reason = mergeSummary.result = result[1];
-      }
-   }
-];
-
-MergeSummary.parse = function (output) {
-   let mergeSummary = new MergeSummary();
-
-   output.trim().split('\n').forEach(function (line) {
-      for (var i = 0, iMax = MergeSummary.parsers.length; i < iMax; i++) {
-         let parser = MergeSummary.parsers[i];
-
-         var result = parser.test.exec(line);
-         if (result) {
-            parser.handle(result, mergeSummary);
-            break;
-         }
-      }
-   });
-
-   let pullSummary = PullSummary.parse(output);
-   if (pullSummary.summary.changes) {
-      Object.assign(mergeSummary, pullSummary);
-   }
-
-   return mergeSummary;
-};
-
-
-/***/ }),
-
-/***/ 7502:
-/***/ ((module) => {
-
-
-module.exports = MoveSummary;
-
-/**
- * The MoveSummary is returned as a response to getting `git().status()`
- *
- * @constructor
- */
-function MoveSummary () {
-   this.moves = [];
-   this.sources = {};
-}
-
-MoveSummary.SUMMARY_REGEX = /^Renaming (.+) to (.+)$/;
-
-MoveSummary.parse = function (text) {
-   var lines = text.split('\n');
-   var summary = new MoveSummary();
-
-   for (var i = 0, iMax = lines.length, line; i < iMax; i++) {
-      line = MoveSummary.SUMMARY_REGEX.exec(lines[i].trim());
-
-      if (line) {
-         summary.moves.push({
-            from: line[1],
-            to: line[2]
-         });
-      }
-   }
-
-   return summary;
-};
-
-
-/***/ }),
-
-/***/ 7629:
-/***/ ((module) => {
-
-
-module.exports = PullSummary;
-
-/**
- * The PullSummary is returned as a response to getting `git().pull()`
- *
- * @constructor
- */
-function PullSummary () {
-   this.files = [];
-   this.insertions = {};
-   this.deletions = {};
-
-   this.summary = {
-      changes: 0,
-      insertions: 0,
-      deletions: 0
-   };
-
-   this.created = [];
-   this.deleted = [];
-}
-
-/**
- * Array of files that were created
- * @type {string[]}
- */
-PullSummary.prototype.created = null;
-
-/**
- * Array of files that were deleted
- * @type {string[]}
- */
-PullSummary.prototype.deleted = null;
-
-/**
- * The array of file paths/names that have been modified in any part of the pulled content
- * @type {string[]}
- */
-PullSummary.prototype.files = null;
-
-/**
- * A map of file path to number to show the number of insertions per file.
- * @type {Object}
- */
-PullSummary.prototype.insertions = null;
-
-/**
- * A map of file path to number to show the number of deletions per file.
- * @type {Object}
- */
-PullSummary.prototype.deletions = null;
-
-/**
- * Overall summary of changes/insertions/deletions and the number associated with each
- * across all content that was pulled.
- * @type {Object}
- */
-PullSummary.prototype.summary = null;
-
-PullSummary.FILE_UPDATE_REGEX = /^\s*(.+?)\s+\|\s+\d+\s*(\+*)(-*)/;
-PullSummary.SUMMARY_REGEX = /(\d+)\D+((\d+)\D+\(\+\))?(\D+(\d+)\D+\(-\))?/;
-PullSummary.ACTION_REGEX = /(create|delete) mode \d+ (.+)/;
-
-PullSummary.parse = function (text) {
-   var pullSummary = new PullSummary;
-   var lines = text.split('\n');
-
-   while (lines.length) {
-      var line = lines.shift().trim();
-      if (!line) {
-         continue;
-      }
-
-      update(pullSummary, line) || summary(pullSummary, line) || action(pullSummary, line);
-   }
-
-   return pullSummary;
-};
-
-function update (pullSummary, line) {
-
-   var update = PullSummary.FILE_UPDATE_REGEX.exec(line);
-   if (!update) {
-      return false;
-   }
-
-   pullSummary.files.push(update[1]);
-
-   var insertions = update[2].length;
-   if (insertions) {
-      pullSummary.insertions[update[1]] = insertions;
-   }
-
-   var deletions = update[3].length;
-   if (deletions) {
-      pullSummary.deletions[update[1]] = deletions;
-   }
-
-   return true;
-}
-
-function summary (pullSummary, line) {
-   if (!pullSummary.files.length) {
-      return false;
-   }
-
-   var update = PullSummary.SUMMARY_REGEX.exec(line);
-   if (!update || (update[3] === undefined && update[5] === undefined)) {
-      return false;
-   }
-
-   pullSummary.summary.changes = +update[1] || 0;
-   pullSummary.summary.insertions = +update[3] || 0;
-   pullSummary.summary.deletions = +update[5] || 0;
-
-   return true;
-}
-
-function action (pullSummary, line) {
-
-   var match = PullSummary.ACTION_REGEX.exec(line);
-   if (!match) {
-      return false;
-   }
-
-   var file = match[2];
-
-   if (pullSummary.files.indexOf(file) < 0) {
-      pullSummary.files.push(file);
-   }
-
-   var container = (match[1] === 'create') ? pullSummary.created : pullSummary.deleted;
-   container.push(file);
-
-   return true;
-}
-
-
-/***/ }),
-
-/***/ 9789:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-
-
-
-var FileStatusSummary = __nccwpck_require__(9172);
-
-module.exports = StatusSummary;
-
-/**
- * The StatusSummary is returned as a response to getting `git().status()`
- *
- * @constructor
- */
-function StatusSummary () {
-   this.not_added = [];
-   this.conflicted = [];
-   this.created = [];
-   this.deleted = [];
-   this.modified = [];
-   this.renamed = [];
-   this.files = [];
-   this.staged = [];
-}
-
-
-/**
- * Number of commits ahead of the tracked branch
- * @type {number}
- */
-StatusSummary.prototype.ahead = 0;
-
-/**
- * Number of commits behind the tracked branch
- * @type {number}
- */
-StatusSummary.prototype.behind = 0;
-
-/**
- * Name of the current branch
- * @type {null}
- */
-StatusSummary.prototype.current = null;
-
-/**
- * Name of the branch being tracked
- * @type {string}
- */
-StatusSummary.prototype.tracking = null;
-
-/**
- * All files represented as an array of objects containing the `path` and status in `index` and
- * in the `working_dir`.
- *
- * @type {Array}
- */
-StatusSummary.prototype.files = null;
-
-/**
- * Gets whether this StatusSummary represents a clean working branch.
- *
- * @return {boolean}
- */
-StatusSummary.prototype.isClean = function () {
-   return 0 === Object.keys(this).filter(function (name) {
-      return Array.isArray(this[name]) && this[name].length;
-   }, this).length;
-};
-
-StatusSummary.parsers = {
-   '##': function (line, status) {
-      var aheadReg = /ahead (\d+)/;
-      var behindReg = /behind (\d+)/;
-      var currentReg = /^(.+?(?=(?:\.{3}|\s|$)))/;
-      var trackingReg = /\.{3}(\S*)/;
-      var regexResult;
-
-      regexResult = aheadReg.exec(line);
-      status.ahead = regexResult && +regexResult[1] || 0;
-
-      regexResult = behindReg.exec(line);
-      status.behind = regexResult && +regexResult[1] || 0;
-
-      regexResult = currentReg.exec(line);
-      status.current = regexResult && regexResult[1];
-
-      regexResult = trackingReg.exec(line);
-      status.tracking = regexResult && regexResult[1];
-   },
-
-   '??': function (line, status) {
-      status.not_added.push(line);
-   },
-
-   A: function (line, status) {
-      status.created.push(line);
-   },
-
-   AM: function (line, status) {
-      status.created.push(line);
-   },
-
-   D: function (line, status) {
-      status.deleted.push(line);
-   },
-
-   M: function (line, status, indexState) {
-      status.modified.push(line);
-
-      if (indexState === 'M') {
-         status.staged.push(line);
-      }
-   },
-
-   R: function (line, status) {
-      var detail = /^(.+) -> (.+)$/.exec(line) || [null, line, line];
-
-      status.renamed.push({
-         from: detail[1],
-         to: detail[2]
-      });
-   },
-
-   UU: function (line, status) {
-      status.conflicted.push(line);
-   }
-};
-
-StatusSummary.parsers.MM = StatusSummary.parsers.M;
-
-/* Map all unmerged status code combinations to UU to mark as conflicted */
-StatusSummary.parsers.AA = StatusSummary.parsers.UU;
-StatusSummary.parsers.UD = StatusSummary.parsers.UU;
-StatusSummary.parsers.DU = StatusSummary.parsers.UU;
-StatusSummary.parsers.DD = StatusSummary.parsers.UU;
-StatusSummary.parsers.AU = StatusSummary.parsers.UU;
-StatusSummary.parsers.UA = StatusSummary.parsers.UU;
-
-StatusSummary.parse = function (text) {
-   var file;
-   var lines = text.trim().split('\n');
-   var status = new StatusSummary();
-
-   for (var i = 0, l = lines.length; i < l; i++) {
-      file = splitLine(lines[i]);
-
-      if (!file) {
-         continue;
-      }
-
-      if (file.handler) {
-         file.handler(file.path, status, file.index, file.workingDir);
-      }
-
-      if (file.code !== '##') {
-         status.files.push(new FileStatusSummary(file.path, file.index, file.workingDir));
-      }
-   }
-
-   return status;
-};
-
-
-function splitLine (lineStr) {
-   var line = lineStr.trim().match(/(..?)(\s+)(.*)/);
-   if (!line || !line[1].trim()) {
-      line = lineStr.trim().match(/(..?)\s+(.*)/);
-   }
-
-   if (!line) {
-      return;
-   }
-
-   var code = line[1];
-   if (line[2].length > 1) {
-      code += ' ';
-   }
-   if (code.length === 1 && line[2].length === 1) {
-      code = ' ' + code;
-   }
-
-   return {
-      raw: code,
-      code: code.trim(),
-      index: code.charAt(0),
-      workingDir: code.charAt(1),
-      handler: StatusSummary.parsers[code.trim()],
-      path: line[3]
-   };
-}
-
-
-/***/ }),
-
-/***/ 6068:
-/***/ ((module) => {
-
-
-module.exports = TagList;
-
-function TagList (tagList, latest) {
-   this.latest = latest;
-   this.all = tagList
-}
-
-TagList.parse = function (data, customSort) {
-   var number = function (input) {
-      if (typeof input === 'string') {
-         return parseInt(input.replace(/^\D+/g, ''), 10) || 0;
-      }
-
-      return 0;
-   };
-
-   var tags = data
-      .trim()
-      .split('\n')
-      .map(function (item) { return item.trim(); })
-      .filter(Boolean);
-
-   if (!customSort) {
-      tags.sort(function (tagA, tagB) {
-         var partsA = tagA.split('.');
-         var partsB = tagB.split('.');
-
-         if (partsA.length === 1 || partsB.length === 1) {
-            return tagA - tagB > 0 ? 1 : -1;
-         }
-
-         for (var i = 0, l = Math.max(partsA.length, partsB.length); i < l; i++) {
-            var a = number(partsA[i]);
-            var b = number(partsB[i]);
-
-            var diff = a - b;
-            if (diff) {
-               return diff > 0 ? 1 : -1;
-            }
-         }
-
-         return 0;
-      });
-   }
-
-   var latest = customSort ? tags[0] : tags.filter(function (tag) { return tag.indexOf('.') >= 0; }).pop();
-
-   return new TagList(tags, latest);
-};
-
-
-/***/ }),
-
-/***/ 5301:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-
-module.exports = {
-   BranchDeleteSummary: __nccwpck_require__(45),
-   BranchSummary: __nccwpck_require__(2783),
-   CommitSummary: __nccwpck_require__(921),
-   DiffSummary: __nccwpck_require__(7286),
-   FetchSummary: __nccwpck_require__(5169),
-   FileStatusSummary: __nccwpck_require__(9172),
-   ListLogSummary: __nccwpck_require__(6507),
-   MergeSummary: __nccwpck_require__(6192),
-   MoveSummary: __nccwpck_require__(7502),
-   PullSummary: __nccwpck_require__(7629),
-   StatusSummary: __nccwpck_require__(9789),
-   TagList: __nccwpck_require__(6068),
-};
-
-
-/***/ }),
-
-/***/ 4299:
-/***/ ((module) => {
-
-
-module.exports = function deferred () {
-   var d = {};
-   d.promise = new Promise(function (resolve, reject) {
-      d.resolve = resolve;
-      d.reject = reject
-   });
-
-   return d;
-};
-
-
-/***/ }),
-
-/***/ 2164:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-/**
- * Exports the utilities `simple-git` depends upon to allow for mocking during a test
- */
-module.exports = {
-
-   buffer: function () { return (__nccwpck_require__(4300).Buffer); },
-
-   childProcess: function () { return __nccwpck_require__(2081); },
-
-   exists: __nccwpck_require__(6153)
-
-};
-
-
-/***/ }),
-
-/***/ 6153:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-
-var fs = __nccwpck_require__(7147);
-
-function exists (path, isFile, isDirectory) {
-   try {
-      var matches = false;
-      var stat = fs.statSync(path);
-
-      matches = matches || isFile && stat.isFile();
-      matches = matches || isDirectory && stat.isDirectory();
-
-      return matches;
-   }
-   catch (e) {
-      if (e.code === 'ENOENT') {
-         return false;
-      }
-
-      throw e;
-   }
-}
-
-module.exports = function (path, type) {
-   if (!type) {
-      return exists(path, true, true);
-   }
-
-   return exists(path, type & 1, type & 2);
-};
-
-module.exports.FILE = 1;
-
-module.exports.FOLDER = 2;
-
-
-/***/ }),
-
-/***/ 4294:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-module.exports = __nccwpck_require__(4219);
-
-
-/***/ }),
-
-/***/ 4219:
+/***/ 219:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var net = __nccwpck_require__(1808);
-var tls = __nccwpck_require__(4404);
-var http = __nccwpck_require__(3685);
-var https = __nccwpck_require__(5687);
-var events = __nccwpck_require__(2361);
-var assert = __nccwpck_require__(9491);
-var util = __nccwpck_require__(3837);
+var net = __nccwpck_require__(808);
+var tls = __nccwpck_require__(404);
+var http = __nccwpck_require__(685);
+var https = __nccwpck_require__(687);
+var events = __nccwpck_require__(361);
+var assert = __nccwpck_require__(491);
+var util = __nccwpck_require__(837);
 
 
 exports.httpOverHttp = httpOverHttp;
@@ -5712,7 +3162,7 @@ module.exports = eval("require")("supports-color");
 
 /***/ }),
 
-/***/ 9491:
+/***/ 491:
 /***/ ((module) => {
 
 "use strict";
@@ -5720,23 +3170,7 @@ module.exports = require("assert");
 
 /***/ }),
 
-/***/ 4300:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("buffer");
-
-/***/ }),
-
-/***/ 2081:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("child_process");
-
-/***/ }),
-
-/***/ 2361:
+/***/ 361:
 /***/ ((module) => {
 
 "use strict";
@@ -5744,7 +3178,7 @@ module.exports = require("events");
 
 /***/ }),
 
-/***/ 7147:
+/***/ 147:
 /***/ ((module) => {
 
 "use strict";
@@ -5752,7 +3186,7 @@ module.exports = require("fs");
 
 /***/ }),
 
-/***/ 3685:
+/***/ 685:
 /***/ ((module) => {
 
 "use strict";
@@ -5760,7 +3194,7 @@ module.exports = require("http");
 
 /***/ }),
 
-/***/ 5687:
+/***/ 687:
 /***/ ((module) => {
 
 "use strict";
@@ -5768,7 +3202,7 @@ module.exports = require("https");
 
 /***/ }),
 
-/***/ 1808:
+/***/ 808:
 /***/ ((module) => {
 
 "use strict";
@@ -5776,7 +3210,7 @@ module.exports = require("net");
 
 /***/ }),
 
-/***/ 2037:
+/***/ 37:
 /***/ ((module) => {
 
 "use strict";
@@ -5784,7 +3218,7 @@ module.exports = require("os");
 
 /***/ }),
 
-/***/ 1017:
+/***/ 17:
 /***/ ((module) => {
 
 "use strict";
@@ -5792,7 +3226,7 @@ module.exports = require("path");
 
 /***/ }),
 
-/***/ 4404:
+/***/ 404:
 /***/ ((module) => {
 
 "use strict";
@@ -5800,7 +3234,7 @@ module.exports = require("tls");
 
 /***/ }),
 
-/***/ 6224:
+/***/ 224:
 /***/ ((module) => {
 
 "use strict";
@@ -5808,7 +3242,7 @@ module.exports = require("tty");
 
 /***/ }),
 
-/***/ 3837:
+/***/ 837:
 /***/ ((module) => {
 
 "use strict";
@@ -5898,38 +3332,3836 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
+// ESM COMPAT FLAG
 __nccwpck_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(2186);
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nccwpck_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var extract_pr_titles__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(5185);
-/* harmony import */ var extract_pr_titles__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nccwpck_require__.n(extract_pr_titles__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var simple_git__WEBPACK_IMPORTED_MODULE_2__ = __nccwpck_require__(1477);
-/* harmony import */ var simple_git__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nccwpck_require__.n(simple_git__WEBPACK_IMPORTED_MODULE_2__);
+
+// EXTERNAL MODULE: ./node_modules/@actions/core/lib/core.js
+var core = __nccwpck_require__(186);
+// EXTERNAL MODULE: ./node_modules/extract-pr-titles/index.js
+var extract_pr_titles = __nccwpck_require__(185);
+var extract_pr_titles_default = /*#__PURE__*/__nccwpck_require__.n(extract_pr_titles);
+// EXTERNAL MODULE: ./node_modules/@kwsites/file-exists/dist/index.js
+var dist = __nccwpck_require__(751);
+// EXTERNAL MODULE: ./node_modules/debug/src/index.js
+var src = __nccwpck_require__(237);
+;// CONCATENATED MODULE: external "child_process"
+const external_child_process_namespaceObject = require("child_process");
+// EXTERNAL MODULE: ./node_modules/@kwsites/promise-deferred/dist/index.js
+var promise_deferred_dist = __nccwpck_require__(819);
+;// CONCATENATED MODULE: ./node_modules/simple-git/dist/esm/index.js
+var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
+var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
+var __esm = (fn, res) => function __init() {
+  return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
+};
+var __commonJS = (cb, mod) => function __require() {
+  return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+};
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __reExport = (target, module, copyDefault, desc) => {
+  if (module && typeof module === "object" || typeof module === "function") {
+    for (let key of __getOwnPropNames(module))
+      if (!__hasOwnProp.call(target, key) && (copyDefault || key !== "default"))
+        __defProp(target, key, { get: () => module[key], enumerable: !(desc = __getOwnPropDesc(module, key)) || desc.enumerable });
+  }
+  return target;
+};
+var __toCommonJS = /* @__PURE__ */ ((cache) => {
+  return (module, temp) => {
+    return cache && cache.get(module) || (temp = __reExport(__markAsModule({}), module, 1), cache && cache.set(module, temp), temp);
+  };
+})(typeof WeakMap !== "undefined" ? /* @__PURE__ */ new WeakMap() : 0);
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+
+// src/lib/errors/git-error.ts
+var GitError;
+var init_git_error = __esm({
+  "src/lib/errors/git-error.ts"() {
+    GitError = class extends Error {
+      constructor(task, message) {
+        super(message);
+        this.task = task;
+        Object.setPrototypeOf(this, new.target.prototype);
+      }
+    };
+  }
+});
+
+// src/lib/errors/git-response-error.ts
+var GitResponseError;
+var init_git_response_error = __esm({
+  "src/lib/errors/git-response-error.ts"() {
+    init_git_error();
+    GitResponseError = class extends GitError {
+      constructor(git, message) {
+        super(void 0, message || String(git));
+        this.git = git;
+      }
+    };
+  }
+});
+
+// src/lib/errors/task-configuration-error.ts
+var TaskConfigurationError;
+var init_task_configuration_error = __esm({
+  "src/lib/errors/task-configuration-error.ts"() {
+    init_git_error();
+    TaskConfigurationError = class extends GitError {
+      constructor(message) {
+        super(void 0, message);
+      }
+    };
+  }
+});
+
+// src/lib/utils/util.ts
+
+function asFunction(source) {
+  return typeof source === "function" ? source : NOOP;
+}
+function isUserFunction(source) {
+  return typeof source === "function" && source !== NOOP;
+}
+function splitOn(input, char) {
+  const index = input.indexOf(char);
+  if (index <= 0) {
+    return [input, ""];
+  }
+  return [
+    input.substr(0, index),
+    input.substr(index + 1)
+  ];
+}
+function first(input, offset = 0) {
+  return isArrayLike(input) && input.length > offset ? input[offset] : void 0;
+}
+function last(input, offset = 0) {
+  if (isArrayLike(input) && input.length > offset) {
+    return input[input.length - 1 - offset];
+  }
+}
+function isArrayLike(input) {
+  return !!(input && typeof input.length === "number");
+}
+function toLinesWithContent(input = "", trimmed2 = true, separator = "\n") {
+  return input.split(separator).reduce((output, line) => {
+    const lineContent = trimmed2 ? line.trim() : line;
+    if (lineContent) {
+      output.push(lineContent);
+    }
+    return output;
+  }, []);
+}
+function forEachLineWithContent(input, callback) {
+  return toLinesWithContent(input, true).map((line) => callback(line));
+}
+function folderExists(path) {
+  return (0,dist.exists)(path, dist.FOLDER);
+}
+function append(target, item) {
+  if (Array.isArray(target)) {
+    if (!target.includes(item)) {
+      target.push(item);
+    }
+  } else {
+    target.add(item);
+  }
+  return item;
+}
+function including(target, item) {
+  if (Array.isArray(target) && !target.includes(item)) {
+    target.push(item);
+  }
+  return target;
+}
+function remove(target, item) {
+  if (Array.isArray(target)) {
+    const index = target.indexOf(item);
+    if (index >= 0) {
+      target.splice(index, 1);
+    }
+  } else {
+    target.delete(item);
+  }
+  return item;
+}
+function asArray(source) {
+  return Array.isArray(source) ? source : [source];
+}
+function asStringArray(source) {
+  return asArray(source).map(String);
+}
+function asNumber(source, onNaN = 0) {
+  if (source == null) {
+    return onNaN;
+  }
+  const num = parseInt(source, 10);
+  return isNaN(num) ? onNaN : num;
+}
+function prefixedArray(input, prefix) {
+  const output = [];
+  for (let i = 0, max = input.length; i < max; i++) {
+    output.push(prefix, input[i]);
+  }
+  return output;
+}
+function bufferToString(input) {
+  return (Array.isArray(input) ? Buffer.concat(input) : input).toString("utf-8");
+}
+function pick(source, properties) {
+  return Object.assign({}, ...properties.map((property) => property in source ? { [property]: source[property] } : {}));
+}
+function delay(duration = 0) {
+  return new Promise((done) => setTimeout(done, duration));
+}
+var NULL, NOOP, objectToString;
+var init_util = __esm({
+  "src/lib/utils/util.ts"() {
+    NULL = "\0";
+    NOOP = () => {
+    };
+    objectToString = Object.prototype.toString.call.bind(Object.prototype.toString);
+  }
+});
+
+// src/lib/utils/argument-filters.ts
+function filterType(input, filter, def) {
+  if (filter(input)) {
+    return input;
+  }
+  return arguments.length > 2 ? def : void 0;
+}
+function filterPrimitives(input, omit) {
+  return /number|string|boolean/.test(typeof input) && (!omit || !omit.includes(typeof input));
+}
+function filterPlainObject(input) {
+  return !!input && objectToString(input) === "[object Object]";
+}
+function filterFunction(input) {
+  return typeof input === "function";
+}
+var filterArray, filterString, filterStringArray, filterStringOrStringArray, filterHasLength;
+var init_argument_filters = __esm({
+  "src/lib/utils/argument-filters.ts"() {
+    init_util();
+    filterArray = (input) => {
+      return Array.isArray(input);
+    };
+    filterString = (input) => {
+      return typeof input === "string";
+    };
+    filterStringArray = (input) => {
+      return Array.isArray(input) && input.every(filterString);
+    };
+    filterStringOrStringArray = (input) => {
+      return filterString(input) || Array.isArray(input) && input.every(filterString);
+    };
+    filterHasLength = (input) => {
+      if (input == null || "number|boolean|function".includes(typeof input)) {
+        return false;
+      }
+      return Array.isArray(input) || typeof input === "string" || typeof input.length === "number";
+    };
+  }
+});
+
+// src/lib/utils/exit-codes.ts
+var ExitCodes;
+var init_exit_codes = __esm({
+  "src/lib/utils/exit-codes.ts"() {
+    ExitCodes = /* @__PURE__ */ ((ExitCodes2) => {
+      ExitCodes2[ExitCodes2["SUCCESS"] = 0] = "SUCCESS";
+      ExitCodes2[ExitCodes2["ERROR"] = 1] = "ERROR";
+      ExitCodes2[ExitCodes2["UNCLEAN"] = 128] = "UNCLEAN";
+      return ExitCodes2;
+    })(ExitCodes || {});
+  }
+});
+
+// src/lib/utils/git-output-streams.ts
+var GitOutputStreams;
+var init_git_output_streams = __esm({
+  "src/lib/utils/git-output-streams.ts"() {
+    GitOutputStreams = class {
+      constructor(stdOut, stdErr) {
+        this.stdOut = stdOut;
+        this.stdErr = stdErr;
+      }
+      asStrings() {
+        return new GitOutputStreams(this.stdOut.toString("utf8"), this.stdErr.toString("utf8"));
+      }
+    };
+  }
+});
+
+// src/lib/utils/line-parser.ts
+var LineParser, RemoteLineParser;
+var init_line_parser = __esm({
+  "src/lib/utils/line-parser.ts"() {
+    LineParser = class {
+      constructor(regExp, useMatches) {
+        this.matches = [];
+        this.parse = (line, target) => {
+          this.resetMatches();
+          if (!this._regExp.every((reg, index) => this.addMatch(reg, index, line(index)))) {
+            return false;
+          }
+          return this.useMatches(target, this.prepareMatches()) !== false;
+        };
+        this._regExp = Array.isArray(regExp) ? regExp : [regExp];
+        if (useMatches) {
+          this.useMatches = useMatches;
+        }
+      }
+      useMatches(target, match) {
+        throw new Error(`LineParser:useMatches not implemented`);
+      }
+      resetMatches() {
+        this.matches.length = 0;
+      }
+      prepareMatches() {
+        return this.matches;
+      }
+      addMatch(reg, index, line) {
+        const matched = line && reg.exec(line);
+        if (matched) {
+          this.pushMatch(index, matched);
+        }
+        return !!matched;
+      }
+      pushMatch(_index, matched) {
+        this.matches.push(...matched.slice(1));
+      }
+    };
+    RemoteLineParser = class extends LineParser {
+      addMatch(reg, index, line) {
+        return /^remote:\s/.test(String(line)) && super.addMatch(reg, index, line);
+      }
+      pushMatch(index, matched) {
+        if (index > 0 || matched.length > 1) {
+          super.pushMatch(index, matched);
+        }
+      }
+    };
+  }
+});
+
+// src/lib/utils/simple-git-options.ts
+function createInstanceConfig(...options) {
+  const baseDir = process.cwd();
+  const config = Object.assign(__spreadValues({ baseDir }, defaultOptions), ...options.filter((o) => typeof o === "object" && o));
+  config.baseDir = config.baseDir || baseDir;
+  return config;
+}
+var defaultOptions;
+var init_simple_git_options = __esm({
+  "src/lib/utils/simple-git-options.ts"() {
+    defaultOptions = {
+      binary: "git",
+      maxConcurrentProcesses: 5,
+      config: []
+    };
+  }
+});
+
+// src/lib/utils/task-options.ts
+function appendTaskOptions(options, commands = []) {
+  if (!filterPlainObject(options)) {
+    return commands;
+  }
+  return Object.keys(options).reduce((commands2, key) => {
+    const value = options[key];
+    if (filterPrimitives(value, ["boolean"])) {
+      commands2.push(key + "=" + value);
+    } else {
+      commands2.push(key);
+    }
+    return commands2;
+  }, commands);
+}
+function getTrailingOptions(args, initialPrimitive = 0, objectOnly = false) {
+  const command = [];
+  for (let i = 0, max = initialPrimitive < 0 ? args.length : initialPrimitive; i < max; i++) {
+    if ("string|number".includes(typeof args[i])) {
+      command.push(String(args[i]));
+    }
+  }
+  appendTaskOptions(trailingOptionsArgument(args), command);
+  if (!objectOnly) {
+    command.push(...trailingArrayArgument(args));
+  }
+  return command;
+}
+function trailingArrayArgument(args) {
+  const hasTrailingCallback = typeof last(args) === "function";
+  return filterType(last(args, hasTrailingCallback ? 1 : 0), filterArray, []);
+}
+function trailingOptionsArgument(args) {
+  const hasTrailingCallback = filterFunction(last(args));
+  return filterType(last(args, hasTrailingCallback ? 1 : 0), filterPlainObject);
+}
+function trailingFunctionArgument(args, includeNoop = true) {
+  const callback = asFunction(last(args));
+  return includeNoop || isUserFunction(callback) ? callback : void 0;
+}
+var init_task_options = __esm({
+  "src/lib/utils/task-options.ts"() {
+    init_argument_filters();
+    init_util();
+  }
+});
+
+// src/lib/utils/task-parser.ts
+function callTaskParser(parser3, streams) {
+  return parser3(streams.stdOut, streams.stdErr);
+}
+function parseStringResponse(result, parsers11, ...texts) {
+  texts.forEach((text) => {
+    for (let lines = toLinesWithContent(text), i = 0, max = lines.length; i < max; i++) {
+      const line = (offset = 0) => {
+        if (i + offset >= max) {
+          return;
+        }
+        return lines[i + offset];
+      };
+      parsers11.some(({ parse }) => parse(line, result));
+    }
+  });
+  return result;
+}
+var init_task_parser = __esm({
+  "src/lib/utils/task-parser.ts"() {
+    init_util();
+  }
+});
+
+// src/lib/utils/index.ts
+var utils_exports = {};
+__export(utils_exports, {
+  ExitCodes: () => ExitCodes,
+  GitOutputStreams: () => GitOutputStreams,
+  LineParser: () => LineParser,
+  NOOP: () => NOOP,
+  NULL: () => NULL,
+  RemoteLineParser: () => RemoteLineParser,
+  append: () => append,
+  appendTaskOptions: () => appendTaskOptions,
+  asArray: () => asArray,
+  asFunction: () => asFunction,
+  asNumber: () => asNumber,
+  asStringArray: () => asStringArray,
+  bufferToString: () => bufferToString,
+  callTaskParser: () => callTaskParser,
+  createInstanceConfig: () => createInstanceConfig,
+  delay: () => delay,
+  filterArray: () => filterArray,
+  filterFunction: () => filterFunction,
+  filterHasLength: () => filterHasLength,
+  filterPlainObject: () => filterPlainObject,
+  filterPrimitives: () => filterPrimitives,
+  filterString: () => filterString,
+  filterStringArray: () => filterStringArray,
+  filterStringOrStringArray: () => filterStringOrStringArray,
+  filterType: () => filterType,
+  first: () => first,
+  folderExists: () => folderExists,
+  forEachLineWithContent: () => forEachLineWithContent,
+  getTrailingOptions: () => getTrailingOptions,
+  including: () => including,
+  isUserFunction: () => isUserFunction,
+  last: () => last,
+  objectToString: () => objectToString,
+  parseStringResponse: () => parseStringResponse,
+  pick: () => pick,
+  prefixedArray: () => prefixedArray,
+  remove: () => remove,
+  splitOn: () => splitOn,
+  toLinesWithContent: () => toLinesWithContent,
+  trailingFunctionArgument: () => trailingFunctionArgument,
+  trailingOptionsArgument: () => trailingOptionsArgument
+});
+var init_utils = __esm({
+  "src/lib/utils/index.ts"() {
+    init_argument_filters();
+    init_exit_codes();
+    init_git_output_streams();
+    init_line_parser();
+    init_simple_git_options();
+    init_task_options();
+    init_task_parser();
+    init_util();
+  }
+});
+
+// src/lib/tasks/check-is-repo.ts
+var check_is_repo_exports = {};
+__export(check_is_repo_exports, {
+  CheckRepoActions: () => CheckRepoActions,
+  checkIsBareRepoTask: () => checkIsBareRepoTask,
+  checkIsRepoRootTask: () => checkIsRepoRootTask,
+  checkIsRepoTask: () => checkIsRepoTask
+});
+function checkIsRepoTask(action) {
+  switch (action) {
+    case "bare" /* BARE */:
+      return checkIsBareRepoTask();
+    case "root" /* IS_REPO_ROOT */:
+      return checkIsRepoRootTask();
+  }
+  const commands = ["rev-parse", "--is-inside-work-tree"];
+  return {
+    commands,
+    format: "utf-8",
+    onError,
+    parser
+  };
+}
+function checkIsRepoRootTask() {
+  const commands = ["rev-parse", "--git-dir"];
+  return {
+    commands,
+    format: "utf-8",
+    onError,
+    parser(path) {
+      return /^\.(git)?$/.test(path.trim());
+    }
+  };
+}
+function checkIsBareRepoTask() {
+  const commands = ["rev-parse", "--is-bare-repository"];
+  return {
+    commands,
+    format: "utf-8",
+    onError,
+    parser
+  };
+}
+function isNotRepoMessage(error) {
+  return /(Not a git repository|Kein Git-Repository)/i.test(String(error));
+}
+var CheckRepoActions, onError, parser;
+var init_check_is_repo = __esm({
+  "src/lib/tasks/check-is-repo.ts"() {
+    init_utils();
+    CheckRepoActions = /* @__PURE__ */ ((CheckRepoActions2) => {
+      CheckRepoActions2["BARE"] = "bare";
+      CheckRepoActions2["IN_TREE"] = "tree";
+      CheckRepoActions2["IS_REPO_ROOT"] = "root";
+      return CheckRepoActions2;
+    })(CheckRepoActions || {});
+    onError = ({ exitCode }, error, done, fail) => {
+      if (exitCode === 128 /* UNCLEAN */ && isNotRepoMessage(error)) {
+        return done(Buffer.from("false"));
+      }
+      fail(error);
+    };
+    parser = (text) => {
+      return text.trim() === "true";
+    };
+  }
+});
+
+// src/lib/responses/CleanSummary.ts
+function cleanSummaryParser(dryRun, text) {
+  const summary = new CleanResponse(dryRun);
+  const regexp = dryRun ? dryRunRemovalRegexp : removalRegexp;
+  toLinesWithContent(text).forEach((line) => {
+    const removed = line.replace(regexp, "");
+    summary.paths.push(removed);
+    (isFolderRegexp.test(removed) ? summary.folders : summary.files).push(removed);
+  });
+  return summary;
+}
+var CleanResponse, removalRegexp, dryRunRemovalRegexp, isFolderRegexp;
+var init_CleanSummary = __esm({
+  "src/lib/responses/CleanSummary.ts"() {
+    init_utils();
+    CleanResponse = class {
+      constructor(dryRun) {
+        this.dryRun = dryRun;
+        this.paths = [];
+        this.files = [];
+        this.folders = [];
+      }
+    };
+    removalRegexp = /^[a-z]+\s*/i;
+    dryRunRemovalRegexp = /^[a-z]+\s+[a-z]+\s*/i;
+    isFolderRegexp = /\/$/;
+  }
+});
+
+// src/lib/tasks/task.ts
+var task_exports = {};
+__export(task_exports, {
+  EMPTY_COMMANDS: () => EMPTY_COMMANDS,
+  adhocExecTask: () => adhocExecTask,
+  configurationErrorTask: () => configurationErrorTask,
+  isBufferTask: () => isBufferTask,
+  isEmptyTask: () => isEmptyTask,
+  straightThroughBufferTask: () => straightThroughBufferTask,
+  straightThroughStringTask: () => straightThroughStringTask
+});
+function adhocExecTask(parser3) {
+  return {
+    commands: EMPTY_COMMANDS,
+    format: "empty",
+    parser: parser3
+  };
+}
+function configurationErrorTask(error) {
+  return {
+    commands: EMPTY_COMMANDS,
+    format: "empty",
+    parser() {
+      throw typeof error === "string" ? new TaskConfigurationError(error) : error;
+    }
+  };
+}
+function straightThroughStringTask(commands, trimmed2 = false) {
+  return {
+    commands,
+    format: "utf-8",
+    parser(text) {
+      return trimmed2 ? String(text).trim() : text;
+    }
+  };
+}
+function straightThroughBufferTask(commands) {
+  return {
+    commands,
+    format: "buffer",
+    parser(buffer) {
+      return buffer;
+    }
+  };
+}
+function isBufferTask(task) {
+  return task.format === "buffer";
+}
+function isEmptyTask(task) {
+  return task.format === "empty" || !task.commands.length;
+}
+var EMPTY_COMMANDS;
+var init_task = __esm({
+  "src/lib/tasks/task.ts"() {
+    init_task_configuration_error();
+    EMPTY_COMMANDS = [];
+  }
+});
+
+// src/lib/tasks/clean.ts
+var clean_exports = {};
+__export(clean_exports, {
+  CONFIG_ERROR_INTERACTIVE_MODE: () => CONFIG_ERROR_INTERACTIVE_MODE,
+  CONFIG_ERROR_MODE_REQUIRED: () => CONFIG_ERROR_MODE_REQUIRED,
+  CONFIG_ERROR_UNKNOWN_OPTION: () => CONFIG_ERROR_UNKNOWN_OPTION,
+  CleanOptions: () => CleanOptions,
+  cleanTask: () => cleanTask,
+  cleanWithOptionsTask: () => cleanWithOptionsTask,
+  isCleanOptionsArray: () => isCleanOptionsArray
+});
+function cleanWithOptionsTask(mode, customArgs) {
+  const { cleanMode, options, valid } = getCleanOptions(mode);
+  if (!cleanMode) {
+    return configurationErrorTask(CONFIG_ERROR_MODE_REQUIRED);
+  }
+  if (!valid.options) {
+    return configurationErrorTask(CONFIG_ERROR_UNKNOWN_OPTION + JSON.stringify(mode));
+  }
+  options.push(...customArgs);
+  if (options.some(isInteractiveMode)) {
+    return configurationErrorTask(CONFIG_ERROR_INTERACTIVE_MODE);
+  }
+  return cleanTask(cleanMode, options);
+}
+function cleanTask(mode, customArgs) {
+  const commands = ["clean", `-${mode}`, ...customArgs];
+  return {
+    commands,
+    format: "utf-8",
+    parser(text) {
+      return cleanSummaryParser(mode === "n" /* DRY_RUN */, text);
+    }
+  };
+}
+function isCleanOptionsArray(input) {
+  return Array.isArray(input) && input.every((test) => CleanOptionValues.has(test));
+}
+function getCleanOptions(input) {
+  let cleanMode;
+  let options = [];
+  let valid = { cleanMode: false, options: true };
+  input.replace(/[^a-z]i/g, "").split("").forEach((char) => {
+    if (isCleanMode(char)) {
+      cleanMode = char;
+      valid.cleanMode = true;
+    } else {
+      valid.options = valid.options && isKnownOption(options[options.length] = `-${char}`);
+    }
+  });
+  return {
+    cleanMode,
+    options,
+    valid
+  };
+}
+function isCleanMode(cleanMode) {
+  return cleanMode === "f" /* FORCE */ || cleanMode === "n" /* DRY_RUN */;
+}
+function isKnownOption(option) {
+  return /^-[a-z]$/i.test(option) && CleanOptionValues.has(option.charAt(1));
+}
+function isInteractiveMode(option) {
+  if (/^-[^\-]/.test(option)) {
+    return option.indexOf("i") > 0;
+  }
+  return option === "--interactive";
+}
+var CONFIG_ERROR_INTERACTIVE_MODE, CONFIG_ERROR_MODE_REQUIRED, CONFIG_ERROR_UNKNOWN_OPTION, CleanOptions, CleanOptionValues;
+var init_clean = __esm({
+  "src/lib/tasks/clean.ts"() {
+    init_CleanSummary();
+    init_utils();
+    init_task();
+    CONFIG_ERROR_INTERACTIVE_MODE = "Git clean interactive mode is not supported";
+    CONFIG_ERROR_MODE_REQUIRED = 'Git clean mode parameter ("n" or "f") is required';
+    CONFIG_ERROR_UNKNOWN_OPTION = "Git clean unknown option found in: ";
+    CleanOptions = /* @__PURE__ */ ((CleanOptions2) => {
+      CleanOptions2["DRY_RUN"] = "n";
+      CleanOptions2["FORCE"] = "f";
+      CleanOptions2["IGNORED_INCLUDED"] = "x";
+      CleanOptions2["IGNORED_ONLY"] = "X";
+      CleanOptions2["EXCLUDING"] = "e";
+      CleanOptions2["QUIET"] = "q";
+      CleanOptions2["RECURSIVE"] = "d";
+      return CleanOptions2;
+    })(CleanOptions || {});
+    CleanOptionValues = /* @__PURE__ */ new Set(["i", ...asStringArray(Object.values(CleanOptions))]);
+  }
+});
+
+// src/lib/responses/ConfigList.ts
+function configListParser(text) {
+  const config = new ConfigList();
+  for (const item of configParser(text)) {
+    config.addValue(item.file, String(item.key), item.value);
+  }
+  return config;
+}
+function configGetParser(text, key) {
+  let value = null;
+  const values = [];
+  const scopes = /* @__PURE__ */ new Map();
+  for (const item of configParser(text, key)) {
+    if (item.key !== key) {
+      continue;
+    }
+    values.push(value = item.value);
+    if (!scopes.has(item.file)) {
+      scopes.set(item.file, []);
+    }
+    scopes.get(item.file).push(value);
+  }
+  return {
+    key,
+    paths: Array.from(scopes.keys()),
+    scopes,
+    value,
+    values
+  };
+}
+function configFilePath(filePath) {
+  return filePath.replace(/^(file):/, "");
+}
+function* configParser(text, requestedKey = null) {
+  const lines = text.split("\0");
+  for (let i = 0, max = lines.length - 1; i < max; ) {
+    const file = configFilePath(lines[i++]);
+    let value = lines[i++];
+    let key = requestedKey;
+    if (value.includes("\n")) {
+      const line = splitOn(value, "\n");
+      key = line[0];
+      value = line[1];
+    }
+    yield { file, key, value };
+  }
+}
+var ConfigList;
+var init_ConfigList = __esm({
+  "src/lib/responses/ConfigList.ts"() {
+    init_utils();
+    ConfigList = class {
+      constructor() {
+        this.files = [];
+        this.values = /* @__PURE__ */ Object.create(null);
+      }
+      get all() {
+        if (!this._all) {
+          this._all = this.files.reduce((all, file) => {
+            return Object.assign(all, this.values[file]);
+          }, {});
+        }
+        return this._all;
+      }
+      addFile(file) {
+        if (!(file in this.values)) {
+          const latest = last(this.files);
+          this.values[file] = latest ? Object.create(this.values[latest]) : {};
+          this.files.push(file);
+        }
+        return this.values[file];
+      }
+      addValue(file, key, value) {
+        const values = this.addFile(file);
+        if (!values.hasOwnProperty(key)) {
+          values[key] = value;
+        } else if (Array.isArray(values[key])) {
+          values[key].push(value);
+        } else {
+          values[key] = [values[key], value];
+        }
+        this._all = void 0;
+      }
+    };
+  }
+});
+
+// src/lib/tasks/config.ts
+function asConfigScope(scope, fallback) {
+  if (typeof scope === "string" && GitConfigScope.hasOwnProperty(scope)) {
+    return scope;
+  }
+  return fallback;
+}
+function addConfigTask(key, value, append2, scope) {
+  const commands = ["config", `--${scope}`];
+  if (append2) {
+    commands.push("--add");
+  }
+  commands.push(key, value);
+  return {
+    commands,
+    format: "utf-8",
+    parser(text) {
+      return text;
+    }
+  };
+}
+function getConfigTask(key, scope) {
+  const commands = ["config", "--null", "--show-origin", "--get-all", key];
+  if (scope) {
+    commands.splice(1, 0, `--${scope}`);
+  }
+  return {
+    commands,
+    format: "utf-8",
+    parser(text) {
+      return configGetParser(text, key);
+    }
+  };
+}
+function listConfigTask(scope) {
+  const commands = ["config", "--list", "--show-origin", "--null"];
+  if (scope) {
+    commands.push(`--${scope}`);
+  }
+  return {
+    commands,
+    format: "utf-8",
+    parser(text) {
+      return configListParser(text);
+    }
+  };
+}
+function config_default() {
+  return {
+    addConfig(key, value, ...rest) {
+      return this._runTask(addConfigTask(key, value, rest[0] === true, asConfigScope(rest[1], "local" /* local */)), trailingFunctionArgument(arguments));
+    },
+    getConfig(key, scope) {
+      return this._runTask(getConfigTask(key, asConfigScope(scope, void 0)), trailingFunctionArgument(arguments));
+    },
+    listConfig(...rest) {
+      return this._runTask(listConfigTask(asConfigScope(rest[0], void 0)), trailingFunctionArgument(arguments));
+    }
+  };
+}
+var GitConfigScope;
+var init_config = __esm({
+  "src/lib/tasks/config.ts"() {
+    init_ConfigList();
+    init_utils();
+    GitConfigScope = /* @__PURE__ */ ((GitConfigScope2) => {
+      GitConfigScope2["system"] = "system";
+      GitConfigScope2["global"] = "global";
+      GitConfigScope2["local"] = "local";
+      GitConfigScope2["worktree"] = "worktree";
+      return GitConfigScope2;
+    })(GitConfigScope || {});
+  }
+});
+
+// src/lib/tasks/grep.ts
+function grepQueryBuilder(...params) {
+  return new GrepQuery().param(...params);
+}
+function parseGrep(grep) {
+  const paths = /* @__PURE__ */ new Set();
+  const results = {};
+  forEachLineWithContent(grep, (input) => {
+    const [path, line, preview] = input.split(NULL);
+    paths.add(path);
+    (results[path] = results[path] || []).push({
+      line: asNumber(line),
+      path,
+      preview
+    });
+  });
+  return {
+    paths,
+    results
+  };
+}
+function grep_default() {
+  return {
+    grep(searchTerm) {
+      const then = trailingFunctionArgument(arguments);
+      const options = getTrailingOptions(arguments);
+      for (const option of disallowedOptions) {
+        if (options.includes(option)) {
+          return this._runTask(configurationErrorTask(`git.grep: use of "${option}" is not supported.`), then);
+        }
+      }
+      if (typeof searchTerm === "string") {
+        searchTerm = grepQueryBuilder().param(searchTerm);
+      }
+      const commands = ["grep", "--null", "-n", "--full-name", ...options, ...searchTerm];
+      return this._runTask({
+        commands,
+        format: "utf-8",
+        parser(stdOut) {
+          return parseGrep(stdOut);
+        }
+      }, then);
+    }
+  };
+}
+var disallowedOptions, Query, _a, GrepQuery;
+var init_grep = __esm({
+  "src/lib/tasks/grep.ts"() {
+    init_utils();
+    init_task();
+    disallowedOptions = ["-h"];
+    Query = Symbol("grepQuery");
+    GrepQuery = class {
+      constructor() {
+        this[_a] = [];
+      }
+      *[(_a = Query, Symbol.iterator)]() {
+        for (const query of this[Query]) {
+          yield query;
+        }
+      }
+      and(...and) {
+        and.length && this[Query].push("--and", "(", ...prefixedArray(and, "-e"), ")");
+        return this;
+      }
+      param(...param) {
+        this[Query].push(...prefixedArray(param, "-e"));
+        return this;
+      }
+    };
+  }
+});
+
+// src/lib/tasks/reset.ts
+var reset_exports = {};
+__export(reset_exports, {
+  ResetMode: () => ResetMode,
+  getResetMode: () => getResetMode,
+  resetTask: () => resetTask
+});
+function resetTask(mode, customArgs) {
+  const commands = ["reset"];
+  if (isValidResetMode(mode)) {
+    commands.push(`--${mode}`);
+  }
+  commands.push(...customArgs);
+  return straightThroughStringTask(commands);
+}
+function getResetMode(mode) {
+  if (isValidResetMode(mode)) {
+    return mode;
+  }
+  switch (typeof mode) {
+    case "string":
+    case "undefined":
+      return "soft" /* SOFT */;
+  }
+  return;
+}
+function isValidResetMode(mode) {
+  return ResetModes.includes(mode);
+}
+var ResetMode, ResetModes;
+var init_reset = __esm({
+  "src/lib/tasks/reset.ts"() {
+    init_task();
+    ResetMode = /* @__PURE__ */ ((ResetMode2) => {
+      ResetMode2["MIXED"] = "mixed";
+      ResetMode2["SOFT"] = "soft";
+      ResetMode2["HARD"] = "hard";
+      ResetMode2["MERGE"] = "merge";
+      ResetMode2["KEEP"] = "keep";
+      return ResetMode2;
+    })(ResetMode || {});
+    ResetModes = Array.from(Object.values(ResetMode));
+  }
+});
+
+// src/lib/git-logger.ts
+
+function createLog() {
+  return src("simple-git");
+}
+function prefixedLogger(to, prefix, forward) {
+  if (!prefix || !String(prefix).replace(/\s*/, "")) {
+    return !forward ? to : (message, ...args) => {
+      to(message, ...args);
+      forward(message, ...args);
+    };
+  }
+  return (message, ...args) => {
+    to(`%s ${message}`, prefix, ...args);
+    if (forward) {
+      forward(message, ...args);
+    }
+  };
+}
+function childLoggerName(name, childDebugger, { namespace: parentNamespace }) {
+  if (typeof name === "string") {
+    return name;
+  }
+  const childNamespace = childDebugger && childDebugger.namespace || "";
+  if (childNamespace.startsWith(parentNamespace)) {
+    return childNamespace.substr(parentNamespace.length + 1);
+  }
+  return childNamespace || parentNamespace;
+}
+function createLogger(label, verbose, initialStep, infoDebugger = createLog()) {
+  const labelPrefix = label && `[${label}]` || "";
+  const spawned = [];
+  const debugDebugger = typeof verbose === "string" ? infoDebugger.extend(verbose) : verbose;
+  const key = childLoggerName(filterType(verbose, filterString), debugDebugger, infoDebugger);
+  return step(initialStep);
+  function sibling(name, initial) {
+    return append(spawned, createLogger(label, key.replace(/^[^:]+/, name), initial, infoDebugger));
+  }
+  function step(phase) {
+    const stepPrefix = phase && `[${phase}]` || "";
+    const debug2 = debugDebugger && prefixedLogger(debugDebugger, stepPrefix) || NOOP;
+    const info = prefixedLogger(infoDebugger, `${labelPrefix} ${stepPrefix}`, debug2);
+    return Object.assign(debugDebugger ? debug2 : info, {
+      label,
+      sibling,
+      info,
+      step
+    });
+  }
+}
+var init_git_logger = __esm({
+  "src/lib/git-logger.ts"() {
+    init_utils();
+    src.formatters.L = (value) => String(filterHasLength(value) ? value.length : "-");
+    src.formatters.B = (value) => {
+      if (Buffer.isBuffer(value)) {
+        return value.toString("utf8");
+      }
+      return objectToString(value);
+    };
+  }
+});
+
+// src/lib/runners/tasks-pending-queue.ts
+var _TasksPendingQueue, TasksPendingQueue;
+var init_tasks_pending_queue = __esm({
+  "src/lib/runners/tasks-pending-queue.ts"() {
+    init_git_error();
+    init_git_logger();
+    _TasksPendingQueue = class {
+      constructor(logLabel = "GitExecutor") {
+        this.logLabel = logLabel;
+        this._queue = /* @__PURE__ */ new Map();
+      }
+      withProgress(task) {
+        return this._queue.get(task);
+      }
+      createProgress(task) {
+        const name = _TasksPendingQueue.getName(task.commands[0]);
+        const logger = createLogger(this.logLabel, name);
+        return {
+          task,
+          logger,
+          name
+        };
+      }
+      push(task) {
+        const progress = this.createProgress(task);
+        progress.logger("Adding task to the queue, commands = %o", task.commands);
+        this._queue.set(task, progress);
+        return progress;
+      }
+      fatal(err) {
+        for (const [task, { logger }] of Array.from(this._queue.entries())) {
+          if (task === err.task) {
+            logger.info(`Failed %o`, err);
+            logger(`Fatal exception, any as-yet un-started tasks run through this executor will not be attempted`);
+          } else {
+            logger.info(`A fatal exception occurred in a previous task, the queue has been purged: %o`, err.message);
+          }
+          this.complete(task);
+        }
+        if (this._queue.size !== 0) {
+          throw new Error(`Queue size should be zero after fatal: ${this._queue.size}`);
+        }
+      }
+      complete(task) {
+        const progress = this.withProgress(task);
+        if (progress) {
+          this._queue.delete(task);
+        }
+      }
+      attempt(task) {
+        const progress = this.withProgress(task);
+        if (!progress) {
+          throw new GitError(void 0, "TasksPendingQueue: attempt called for an unknown task");
+        }
+        progress.logger("Starting task");
+        return progress;
+      }
+      static getName(name = "empty") {
+        return `task:${name}:${++_TasksPendingQueue.counter}`;
+      }
+    };
+    TasksPendingQueue = _TasksPendingQueue;
+    TasksPendingQueue.counter = 0;
+  }
+});
+
+// src/lib/runners/git-executor-chain.ts
+
+function pluginContext(task, commands) {
+  return {
+    method: first(task.commands) || "",
+    commands
+  };
+}
+function onErrorReceived(target, logger) {
+  return (err) => {
+    logger(`[ERROR] child process exception %o`, err);
+    target.push(Buffer.from(String(err.stack), "ascii"));
+  };
+}
+function onDataReceived(target, name, logger, output) {
+  return (buffer) => {
+    logger(`%s received %L bytes`, name, buffer);
+    output(`%B`, buffer);
+    target.push(buffer);
+  };
+}
+var GitExecutorChain;
+var init_git_executor_chain = __esm({
+  "src/lib/runners/git-executor-chain.ts"() {
+    init_git_error();
+    init_task();
+    init_utils();
+    init_tasks_pending_queue();
+    GitExecutorChain = class {
+      constructor(_executor, _scheduler, _plugins) {
+        this._executor = _executor;
+        this._scheduler = _scheduler;
+        this._plugins = _plugins;
+        this._chain = Promise.resolve();
+        this._queue = new TasksPendingQueue();
+      }
+      get binary() {
+        return this._executor.binary;
+      }
+      get cwd() {
+        return this._cwd || this._executor.cwd;
+      }
+      set cwd(cwd) {
+        this._cwd = cwd;
+      }
+      get env() {
+        return this._executor.env;
+      }
+      get outputHandler() {
+        return this._executor.outputHandler;
+      }
+      chain() {
+        return this;
+      }
+      push(task) {
+        this._queue.push(task);
+        return this._chain = this._chain.then(() => this.attemptTask(task));
+      }
+      attemptTask(task) {
+        return __async(this, null, function* () {
+          const onScheduleComplete = yield this._scheduler.next();
+          const onQueueComplete = () => this._queue.complete(task);
+          try {
+            const { logger } = this._queue.attempt(task);
+            return yield isEmptyTask(task) ? this.attemptEmptyTask(task, logger) : this.attemptRemoteTask(task, logger);
+          } catch (e) {
+            throw this.onFatalException(task, e);
+          } finally {
+            onQueueComplete();
+            onScheduleComplete();
+          }
+        });
+      }
+      onFatalException(task, e) {
+        const gitError = e instanceof GitError ? Object.assign(e, { task }) : new GitError(task, e && String(e));
+        this._chain = Promise.resolve();
+        this._queue.fatal(gitError);
+        return gitError;
+      }
+      attemptRemoteTask(task, logger) {
+        return __async(this, null, function* () {
+          const args = this._plugins.exec("spawn.args", [...task.commands], pluginContext(task, task.commands));
+          const raw = yield this.gitResponse(task, this.binary, args, this.outputHandler, logger.step("SPAWN"));
+          const outputStreams = yield this.handleTaskData(task, args, raw, logger.step("HANDLE"));
+          logger(`passing response to task's parser as a %s`, task.format);
+          if (isBufferTask(task)) {
+            return callTaskParser(task.parser, outputStreams);
+          }
+          return callTaskParser(task.parser, outputStreams.asStrings());
+        });
+      }
+      attemptEmptyTask(task, logger) {
+        return __async(this, null, function* () {
+          logger(`empty task bypassing child process to call to task's parser`);
+          return task.parser(this);
+        });
+      }
+      handleTaskData(task, args, result, logger) {
+        const { exitCode, rejection, stdOut, stdErr } = result;
+        return new Promise((done, fail) => {
+          logger(`Preparing to handle process response exitCode=%d stdOut=`, exitCode);
+          const { error } = this._plugins.exec("task.error", { error: rejection }, __spreadValues(__spreadValues({}, pluginContext(task, args)), result));
+          if (error && task.onError) {
+            logger.info(`exitCode=%s handling with custom error handler`);
+            return task.onError(result, error, (newStdOut) => {
+              logger.info(`custom error handler treated as success`);
+              logger(`custom error returned a %s`, objectToString(newStdOut));
+              done(new GitOutputStreams(Array.isArray(newStdOut) ? Buffer.concat(newStdOut) : newStdOut, Buffer.concat(stdErr)));
+            }, fail);
+          }
+          if (error) {
+            logger.info(`handling as error: exitCode=%s stdErr=%s rejection=%o`, exitCode, stdErr.length, rejection);
+            return fail(error);
+          }
+          logger.info(`retrieving task output complete`);
+          done(new GitOutputStreams(Buffer.concat(stdOut), Buffer.concat(stdErr)));
+        });
+      }
+      gitResponse(task, command, args, outputHandler, logger) {
+        return __async(this, null, function* () {
+          const outputLogger = logger.sibling("output");
+          const spawnOptions = this._plugins.exec("spawn.options", {
+            cwd: this.cwd,
+            env: this.env,
+            windowsHide: true
+          }, pluginContext(task, task.commands));
+          return new Promise((done) => {
+            const stdOut = [];
+            const stdErr = [];
+            let rejection;
+            logger.info(`%s %o`, command, args);
+            logger("%O", spawnOptions);
+            const spawned = (0,external_child_process_namespaceObject.spawn)(command, args, spawnOptions);
+            spawned.stdout.on("data", onDataReceived(stdOut, "stdOut", logger, outputLogger.step("stdOut")));
+            spawned.stderr.on("data", onDataReceived(stdErr, "stdErr", logger, outputLogger.step("stdErr")));
+            spawned.on("error", onErrorReceived(stdErr, logger));
+            if (outputHandler) {
+              logger(`Passing child process stdOut/stdErr to custom outputHandler`);
+              outputHandler(command, spawned.stdout, spawned.stderr, [...args]);
+            }
+            this._plugins.exec("spawn.after", void 0, __spreadProps(__spreadValues({}, pluginContext(task, args)), {
+              spawned,
+              close(exitCode, reason) {
+                done({
+                  stdOut,
+                  stdErr,
+                  exitCode,
+                  rejection: rejection || reason
+                });
+              },
+              kill(reason) {
+                if (spawned.killed) {
+                  return;
+                }
+                rejection = reason;
+                spawned.kill("SIGINT");
+              }
+            }));
+          });
+        });
+      }
+    };
+  }
+});
+
+// src/lib/runners/git-executor.ts
+var git_executor_exports = {};
+__export(git_executor_exports, {
+  GitExecutor: () => GitExecutor
+});
+var GitExecutor;
+var init_git_executor = __esm({
+  "src/lib/runners/git-executor.ts"() {
+    init_git_executor_chain();
+    GitExecutor = class {
+      constructor(binary = "git", cwd, _scheduler, _plugins) {
+        this.binary = binary;
+        this.cwd = cwd;
+        this._scheduler = _scheduler;
+        this._plugins = _plugins;
+        this._chain = new GitExecutorChain(this, this._scheduler, this._plugins);
+      }
+      chain() {
+        return new GitExecutorChain(this, this._scheduler, this._plugins);
+      }
+      push(task) {
+        return this._chain.push(task);
+      }
+    };
+  }
+});
+
+// src/lib/task-callback.ts
+function taskCallback(task, response, callback = NOOP) {
+  const onSuccess = (data) => {
+    callback(null, data);
+  };
+  const onError2 = (err) => {
+    if ((err == null ? void 0 : err.task) === task) {
+      callback(err instanceof GitResponseError ? addDeprecationNoticeToError(err) : err, void 0);
+    }
+  };
+  response.then(onSuccess, onError2);
+}
+function addDeprecationNoticeToError(err) {
+  let log = (name) => {
+    console.warn(`simple-git deprecation notice: accessing GitResponseError.${name} should be GitResponseError.git.${name}, this will no longer be available in version 3`);
+    log = NOOP;
+  };
+  return Object.create(err, Object.getOwnPropertyNames(err.git).reduce(descriptorReducer, {}));
+  function descriptorReducer(all, name) {
+    if (name in err) {
+      return all;
+    }
+    all[name] = {
+      enumerable: false,
+      configurable: false,
+      get() {
+        log(name);
+        return err.git[name];
+      }
+    };
+    return all;
+  }
+}
+var init_task_callback = __esm({
+  "src/lib/task-callback.ts"() {
+    init_git_response_error();
+    init_utils();
+  }
+});
+
+// src/lib/tasks/change-working-directory.ts
+function changeWorkingDirectoryTask(directory, root) {
+  return adhocExecTask((instance) => {
+    if (!folderExists(directory)) {
+      throw new Error(`Git.cwd: cannot change to non-directory "${directory}"`);
+    }
+    return (root || instance).cwd = directory;
+  });
+}
+var init_change_working_directory = __esm({
+  "src/lib/tasks/change-working-directory.ts"() {
+    init_utils();
+    init_task();
+  }
+});
+
+// src/lib/parsers/parse-commit.ts
+function parseCommitResult(stdOut) {
+  const result = {
+    author: null,
+    branch: "",
+    commit: "",
+    root: false,
+    summary: {
+      changes: 0,
+      insertions: 0,
+      deletions: 0
+    }
+  };
+  return parseStringResponse(result, parsers, stdOut);
+}
+var parsers;
+var init_parse_commit = __esm({
+  "src/lib/parsers/parse-commit.ts"() {
+    init_utils();
+    parsers = [
+      new LineParser(/^\[([^\s]+)( \([^)]+\))? ([^\]]+)/, (result, [branch, root, commit]) => {
+        result.branch = branch;
+        result.commit = commit;
+        result.root = !!root;
+      }),
+      new LineParser(/\s*Author:\s(.+)/i, (result, [author]) => {
+        const parts = author.split("<");
+        const email = parts.pop();
+        if (!email || !email.includes("@")) {
+          return;
+        }
+        result.author = {
+          email: email.substr(0, email.length - 1),
+          name: parts.join("<").trim()
+        };
+      }),
+      new LineParser(/(\d+)[^,]*(?:,\s*(\d+)[^,]*)(?:,\s*(\d+))/g, (result, [changes, insertions, deletions]) => {
+        result.summary.changes = parseInt(changes, 10) || 0;
+        result.summary.insertions = parseInt(insertions, 10) || 0;
+        result.summary.deletions = parseInt(deletions, 10) || 0;
+      }),
+      new LineParser(/^(\d+)[^,]*(?:,\s*(\d+)[^(]+\(([+-]))?/, (result, [changes, lines, direction]) => {
+        result.summary.changes = parseInt(changes, 10) || 0;
+        const count = parseInt(lines, 10) || 0;
+        if (direction === "-") {
+          result.summary.deletions = count;
+        } else if (direction === "+") {
+          result.summary.insertions = count;
+        }
+      })
+    ];
+  }
+});
+
+// src/lib/tasks/commit.ts
+var commit_exports = {};
+__export(commit_exports, {
+  commitTask: () => commitTask,
+  default: () => commit_default
+});
+function commitTask(message, files, customArgs) {
+  const commands = [
+    "-c",
+    "core.abbrev=40",
+    "commit",
+    ...prefixedArray(message, "-m"),
+    ...files,
+    ...customArgs
+  ];
+  return {
+    commands,
+    format: "utf-8",
+    parser: parseCommitResult
+  };
+}
+function commit_default() {
+  return {
+    commit(message, ...rest) {
+      const next = trailingFunctionArgument(arguments);
+      const task = rejectDeprecatedSignatures(message) || commitTask(asArray(message), asArray(filterType(rest[0], filterStringOrStringArray, [])), [...filterType(rest[1], filterArray, []), ...getTrailingOptions(arguments, 0, true)]);
+      return this._runTask(task, next);
+    }
+  };
+  function rejectDeprecatedSignatures(message) {
+    return !filterStringOrStringArray(message) && configurationErrorTask(`git.commit: requires the commit message to be supplied as a string/string[]`);
+  }
+}
+var init_commit = __esm({
+  "src/lib/tasks/commit.ts"() {
+    init_parse_commit();
+    init_utils();
+    init_task();
+  }
+});
+
+// src/lib/tasks/hash-object.ts
+function hashObjectTask(filePath, write) {
+  const commands = ["hash-object", filePath];
+  if (write) {
+    commands.push("-w");
+  }
+  return straightThroughStringTask(commands, true);
+}
+var init_hash_object = __esm({
+  "src/lib/tasks/hash-object.ts"() {
+    init_task();
+  }
+});
+
+// src/lib/responses/InitSummary.ts
+function parseInit(bare, path, text) {
+  const response = String(text).trim();
+  let result;
+  if (result = initResponseRegex.exec(response)) {
+    return new InitSummary(bare, path, false, result[1]);
+  }
+  if (result = reInitResponseRegex.exec(response)) {
+    return new InitSummary(bare, path, true, result[1]);
+  }
+  let gitDir = "";
+  const tokens = response.split(" ");
+  while (tokens.length) {
+    const token = tokens.shift();
+    if (token === "in") {
+      gitDir = tokens.join(" ");
+      break;
+    }
+  }
+  return new InitSummary(bare, path, /^re/i.test(response), gitDir);
+}
+var InitSummary, initResponseRegex, reInitResponseRegex;
+var init_InitSummary = __esm({
+  "src/lib/responses/InitSummary.ts"() {
+    InitSummary = class {
+      constructor(bare, path, existing, gitDir) {
+        this.bare = bare;
+        this.path = path;
+        this.existing = existing;
+        this.gitDir = gitDir;
+      }
+    };
+    initResponseRegex = /^Init.+ repository in (.+)$/;
+    reInitResponseRegex = /^Rein.+ in (.+)$/;
+  }
+});
+
+// src/lib/tasks/init.ts
+function hasBareCommand(command) {
+  return command.includes(bareCommand);
+}
+function initTask(bare = false, path, customArgs) {
+  const commands = ["init", ...customArgs];
+  if (bare && !hasBareCommand(commands)) {
+    commands.splice(1, 0, bareCommand);
+  }
+  return {
+    commands,
+    format: "utf-8",
+    parser(text) {
+      return parseInit(commands.includes("--bare"), path, text);
+    }
+  };
+}
+var bareCommand;
+var init_init = __esm({
+  "src/lib/tasks/init.ts"() {
+    init_InitSummary();
+    bareCommand = "--bare";
+  }
+});
+
+// src/lib/responses/DiffSummary.ts
+var DiffSummary;
+var init_DiffSummary = __esm({
+  "src/lib/responses/DiffSummary.ts"() {
+    DiffSummary = class {
+      constructor() {
+        this.changed = 0;
+        this.deletions = 0;
+        this.insertions = 0;
+        this.files = [];
+      }
+    };
+  }
+});
+
+// src/lib/parsers/parse-diff-summary.ts
+function parseDiffResult(stdOut) {
+  const lines = stdOut.trim().split("\n");
+  const status = new DiffSummary();
+  readSummaryLine(status, lines.pop());
+  for (let i = 0, max = lines.length; i < max; i++) {
+    const line = lines[i];
+    textFileChange(line, status) || binaryFileChange(line, status);
+  }
+  return status;
+}
+function readSummaryLine(status, summary) {
+  (summary || "").trim().split(", ").forEach(function(text) {
+    const summary2 = /(\d+)\s([a-z]+)/.exec(text);
+    if (!summary2) {
+      return;
+    }
+    summaryType(status, summary2[2], parseInt(summary2[1], 10));
+  });
+}
+function summaryType(status, key, value) {
+  const match = /([a-z]+?)s?\b/.exec(key);
+  if (!match || !statusUpdate[match[1]]) {
+    return;
+  }
+  statusUpdate[match[1]](status, value);
+}
+function textFileChange(input, { files }) {
+  const line = input.trim().match(/^(.+)\s+\|\s+(\d+)(\s+[+\-]+)?$/);
+  if (line) {
+    var alterations = (line[3] || "").trim();
+    files.push({
+      file: line[1].trim(),
+      changes: parseInt(line[2], 10),
+      insertions: alterations.replace(/-/g, "").length,
+      deletions: alterations.replace(/\+/g, "").length,
+      binary: false
+    });
+    return true;
+  }
+  return false;
+}
+function binaryFileChange(input, { files }) {
+  const line = input.match(/^(.+) \|\s+Bin ([0-9.]+) -> ([0-9.]+) ([a-z]+)$/);
+  if (line) {
+    files.push({
+      file: line[1].trim(),
+      before: +line[2],
+      after: +line[3],
+      binary: true
+    });
+    return true;
+  }
+  return false;
+}
+var statusUpdate;
+var init_parse_diff_summary = __esm({
+  "src/lib/parsers/parse-diff-summary.ts"() {
+    init_DiffSummary();
+    statusUpdate = {
+      file(status, value) {
+        status.changed = value;
+      },
+      deletion(status, value) {
+        status.deletions = value;
+      },
+      insertion(status, value) {
+        status.insertions = value;
+      }
+    };
+  }
+});
+
+// src/lib/parsers/parse-list-log-summary.ts
+function lineBuilder(tokens, fields) {
+  return fields.reduce((line, field, index) => {
+    line[field] = tokens[index] || "";
+    return line;
+  }, /* @__PURE__ */ Object.create({ diff: null }));
+}
+function createListLogSummaryParser(splitter = SPLITTER, fields = defaultFieldNames) {
+  return function(stdOut) {
+    const all = toLinesWithContent(stdOut, true, START_BOUNDARY).map(function(item) {
+      const lineDetail = item.trim().split(COMMIT_BOUNDARY);
+      const listLogLine = lineBuilder(lineDetail[0].trim().split(splitter), fields);
+      if (lineDetail.length > 1 && !!lineDetail[1].trim()) {
+        listLogLine.diff = parseDiffResult(lineDetail[1]);
+      }
+      return listLogLine;
+    });
+    return {
+      all,
+      latest: all.length && all[0] || null,
+      total: all.length
+    };
+  };
+}
+var START_BOUNDARY, COMMIT_BOUNDARY, SPLITTER, defaultFieldNames;
+var init_parse_list_log_summary = __esm({
+  "src/lib/parsers/parse-list-log-summary.ts"() {
+    init_utils();
+    init_parse_diff_summary();
+    START_BOUNDARY = "\xF2\xF2\xF2\xF2\xF2\xF2 ";
+    COMMIT_BOUNDARY = " \xF2\xF2";
+    SPLITTER = " \xF2 ";
+    defaultFieldNames = ["hash", "date", "message", "refs", "author_name", "author_email"];
+  }
+});
+
+// src/lib/tasks/log.ts
+function prettyFormat(format, splitter) {
+  const fields = [];
+  const formatStr = [];
+  Object.keys(format).forEach((field) => {
+    fields.push(field);
+    formatStr.push(String(format[field]));
+  });
+  return [
+    fields,
+    formatStr.join(splitter)
+  ];
+}
+function userOptions(input) {
+  return Object.keys(input).reduce((out, key) => {
+    if (!(key in excludeOptions)) {
+      out[key] = input[key];
+    }
+    return out;
+  }, {});
+}
+function parseLogOptions(opt = {}, customArgs = []) {
+  const splitter = filterType(opt.splitter, filterString, SPLITTER);
+  const format = !filterPrimitives(opt.format) && opt.format ? opt.format : {
+    hash: "%H",
+    date: opt.strictDate === false ? "%ai" : "%aI",
+    message: "%s",
+    refs: "%D",
+    body: opt.multiLine ? "%B" : "%b",
+    author_name: opt.mailMap !== false ? "%aN" : "%an",
+    author_email: opt.mailMap !== false ? "%aE" : "%ae"
+  };
+  const [fields, formatStr] = prettyFormat(format, splitter);
+  const suffix = [];
+  const command = [
+    `--pretty=format:${START_BOUNDARY}${formatStr}${COMMIT_BOUNDARY}`,
+    ...customArgs
+  ];
+  const maxCount = opt.n || opt["max-count"] || opt.maxCount;
+  if (maxCount) {
+    command.push(`--max-count=${maxCount}`);
+  }
+  if (opt.from && opt.to) {
+    const rangeOperator = opt.symmetric !== false ? "..." : "..";
+    suffix.push(`${opt.from}${rangeOperator}${opt.to}`);
+  }
+  if (filterString(opt.file)) {
+    suffix.push("--follow", opt.file);
+  }
+  appendTaskOptions(userOptions(opt), command);
+  return {
+    fields,
+    splitter,
+    commands: [
+      ...command,
+      ...suffix
+    ]
+  };
+}
+function logTask(splitter, fields, customArgs) {
+  return {
+    commands: ["log", ...customArgs],
+    format: "utf-8",
+    parser: createListLogSummaryParser(splitter, fields)
+  };
+}
+function log_default() {
+  return {
+    log(...rest) {
+      const next = trailingFunctionArgument(arguments);
+      const task = rejectDeprecatedSignatures(...rest) || createLogTask(parseLogOptions(trailingOptionsArgument(arguments), filterType(arguments[0], filterArray)));
+      return this._runTask(task, next);
+    }
+  };
+  function createLogTask(options) {
+    return logTask(options.splitter, options.fields, options.commands);
+  }
+  function rejectDeprecatedSignatures(from, to) {
+    return filterString(from) && filterString(to) && configurationErrorTask(`git.log(string, string) should be replaced with git.log({ from: string, to: string })`);
+  }
+}
+var excludeOptions;
+var init_log = __esm({
+  "src/lib/tasks/log.ts"() {
+    init_parse_list_log_summary();
+    init_utils();
+    init_task();
+    excludeOptions = /* @__PURE__ */ ((excludeOptions2) => {
+      excludeOptions2[excludeOptions2["--pretty"] = 0] = "--pretty";
+      excludeOptions2[excludeOptions2["max-count"] = 1] = "max-count";
+      excludeOptions2[excludeOptions2["maxCount"] = 2] = "maxCount";
+      excludeOptions2[excludeOptions2["n"] = 3] = "n";
+      excludeOptions2[excludeOptions2["file"] = 4] = "file";
+      excludeOptions2[excludeOptions2["format"] = 5] = "format";
+      excludeOptions2[excludeOptions2["from"] = 6] = "from";
+      excludeOptions2[excludeOptions2["to"] = 7] = "to";
+      excludeOptions2[excludeOptions2["splitter"] = 8] = "splitter";
+      excludeOptions2[excludeOptions2["symmetric"] = 9] = "symmetric";
+      excludeOptions2[excludeOptions2["mailMap"] = 10] = "mailMap";
+      excludeOptions2[excludeOptions2["multiLine"] = 11] = "multiLine";
+      excludeOptions2[excludeOptions2["strictDate"] = 12] = "strictDate";
+      return excludeOptions2;
+    })(excludeOptions || {});
+  }
+});
+
+// src/lib/responses/MergeSummary.ts
+var MergeSummaryConflict, MergeSummaryDetail;
+var init_MergeSummary = __esm({
+  "src/lib/responses/MergeSummary.ts"() {
+    MergeSummaryConflict = class {
+      constructor(reason, file = null, meta) {
+        this.reason = reason;
+        this.file = file;
+        this.meta = meta;
+      }
+      toString() {
+        return `${this.file}:${this.reason}`;
+      }
+    };
+    MergeSummaryDetail = class {
+      constructor() {
+        this.conflicts = [];
+        this.merges = [];
+        this.result = "success";
+      }
+      get failed() {
+        return this.conflicts.length > 0;
+      }
+      get reason() {
+        return this.result;
+      }
+      toString() {
+        if (this.conflicts.length) {
+          return `CONFLICTS: ${this.conflicts.join(", ")}`;
+        }
+        return "OK";
+      }
+    };
+  }
+});
+
+// src/lib/responses/PullSummary.ts
+var PullSummary, PullFailedSummary;
+var init_PullSummary = __esm({
+  "src/lib/responses/PullSummary.ts"() {
+    PullSummary = class {
+      constructor() {
+        this.remoteMessages = {
+          all: []
+        };
+        this.created = [];
+        this.deleted = [];
+        this.files = [];
+        this.deletions = {};
+        this.insertions = {};
+        this.summary = {
+          changes: 0,
+          deletions: 0,
+          insertions: 0
+        };
+      }
+    };
+    PullFailedSummary = class {
+      constructor() {
+        this.remote = "";
+        this.hash = {
+          local: "",
+          remote: ""
+        };
+        this.branch = {
+          local: "",
+          remote: ""
+        };
+        this.message = "";
+      }
+      toString() {
+        return this.message;
+      }
+    };
+  }
+});
+
+// src/lib/parsers/parse-remote-objects.ts
+function objectEnumerationResult(remoteMessages) {
+  return remoteMessages.objects = remoteMessages.objects || {
+    compressing: 0,
+    counting: 0,
+    enumerating: 0,
+    packReused: 0,
+    reused: { count: 0, delta: 0 },
+    total: { count: 0, delta: 0 }
+  };
+}
+function asObjectCount(source) {
+  const count = /^\s*(\d+)/.exec(source);
+  const delta = /delta (\d+)/i.exec(source);
+  return {
+    count: asNumber(count && count[1] || "0"),
+    delta: asNumber(delta && delta[1] || "0")
+  };
+}
+var remoteMessagesObjectParsers;
+var init_parse_remote_objects = __esm({
+  "src/lib/parsers/parse-remote-objects.ts"() {
+    init_utils();
+    remoteMessagesObjectParsers = [
+      new RemoteLineParser(/^remote:\s*(enumerating|counting|compressing) objects: (\d+),/i, (result, [action, count]) => {
+        const key = action.toLowerCase();
+        const enumeration = objectEnumerationResult(result.remoteMessages);
+        Object.assign(enumeration, { [key]: asNumber(count) });
+      }),
+      new RemoteLineParser(/^remote:\s*(enumerating|counting|compressing) objects: \d+% \(\d+\/(\d+)\),/i, (result, [action, count]) => {
+        const key = action.toLowerCase();
+        const enumeration = objectEnumerationResult(result.remoteMessages);
+        Object.assign(enumeration, { [key]: asNumber(count) });
+      }),
+      new RemoteLineParser(/total ([^,]+), reused ([^,]+), pack-reused (\d+)/i, (result, [total, reused, packReused]) => {
+        const objects = objectEnumerationResult(result.remoteMessages);
+        objects.total = asObjectCount(total);
+        objects.reused = asObjectCount(reused);
+        objects.packReused = asNumber(packReused);
+      })
+    ];
+  }
+});
+
+// src/lib/parsers/parse-remote-messages.ts
+function parseRemoteMessages(_stdOut, stdErr) {
+  return parseStringResponse({ remoteMessages: new RemoteMessageSummary() }, parsers2, stdErr);
+}
+var parsers2, RemoteMessageSummary;
+var init_parse_remote_messages = __esm({
+  "src/lib/parsers/parse-remote-messages.ts"() {
+    init_utils();
+    init_parse_remote_objects();
+    parsers2 = [
+      new RemoteLineParser(/^remote:\s*(.+)$/, (result, [text]) => {
+        result.remoteMessages.all.push(text.trim());
+        return false;
+      }),
+      ...remoteMessagesObjectParsers,
+      new RemoteLineParser([/create a (?:pull|merge) request/i, /\s(https?:\/\/\S+)$/], (result, [pullRequestUrl]) => {
+        result.remoteMessages.pullRequestUrl = pullRequestUrl;
+      }),
+      new RemoteLineParser([/found (\d+) vulnerabilities.+\(([^)]+)\)/i, /\s(https?:\/\/\S+)$/], (result, [count, summary, url]) => {
+        result.remoteMessages.vulnerabilities = {
+          count: asNumber(count),
+          summary,
+          url
+        };
+      })
+    ];
+    RemoteMessageSummary = class {
+      constructor() {
+        this.all = [];
+      }
+    };
+  }
+});
+
+// src/lib/parsers/parse-pull.ts
+function parsePullErrorResult(stdOut, stdErr) {
+  const pullError = parseStringResponse(new PullFailedSummary(), errorParsers, stdOut, stdErr);
+  return pullError.message && pullError;
+}
+var FILE_UPDATE_REGEX, SUMMARY_REGEX, ACTION_REGEX, parsers3, errorParsers, parsePullDetail, parsePullResult;
+var init_parse_pull = __esm({
+  "src/lib/parsers/parse-pull.ts"() {
+    init_PullSummary();
+    init_utils();
+    init_parse_remote_messages();
+    FILE_UPDATE_REGEX = /^\s*(.+?)\s+\|\s+\d+\s*(\+*)(-*)/;
+    SUMMARY_REGEX = /(\d+)\D+((\d+)\D+\(\+\))?(\D+(\d+)\D+\(-\))?/;
+    ACTION_REGEX = /^(create|delete) mode \d+ (.+)/;
+    parsers3 = [
+      new LineParser(FILE_UPDATE_REGEX, (result, [file, insertions, deletions]) => {
+        result.files.push(file);
+        if (insertions) {
+          result.insertions[file] = insertions.length;
+        }
+        if (deletions) {
+          result.deletions[file] = deletions.length;
+        }
+      }),
+      new LineParser(SUMMARY_REGEX, (result, [changes, , insertions, , deletions]) => {
+        if (insertions !== void 0 || deletions !== void 0) {
+          result.summary.changes = +changes || 0;
+          result.summary.insertions = +insertions || 0;
+          result.summary.deletions = +deletions || 0;
+          return true;
+        }
+        return false;
+      }),
+      new LineParser(ACTION_REGEX, (result, [action, file]) => {
+        append(result.files, file);
+        append(action === "create" ? result.created : result.deleted, file);
+      })
+    ];
+    errorParsers = [
+      new LineParser(/^from\s(.+)$/i, (result, [remote]) => void (result.remote = remote)),
+      new LineParser(/^fatal:\s(.+)$/, (result, [message]) => void (result.message = message)),
+      new LineParser(/([a-z0-9]+)\.\.([a-z0-9]+)\s+(\S+)\s+->\s+(\S+)$/, (result, [hashLocal, hashRemote, branchLocal, branchRemote]) => {
+        result.branch.local = branchLocal;
+        result.hash.local = hashLocal;
+        result.branch.remote = branchRemote;
+        result.hash.remote = hashRemote;
+      })
+    ];
+    parsePullDetail = (stdOut, stdErr) => {
+      return parseStringResponse(new PullSummary(), parsers3, stdOut, stdErr);
+    };
+    parsePullResult = (stdOut, stdErr) => {
+      return Object.assign(new PullSummary(), parsePullDetail(stdOut, stdErr), parseRemoteMessages(stdOut, stdErr));
+    };
+  }
+});
+
+// src/lib/parsers/parse-merge.ts
+var parsers4, parseMergeResult, parseMergeDetail;
+var init_parse_merge = __esm({
+  "src/lib/parsers/parse-merge.ts"() {
+    init_MergeSummary();
+    init_utils();
+    init_parse_pull();
+    parsers4 = [
+      new LineParser(/^Auto-merging\s+(.+)$/, (summary, [autoMerge]) => {
+        summary.merges.push(autoMerge);
+      }),
+      new LineParser(/^CONFLICT\s+\((.+)\): Merge conflict in (.+)$/, (summary, [reason, file]) => {
+        summary.conflicts.push(new MergeSummaryConflict(reason, file));
+      }),
+      new LineParser(/^CONFLICT\s+\((.+\/delete)\): (.+) deleted in (.+) and/, (summary, [reason, file, deleteRef]) => {
+        summary.conflicts.push(new MergeSummaryConflict(reason, file, { deleteRef }));
+      }),
+      new LineParser(/^CONFLICT\s+\((.+)\):/, (summary, [reason]) => {
+        summary.conflicts.push(new MergeSummaryConflict(reason, null));
+      }),
+      new LineParser(/^Automatic merge failed;\s+(.+)$/, (summary, [result]) => {
+        summary.result = result;
+      })
+    ];
+    parseMergeResult = (stdOut, stdErr) => {
+      return Object.assign(parseMergeDetail(stdOut, stdErr), parsePullResult(stdOut, stdErr));
+    };
+    parseMergeDetail = (stdOut) => {
+      return parseStringResponse(new MergeSummaryDetail(), parsers4, stdOut);
+    };
+  }
+});
+
+// src/lib/tasks/merge.ts
+function mergeTask(customArgs) {
+  if (!customArgs.length) {
+    return configurationErrorTask("Git.merge requires at least one option");
+  }
+  return {
+    commands: ["merge", ...customArgs],
+    format: "utf-8",
+    parser(stdOut, stdErr) {
+      const merge = parseMergeResult(stdOut, stdErr);
+      if (merge.failed) {
+        throw new GitResponseError(merge);
+      }
+      return merge;
+    }
+  };
+}
+var init_merge = __esm({
+  "src/lib/tasks/merge.ts"() {
+    init_git_response_error();
+    init_parse_merge();
+    init_task();
+  }
+});
+
+// src/lib/parsers/parse-push.ts
+function pushResultPushedItem(local, remote, status) {
+  const deleted = status.includes("deleted");
+  const tag = status.includes("tag") || /^refs\/tags/.test(local);
+  const alreadyUpdated = !status.includes("new");
+  return {
+    deleted,
+    tag,
+    branch: !tag,
+    new: !alreadyUpdated,
+    alreadyUpdated,
+    local,
+    remote
+  };
+}
+var parsers5, parsePushResult, parsePushDetail;
+var init_parse_push = __esm({
+  "src/lib/parsers/parse-push.ts"() {
+    init_utils();
+    init_parse_remote_messages();
+    parsers5 = [
+      new LineParser(/^Pushing to (.+)$/, (result, [repo]) => {
+        result.repo = repo;
+      }),
+      new LineParser(/^updating local tracking ref '(.+)'/, (result, [local]) => {
+        result.ref = __spreadProps(__spreadValues({}, result.ref || {}), {
+          local
+        });
+      }),
+      new LineParser(/^[*-=]\s+([^:]+):(\S+)\s+\[(.+)]$/, (result, [local, remote, type]) => {
+        result.pushed.push(pushResultPushedItem(local, remote, type));
+      }),
+      new LineParser(/^Branch '([^']+)' set up to track remote branch '([^']+)' from '([^']+)'/, (result, [local, remote, remoteName]) => {
+        result.branch = __spreadProps(__spreadValues({}, result.branch || {}), {
+          local,
+          remote,
+          remoteName
+        });
+      }),
+      new LineParser(/^([^:]+):(\S+)\s+([a-z0-9]+)\.\.([a-z0-9]+)$/, (result, [local, remote, from, to]) => {
+        result.update = {
+          head: {
+            local,
+            remote
+          },
+          hash: {
+            from,
+            to
+          }
+        };
+      })
+    ];
+    parsePushResult = (stdOut, stdErr) => {
+      const pushDetail = parsePushDetail(stdOut, stdErr);
+      const responseDetail = parseRemoteMessages(stdOut, stdErr);
+      return __spreadValues(__spreadValues({}, pushDetail), responseDetail);
+    };
+    parsePushDetail = (stdOut, stdErr) => {
+      return parseStringResponse({ pushed: [] }, parsers5, stdOut, stdErr);
+    };
+  }
+});
+
+// src/lib/tasks/push.ts
+var push_exports = {};
+__export(push_exports, {
+  pushTagsTask: () => pushTagsTask,
+  pushTask: () => pushTask
+});
+function pushTagsTask(ref = {}, customArgs) {
+  append(customArgs, "--tags");
+  return pushTask(ref, customArgs);
+}
+function pushTask(ref = {}, customArgs) {
+  const commands = ["push", ...customArgs];
+  if (ref.branch) {
+    commands.splice(1, 0, ref.branch);
+  }
+  if (ref.remote) {
+    commands.splice(1, 0, ref.remote);
+  }
+  remove(commands, "-v");
+  append(commands, "--verbose");
+  append(commands, "--porcelain");
+  return {
+    commands,
+    format: "utf-8",
+    parser: parsePushResult
+  };
+}
+var init_push = __esm({
+  "src/lib/tasks/push.ts"() {
+    init_parse_push();
+    init_utils();
+  }
+});
+
+// src/lib/responses/FileStatusSummary.ts
+var fromPathRegex, FileStatusSummary;
+var init_FileStatusSummary = __esm({
+  "src/lib/responses/FileStatusSummary.ts"() {
+    fromPathRegex = /^(.+) -> (.+)$/;
+    FileStatusSummary = class {
+      constructor(path, index, working_dir) {
+        this.path = path;
+        this.index = index;
+        this.working_dir = working_dir;
+        if (index + working_dir === "R") {
+          const detail = fromPathRegex.exec(path) || [null, path, path];
+          this.from = detail[1] || "";
+          this.path = detail[2] || "";
+        }
+      }
+    };
+  }
+});
+
+// src/lib/responses/StatusSummary.ts
+function renamedFile(line) {
+  const [to, from] = line.split(NULL);
+  return {
+    from: from || to,
+    to
+  };
+}
+function parser2(indexX, indexY, handler) {
+  return [`${indexX}${indexY}`, handler];
+}
+function conflicts(indexX, ...indexY) {
+  return indexY.map((y) => parser2(indexX, y, (result, file) => append(result.conflicted, file)));
+}
+function splitLine(result, lineStr) {
+  const trimmed2 = lineStr.trim();
+  switch (" ") {
+    case trimmed2.charAt(2):
+      return data(trimmed2.charAt(0), trimmed2.charAt(1), trimmed2.substr(3));
+    case trimmed2.charAt(1):
+      return data(" " /* NONE */, trimmed2.charAt(0), trimmed2.substr(2));
+    default:
+      return;
+  }
+  function data(index, workingDir, path) {
+    const raw = `${index}${workingDir}`;
+    const handler = parsers6.get(raw);
+    if (handler) {
+      handler(result, path);
+    }
+    if (raw !== "##" && raw !== "!!") {
+      result.files.push(new FileStatusSummary(path.replace(/\0.+$/, ""), index, workingDir));
+    }
+  }
+}
+var StatusSummary, parsers6, parseStatusSummary;
+var init_StatusSummary = __esm({
+  "src/lib/responses/StatusSummary.ts"() {
+    init_utils();
+    init_FileStatusSummary();
+    StatusSummary = class {
+      constructor() {
+        this.not_added = [];
+        this.conflicted = [];
+        this.created = [];
+        this.deleted = [];
+        this.ignored = void 0;
+        this.modified = [];
+        this.renamed = [];
+        this.files = [];
+        this.staged = [];
+        this.ahead = 0;
+        this.behind = 0;
+        this.current = null;
+        this.tracking = null;
+        this.detached = false;
+        this.isClean = () => {
+          return !this.files.length;
+        };
+      }
+    };
+    parsers6 = new Map([
+      parser2(" " /* NONE */, "A" /* ADDED */, (result, file) => append(result.created, file)),
+      parser2(" " /* NONE */, "D" /* DELETED */, (result, file) => append(result.deleted, file)),
+      parser2(" " /* NONE */, "M" /* MODIFIED */, (result, file) => append(result.modified, file)),
+      parser2("A" /* ADDED */, " " /* NONE */, (result, file) => append(result.created, file) && append(result.staged, file)),
+      parser2("A" /* ADDED */, "M" /* MODIFIED */, (result, file) => append(result.created, file) && append(result.staged, file) && append(result.modified, file)),
+      parser2("D" /* DELETED */, " " /* NONE */, (result, file) => append(result.deleted, file) && append(result.staged, file)),
+      parser2("M" /* MODIFIED */, " " /* NONE */, (result, file) => append(result.modified, file) && append(result.staged, file)),
+      parser2("M" /* MODIFIED */, "M" /* MODIFIED */, (result, file) => append(result.modified, file) && append(result.staged, file)),
+      parser2("R" /* RENAMED */, " " /* NONE */, (result, file) => {
+        append(result.renamed, renamedFile(file));
+      }),
+      parser2("R" /* RENAMED */, "M" /* MODIFIED */, (result, file) => {
+        const renamed = renamedFile(file);
+        append(result.renamed, renamed);
+        append(result.modified, renamed.to);
+      }),
+      parser2("!" /* IGNORED */, "!" /* IGNORED */, (_result, _file) => {
+        append(_result.ignored = _result.ignored || [], _file);
+      }),
+      parser2("?" /* UNTRACKED */, "?" /* UNTRACKED */, (result, file) => append(result.not_added, file)),
+      ...conflicts("A" /* ADDED */, "A" /* ADDED */, "U" /* UNMERGED */),
+      ...conflicts("D" /* DELETED */, "D" /* DELETED */, "U" /* UNMERGED */),
+      ...conflicts("U" /* UNMERGED */, "A" /* ADDED */, "D" /* DELETED */, "U" /* UNMERGED */),
+      ["##", (result, line) => {
+        const aheadReg = /ahead (\d+)/;
+        const behindReg = /behind (\d+)/;
+        const currentReg = /^(.+?(?=(?:\.{3}|\s|$)))/;
+        const trackingReg = /\.{3}(\S*)/;
+        const onEmptyBranchReg = /\son\s([\S]+)$/;
+        let regexResult;
+        regexResult = aheadReg.exec(line);
+        result.ahead = regexResult && +regexResult[1] || 0;
+        regexResult = behindReg.exec(line);
+        result.behind = regexResult && +regexResult[1] || 0;
+        regexResult = currentReg.exec(line);
+        result.current = regexResult && regexResult[1];
+        regexResult = trackingReg.exec(line);
+        result.tracking = regexResult && regexResult[1];
+        regexResult = onEmptyBranchReg.exec(line);
+        result.current = regexResult && regexResult[1] || result.current;
+        result.detached = /\(no branch\)/.test(line);
+      }]
+    ]);
+    parseStatusSummary = function(text) {
+      const lines = text.split(NULL);
+      const status = new StatusSummary();
+      for (let i = 0, l = lines.length; i < l; ) {
+        let line = lines[i++].trim();
+        if (!line) {
+          continue;
+        }
+        if (line.charAt(0) === "R" /* RENAMED */) {
+          line += NULL + (lines[i++] || "");
+        }
+        splitLine(status, line);
+      }
+      return status;
+    };
+  }
+});
+
+// src/lib/tasks/status.ts
+function statusTask(customArgs) {
+  const commands = [
+    "status",
+    "--porcelain",
+    "-b",
+    "-u",
+    "--null",
+    ...customArgs.filter((arg) => !ignoredOptions.includes(arg))
+  ];
+  return {
+    format: "utf-8",
+    commands,
+    parser(text) {
+      return parseStatusSummary(text);
+    }
+  };
+}
+var ignoredOptions;
+var init_status = __esm({
+  "src/lib/tasks/status.ts"() {
+    init_StatusSummary();
+    ignoredOptions = ["--null", "-z"];
+  }
+});
+
+// src/lib/simple-git-api.ts
+var simple_git_api_exports = {};
+__export(simple_git_api_exports, {
+  SimpleGitApi: () => SimpleGitApi
+});
+var SimpleGitApi;
+var init_simple_git_api = __esm({
+  "src/lib/simple-git-api.ts"() {
+    init_task_callback();
+    init_change_working_directory();
+    init_commit();
+    init_config();
+    init_grep();
+    init_hash_object();
+    init_init();
+    init_log();
+    init_merge();
+    init_push();
+    init_status();
+    init_task();
+    init_utils();
+    SimpleGitApi = class {
+      constructor(_executor) {
+        this._executor = _executor;
+      }
+      _runTask(task, then) {
+        const chain = this._executor.chain();
+        const promise = chain.push(task);
+        if (then) {
+          taskCallback(task, promise, then);
+        }
+        return Object.create(this, {
+          then: { value: promise.then.bind(promise) },
+          catch: { value: promise.catch.bind(promise) },
+          _executor: { value: chain }
+        });
+      }
+      add(files) {
+        return this._runTask(straightThroughStringTask(["add", ...asArray(files)]), trailingFunctionArgument(arguments));
+      }
+      cwd(directory) {
+        const next = trailingFunctionArgument(arguments);
+        if (typeof directory === "string") {
+          return this._runTask(changeWorkingDirectoryTask(directory, this._executor), next);
+        }
+        if (typeof (directory == null ? void 0 : directory.path) === "string") {
+          return this._runTask(changeWorkingDirectoryTask(directory.path, directory.root && this._executor || void 0), next);
+        }
+        return this._runTask(configurationErrorTask("Git.cwd: workingDirectory must be supplied as a string"), next);
+      }
+      hashObject(path, write) {
+        return this._runTask(hashObjectTask(path, write === true), trailingFunctionArgument(arguments));
+      }
+      init(bare) {
+        return this._runTask(initTask(bare === true, this._executor.cwd, getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
+      }
+      merge() {
+        return this._runTask(mergeTask(getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
+      }
+      mergeFromTo(remote, branch) {
+        if (!(filterString(remote) && filterString(branch))) {
+          return this._runTask(configurationErrorTask(`Git.mergeFromTo requires that the 'remote' and 'branch' arguments are supplied as strings`));
+        }
+        return this._runTask(mergeTask([remote, branch, ...getTrailingOptions(arguments)]), trailingFunctionArgument(arguments, false));
+      }
+      outputHandler(handler) {
+        this._executor.outputHandler = handler;
+        return this;
+      }
+      push() {
+        const task = pushTask({
+          remote: filterType(arguments[0], filterString),
+          branch: filterType(arguments[1], filterString)
+        }, getTrailingOptions(arguments));
+        return this._runTask(task, trailingFunctionArgument(arguments));
+      }
+      stash() {
+        return this._runTask(straightThroughStringTask(["stash", ...getTrailingOptions(arguments)]), trailingFunctionArgument(arguments));
+      }
+      status() {
+        return this._runTask(statusTask(getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
+      }
+    };
+    Object.assign(SimpleGitApi.prototype, commit_default(), config_default(), grep_default(), log_default());
+  }
+});
+
+// src/lib/runners/scheduler.ts
+var scheduler_exports = {};
+__export(scheduler_exports, {
+  Scheduler: () => Scheduler
+});
+
+var createScheduledTask, Scheduler;
+var init_scheduler = __esm({
+  "src/lib/runners/scheduler.ts"() {
+    init_utils();
+    init_git_logger();
+    createScheduledTask = (() => {
+      let id = 0;
+      return () => {
+        id++;
+        const { promise, done } = (0,promise_deferred_dist/* createDeferred */.dD)();
+        return {
+          promise,
+          done,
+          id
+        };
+      };
+    })();
+    Scheduler = class {
+      constructor(concurrency = 2) {
+        this.concurrency = concurrency;
+        this.logger = createLogger("", "scheduler");
+        this.pending = [];
+        this.running = [];
+        this.logger(`Constructed, concurrency=%s`, concurrency);
+      }
+      schedule() {
+        if (!this.pending.length || this.running.length >= this.concurrency) {
+          this.logger(`Schedule attempt ignored, pending=%s running=%s concurrency=%s`, this.pending.length, this.running.length, this.concurrency);
+          return;
+        }
+        const task = append(this.running, this.pending.shift());
+        this.logger(`Attempting id=%s`, task.id);
+        task.done(() => {
+          this.logger(`Completing id=`, task.id);
+          remove(this.running, task);
+          this.schedule();
+        });
+      }
+      next() {
+        const { promise, id } = append(this.pending, createScheduledTask());
+        this.logger(`Scheduling id=%s`, id);
+        this.schedule();
+        return promise;
+      }
+    };
+  }
+});
+
+// src/lib/tasks/apply-patch.ts
+var apply_patch_exports = {};
+__export(apply_patch_exports, {
+  applyPatchTask: () => applyPatchTask
+});
+function applyPatchTask(patches, customArgs) {
+  return straightThroughStringTask(["apply", ...customArgs, ...patches]);
+}
+var init_apply_patch = __esm({
+  "src/lib/tasks/apply-patch.ts"() {
+    init_task();
+  }
+});
+
+// src/lib/responses/BranchDeleteSummary.ts
+function branchDeletionSuccess(branch, hash) {
+  return {
+    branch,
+    hash,
+    success: true
+  };
+}
+function branchDeletionFailure(branch) {
+  return {
+    branch,
+    hash: null,
+    success: false
+  };
+}
+var BranchDeletionBatch;
+var init_BranchDeleteSummary = __esm({
+  "src/lib/responses/BranchDeleteSummary.ts"() {
+    BranchDeletionBatch = class {
+      constructor() {
+        this.all = [];
+        this.branches = {};
+        this.errors = [];
+      }
+      get success() {
+        return !this.errors.length;
+      }
+    };
+  }
+});
+
+// src/lib/parsers/parse-branch-delete.ts
+function hasBranchDeletionError(data, processExitCode) {
+  return processExitCode === 1 /* ERROR */ && deleteErrorRegex.test(data);
+}
+var deleteSuccessRegex, deleteErrorRegex, parsers7, parseBranchDeletions;
+var init_parse_branch_delete = __esm({
+  "src/lib/parsers/parse-branch-delete.ts"() {
+    init_BranchDeleteSummary();
+    init_utils();
+    deleteSuccessRegex = /(\S+)\s+\(\S+\s([^)]+)\)/;
+    deleteErrorRegex = /^error[^']+'([^']+)'/m;
+    parsers7 = [
+      new LineParser(deleteSuccessRegex, (result, [branch, hash]) => {
+        const deletion = branchDeletionSuccess(branch, hash);
+        result.all.push(deletion);
+        result.branches[branch] = deletion;
+      }),
+      new LineParser(deleteErrorRegex, (result, [branch]) => {
+        const deletion = branchDeletionFailure(branch);
+        result.errors.push(deletion);
+        result.all.push(deletion);
+        result.branches[branch] = deletion;
+      })
+    ];
+    parseBranchDeletions = (stdOut, stdErr) => {
+      return parseStringResponse(new BranchDeletionBatch(), parsers7, stdOut, stdErr);
+    };
+  }
+});
+
+// src/lib/responses/BranchSummary.ts
+var BranchSummaryResult;
+var init_BranchSummary = __esm({
+  "src/lib/responses/BranchSummary.ts"() {
+    BranchSummaryResult = class {
+      constructor() {
+        this.all = [];
+        this.branches = {};
+        this.current = "";
+        this.detached = false;
+      }
+      push(current, detached, name, commit, label) {
+        if (current) {
+          this.detached = detached;
+          this.current = name;
+        }
+        this.all.push(name);
+        this.branches[name] = {
+          current,
+          name,
+          commit,
+          label
+        };
+      }
+    };
+  }
+});
+
+// src/lib/parsers/parse-branch.ts
+function parseBranchSummary(stdOut) {
+  return parseStringResponse(new BranchSummaryResult(), parsers8, stdOut);
+}
+var parsers8;
+var init_parse_branch = __esm({
+  "src/lib/parsers/parse-branch.ts"() {
+    init_BranchSummary();
+    init_utils();
+    parsers8 = [
+      new LineParser(/^(\*\s)?\((?:HEAD )?detached (?:from|at) (\S+)\)\s+([a-z0-9]+)\s(.*)$/, (result, [current, name, commit, label]) => {
+        result.push(!!current, true, name, commit, label);
+      }),
+      new LineParser(/^(\*\s)?(\S+)\s+([a-z0-9]+)\s?(.*)$/s, (result, [current, name, commit, label]) => {
+        result.push(!!current, false, name, commit, label);
+      })
+    ];
+  }
+});
+
+// src/lib/tasks/branch.ts
+var branch_exports = {};
+__export(branch_exports, {
+  branchLocalTask: () => branchLocalTask,
+  branchTask: () => branchTask,
+  containsDeleteBranchCommand: () => containsDeleteBranchCommand,
+  deleteBranchTask: () => deleteBranchTask,
+  deleteBranchesTask: () => deleteBranchesTask
+});
+function containsDeleteBranchCommand(commands) {
+  const deleteCommands = ["-d", "-D", "--delete"];
+  return commands.some((command) => deleteCommands.includes(command));
+}
+function branchTask(customArgs) {
+  const isDelete = containsDeleteBranchCommand(customArgs);
+  const commands = ["branch", ...customArgs];
+  if (commands.length === 1) {
+    commands.push("-a");
+  }
+  if (!commands.includes("-v")) {
+    commands.splice(1, 0, "-v");
+  }
+  return {
+    format: "utf-8",
+    commands,
+    parser(stdOut, stdErr) {
+      if (isDelete) {
+        return parseBranchDeletions(stdOut, stdErr).all[0];
+      }
+      return parseBranchSummary(stdOut);
+    }
+  };
+}
+function branchLocalTask() {
+  const parser3 = parseBranchSummary;
+  return {
+    format: "utf-8",
+    commands: ["branch", "-v"],
+    parser: parser3
+  };
+}
+function deleteBranchesTask(branches, forceDelete = false) {
+  return {
+    format: "utf-8",
+    commands: ["branch", "-v", forceDelete ? "-D" : "-d", ...branches],
+    parser(stdOut, stdErr) {
+      return parseBranchDeletions(stdOut, stdErr);
+    },
+    onError({ exitCode, stdOut }, error, done, fail) {
+      if (!hasBranchDeletionError(String(error), exitCode)) {
+        return fail(error);
+      }
+      done(stdOut);
+    }
+  };
+}
+function deleteBranchTask(branch, forceDelete = false) {
+  const task = {
+    format: "utf-8",
+    commands: ["branch", "-v", forceDelete ? "-D" : "-d", branch],
+    parser(stdOut, stdErr) {
+      return parseBranchDeletions(stdOut, stdErr).branches[branch];
+    },
+    onError({ exitCode, stdErr, stdOut }, error, _, fail) {
+      if (!hasBranchDeletionError(String(error), exitCode)) {
+        return fail(error);
+      }
+      throw new GitResponseError(task.parser(bufferToString(stdOut), bufferToString(stdErr)), String(error));
+    }
+  };
+  return task;
+}
+var init_branch = __esm({
+  "src/lib/tasks/branch.ts"() {
+    init_git_response_error();
+    init_parse_branch_delete();
+    init_parse_branch();
+    init_utils();
+  }
+});
+
+// src/lib/responses/CheckIgnore.ts
+var parseCheckIgnore;
+var init_CheckIgnore = __esm({
+  "src/lib/responses/CheckIgnore.ts"() {
+    parseCheckIgnore = (text) => {
+      return text.split(/\n/g).map((line) => line.trim()).filter((file) => !!file);
+    };
+  }
+});
+
+// src/lib/tasks/check-ignore.ts
+var check_ignore_exports = {};
+__export(check_ignore_exports, {
+  checkIgnoreTask: () => checkIgnoreTask
+});
+function checkIgnoreTask(paths) {
+  return {
+    commands: ["check-ignore", ...paths],
+    format: "utf-8",
+    parser: parseCheckIgnore
+  };
+}
+var init_check_ignore = __esm({
+  "src/lib/tasks/check-ignore.ts"() {
+    init_CheckIgnore();
+  }
+});
+
+// src/lib/tasks/clone.ts
+var clone_exports = {};
+__export(clone_exports, {
+  cloneMirrorTask: () => cloneMirrorTask,
+  cloneTask: () => cloneTask
+});
+function disallowedCommand(command) {
+  return /^--upload-pack(=|$)/.test(command);
+}
+function cloneTask(repo, directory, customArgs) {
+  const commands = ["clone", ...customArgs];
+  filterString(repo) && commands.push(repo);
+  filterString(directory) && commands.push(directory);
+  const banned = commands.find(disallowedCommand);
+  if (banned) {
+    return configurationErrorTask(`git.fetch: potential exploit argument blocked.`);
+  }
+  return straightThroughStringTask(commands);
+}
+function cloneMirrorTask(repo, directory, customArgs) {
+  append(customArgs, "--mirror");
+  return cloneTask(repo, directory, customArgs);
+}
+var init_clone = __esm({
+  "src/lib/tasks/clone.ts"() {
+    init_task();
+    init_utils();
+  }
+});
+
+// src/lib/tasks/diff.ts
+var diff_exports = {};
+__export(diff_exports, {
+  diffSummaryTask: () => diffSummaryTask
+});
+function diffSummaryTask(customArgs) {
+  return {
+    commands: ["diff", "--stat=4096", ...customArgs],
+    format: "utf-8",
+    parser(stdOut) {
+      return parseDiffResult(stdOut);
+    }
+  };
+}
+var init_diff = __esm({
+  "src/lib/tasks/diff.ts"() {
+    init_parse_diff_summary();
+  }
+});
+
+// src/lib/parsers/parse-fetch.ts
+function parseFetchResult(stdOut, stdErr) {
+  const result = {
+    raw: stdOut,
+    remote: null,
+    branches: [],
+    tags: []
+  };
+  return parseStringResponse(result, parsers9, stdOut, stdErr);
+}
+var parsers9;
+var init_parse_fetch = __esm({
+  "src/lib/parsers/parse-fetch.ts"() {
+    init_utils();
+    parsers9 = [
+      new LineParser(/From (.+)$/, (result, [remote]) => {
+        result.remote = remote;
+      }),
+      new LineParser(/\* \[new branch]\s+(\S+)\s*-> (.+)$/, (result, [name, tracking]) => {
+        result.branches.push({
+          name,
+          tracking
+        });
+      }),
+      new LineParser(/\* \[new tag]\s+(\S+)\s*-> (.+)$/, (result, [name, tracking]) => {
+        result.tags.push({
+          name,
+          tracking
+        });
+      })
+    ];
+  }
+});
+
+// src/lib/tasks/fetch.ts
+var fetch_exports = {};
+__export(fetch_exports, {
+  fetchTask: () => fetchTask
+});
+function disallowedCommand2(command) {
+  return /^--upload-pack(=|$)/.test(command);
+}
+function fetchTask(remote, branch, customArgs) {
+  const commands = ["fetch", ...customArgs];
+  if (remote && branch) {
+    commands.push(remote, branch);
+  }
+  const banned = commands.find(disallowedCommand2);
+  if (banned) {
+    return configurationErrorTask(`git.fetch: potential exploit argument blocked.`);
+  }
+  return {
+    commands,
+    format: "utf-8",
+    parser: parseFetchResult
+  };
+}
+var init_fetch = __esm({
+  "src/lib/tasks/fetch.ts"() {
+    init_parse_fetch();
+    init_task();
+  }
+});
+
+// src/lib/parsers/parse-move.ts
+function parseMoveResult(stdOut) {
+  return parseStringResponse({ moves: [] }, parsers10, stdOut);
+}
+var parsers10;
+var init_parse_move = __esm({
+  "src/lib/parsers/parse-move.ts"() {
+    init_utils();
+    parsers10 = [
+      new LineParser(/^Renaming (.+) to (.+)$/, (result, [from, to]) => {
+        result.moves.push({ from, to });
+      })
+    ];
+  }
+});
+
+// src/lib/tasks/move.ts
+var move_exports = {};
+__export(move_exports, {
+  moveTask: () => moveTask
+});
+function moveTask(from, to) {
+  return {
+    commands: ["mv", "-v", ...asArray(from), to],
+    format: "utf-8",
+    parser: parseMoveResult
+  };
+}
+var init_move = __esm({
+  "src/lib/tasks/move.ts"() {
+    init_parse_move();
+    init_utils();
+  }
+});
+
+// src/lib/tasks/pull.ts
+var pull_exports = {};
+__export(pull_exports, {
+  pullTask: () => pullTask
+});
+function pullTask(remote, branch, customArgs) {
+  const commands = ["pull", ...customArgs];
+  if (remote && branch) {
+    commands.splice(1, 0, remote, branch);
+  }
+  return {
+    commands,
+    format: "utf-8",
+    parser(stdOut, stdErr) {
+      return parsePullResult(stdOut, stdErr);
+    },
+    onError(result, _error, _done, fail) {
+      const pullError = parsePullErrorResult(bufferToString(result.stdOut), bufferToString(result.stdErr));
+      if (pullError) {
+        return fail(new GitResponseError(pullError));
+      }
+      fail(_error);
+    }
+  };
+}
+var init_pull = __esm({
+  "src/lib/tasks/pull.ts"() {
+    init_git_response_error();
+    init_parse_pull();
+    init_utils();
+  }
+});
+
+// src/lib/responses/GetRemoteSummary.ts
+function parseGetRemotes(text) {
+  const remotes = {};
+  forEach(text, ([name]) => remotes[name] = { name });
+  return Object.values(remotes);
+}
+function parseGetRemotesVerbose(text) {
+  const remotes = {};
+  forEach(text, ([name, url, purpose]) => {
+    if (!remotes.hasOwnProperty(name)) {
+      remotes[name] = {
+        name,
+        refs: { fetch: "", push: "" }
+      };
+    }
+    if (purpose && url) {
+      remotes[name].refs[purpose.replace(/[^a-z]/g, "")] = url;
+    }
+  });
+  return Object.values(remotes);
+}
+function forEach(text, handler) {
+  forEachLineWithContent(text, (line) => handler(line.split(/\s+/)));
+}
+var init_GetRemoteSummary = __esm({
+  "src/lib/responses/GetRemoteSummary.ts"() {
+    init_utils();
+  }
+});
+
+// src/lib/tasks/remote.ts
+var remote_exports = {};
+__export(remote_exports, {
+  addRemoteTask: () => addRemoteTask,
+  getRemotesTask: () => getRemotesTask,
+  listRemotesTask: () => listRemotesTask,
+  remoteTask: () => remoteTask,
+  removeRemoteTask: () => removeRemoteTask
+});
+function addRemoteTask(remoteName, remoteRepo, customArgs = []) {
+  return straightThroughStringTask(["remote", "add", ...customArgs, remoteName, remoteRepo]);
+}
+function getRemotesTask(verbose) {
+  const commands = ["remote"];
+  if (verbose) {
+    commands.push("-v");
+  }
+  return {
+    commands,
+    format: "utf-8",
+    parser: verbose ? parseGetRemotesVerbose : parseGetRemotes
+  };
+}
+function listRemotesTask(customArgs = []) {
+  const commands = [...customArgs];
+  if (commands[0] !== "ls-remote") {
+    commands.unshift("ls-remote");
+  }
+  return straightThroughStringTask(commands);
+}
+function remoteTask(customArgs = []) {
+  const commands = [...customArgs];
+  if (commands[0] !== "remote") {
+    commands.unshift("remote");
+  }
+  return straightThroughStringTask(commands);
+}
+function removeRemoteTask(remoteName) {
+  return straightThroughStringTask(["remote", "remove", remoteName]);
+}
+var init_remote = __esm({
+  "src/lib/tasks/remote.ts"() {
+    init_GetRemoteSummary();
+    init_task();
+  }
+});
+
+// src/lib/tasks/stash-list.ts
+var stash_list_exports = {};
+__export(stash_list_exports, {
+  stashListTask: () => stashListTask
+});
+function stashListTask(opt = {}, customArgs) {
+  const options = parseLogOptions(opt);
+  const parser3 = createListLogSummaryParser(options.splitter, options.fields);
+  return {
+    commands: ["stash", "list", ...options.commands, ...customArgs],
+    format: "utf-8",
+    parser: parser3
+  };
+}
+var init_stash_list = __esm({
+  "src/lib/tasks/stash-list.ts"() {
+    init_parse_list_log_summary();
+    init_log();
+  }
+});
+
+// src/lib/tasks/sub-module.ts
+var sub_module_exports = {};
+__export(sub_module_exports, {
+  addSubModuleTask: () => addSubModuleTask,
+  initSubModuleTask: () => initSubModuleTask,
+  subModuleTask: () => subModuleTask,
+  updateSubModuleTask: () => updateSubModuleTask
+});
+function addSubModuleTask(repo, path) {
+  return subModuleTask(["add", repo, path]);
+}
+function initSubModuleTask(customArgs) {
+  return subModuleTask(["init", ...customArgs]);
+}
+function subModuleTask(customArgs) {
+  const commands = [...customArgs];
+  if (commands[0] !== "submodule") {
+    commands.unshift("submodule");
+  }
+  return straightThroughStringTask(commands);
+}
+function updateSubModuleTask(customArgs) {
+  return subModuleTask(["update", ...customArgs]);
+}
+var init_sub_module = __esm({
+  "src/lib/tasks/sub-module.ts"() {
+    init_task();
+  }
+});
+
+// src/lib/responses/TagList.ts
+function singleSorted(a, b) {
+  const aIsNum = isNaN(a);
+  const bIsNum = isNaN(b);
+  if (aIsNum !== bIsNum) {
+    return aIsNum ? 1 : -1;
+  }
+  return aIsNum ? sorted(a, b) : 0;
+}
+function sorted(a, b) {
+  return a === b ? 0 : a > b ? 1 : -1;
+}
+function trimmed(input) {
+  return input.trim();
+}
+function toNumber(input) {
+  if (typeof input === "string") {
+    return parseInt(input.replace(/^\D+/g, ""), 10) || 0;
+  }
+  return 0;
+}
+var TagList, parseTagList;
+var init_TagList = __esm({
+  "src/lib/responses/TagList.ts"() {
+    TagList = class {
+      constructor(all, latest) {
+        this.all = all;
+        this.latest = latest;
+      }
+    };
+    parseTagList = function(data, customSort = false) {
+      const tags = data.split("\n").map(trimmed).filter(Boolean);
+      if (!customSort) {
+        tags.sort(function(tagA, tagB) {
+          const partsA = tagA.split(".");
+          const partsB = tagB.split(".");
+          if (partsA.length === 1 || partsB.length === 1) {
+            return singleSorted(toNumber(partsA[0]), toNumber(partsB[0]));
+          }
+          for (let i = 0, l = Math.max(partsA.length, partsB.length); i < l; i++) {
+            const diff = sorted(toNumber(partsA[i]), toNumber(partsB[i]));
+            if (diff) {
+              return diff;
+            }
+          }
+          return 0;
+        });
+      }
+      const latest = customSort ? tags[0] : [...tags].reverse().find((tag) => tag.indexOf(".") >= 0);
+      return new TagList(tags, latest);
+    };
+  }
+});
+
+// src/lib/tasks/tag.ts
+var tag_exports = {};
+__export(tag_exports, {
+  addAnnotatedTagTask: () => addAnnotatedTagTask,
+  addTagTask: () => addTagTask,
+  tagListTask: () => tagListTask
+});
+function tagListTask(customArgs = []) {
+  const hasCustomSort = customArgs.some((option) => /^--sort=/.test(option));
+  return {
+    format: "utf-8",
+    commands: ["tag", "-l", ...customArgs],
+    parser(text) {
+      return parseTagList(text, hasCustomSort);
+    }
+  };
+}
+function addTagTask(name) {
+  return {
+    format: "utf-8",
+    commands: ["tag", name],
+    parser() {
+      return { name };
+    }
+  };
+}
+function addAnnotatedTagTask(name, tagMessage) {
+  return {
+    format: "utf-8",
+    commands: ["tag", "-a", "-m", tagMessage, name],
+    parser() {
+      return { name };
+    }
+  };
+}
+var init_tag = __esm({
+  "src/lib/tasks/tag.ts"() {
+    init_TagList();
+  }
+});
+
+// src/git.js
+var require_git = __commonJS({
+  "src/git.js"(exports, module) {
+    var { GitExecutor: GitExecutor2 } = (init_git_executor(), __toCommonJS(git_executor_exports));
+    var { SimpleGitApi: SimpleGitApi2 } = (init_simple_git_api(), __toCommonJS(simple_git_api_exports));
+    var { Scheduler: Scheduler2 } = (init_scheduler(), __toCommonJS(scheduler_exports));
+    var { configurationErrorTask: configurationErrorTask2 } = (init_task(), __toCommonJS(task_exports));
+    var {
+      asArray: asArray2,
+      filterArray: filterArray2,
+      filterPrimitives: filterPrimitives2,
+      filterString: filterString2,
+      filterStringOrStringArray: filterStringOrStringArray2,
+      filterType: filterType2,
+      getTrailingOptions: getTrailingOptions2,
+      trailingFunctionArgument: trailingFunctionArgument2,
+      trailingOptionsArgument: trailingOptionsArgument2
+    } = (init_utils(), __toCommonJS(utils_exports));
+    var { applyPatchTask: applyPatchTask2 } = (init_apply_patch(), __toCommonJS(apply_patch_exports));
+    var { branchTask: branchTask2, branchLocalTask: branchLocalTask2, deleteBranchesTask: deleteBranchesTask2, deleteBranchTask: deleteBranchTask2 } = (init_branch(), __toCommonJS(branch_exports));
+    var { checkIgnoreTask: checkIgnoreTask2 } = (init_check_ignore(), __toCommonJS(check_ignore_exports));
+    var { checkIsRepoTask: checkIsRepoTask2 } = (init_check_is_repo(), __toCommonJS(check_is_repo_exports));
+    var { cloneTask: cloneTask2, cloneMirrorTask: cloneMirrorTask2 } = (init_clone(), __toCommonJS(clone_exports));
+    var { cleanWithOptionsTask: cleanWithOptionsTask2, isCleanOptionsArray: isCleanOptionsArray2 } = (init_clean(), __toCommonJS(clean_exports));
+    var { commitTask: commitTask2 } = (init_commit(), __toCommonJS(commit_exports));
+    var { diffSummaryTask: diffSummaryTask2 } = (init_diff(), __toCommonJS(diff_exports));
+    var { fetchTask: fetchTask2 } = (init_fetch(), __toCommonJS(fetch_exports));
+    var { moveTask: moveTask2 } = (init_move(), __toCommonJS(move_exports));
+    var { pullTask: pullTask2 } = (init_pull(), __toCommonJS(pull_exports));
+    var { pushTagsTask: pushTagsTask2 } = (init_push(), __toCommonJS(push_exports));
+    var { addRemoteTask: addRemoteTask2, getRemotesTask: getRemotesTask2, listRemotesTask: listRemotesTask2, remoteTask: remoteTask2, removeRemoteTask: removeRemoteTask2 } = (init_remote(), __toCommonJS(remote_exports));
+    var { getResetMode: getResetMode2, resetTask: resetTask2 } = (init_reset(), __toCommonJS(reset_exports));
+    var { stashListTask: stashListTask2 } = (init_stash_list(), __toCommonJS(stash_list_exports));
+    var { addSubModuleTask: addSubModuleTask2, initSubModuleTask: initSubModuleTask2, subModuleTask: subModuleTask2, updateSubModuleTask: updateSubModuleTask2 } = (init_sub_module(), __toCommonJS(sub_module_exports));
+    var { addAnnotatedTagTask: addAnnotatedTagTask2, addTagTask: addTagTask2, tagListTask: tagListTask2 } = (init_tag(), __toCommonJS(tag_exports));
+    var { straightThroughBufferTask: straightThroughBufferTask2, straightThroughStringTask: straightThroughStringTask2 } = (init_task(), __toCommonJS(task_exports));
+    function Git2(options, plugins) {
+      this._executor = new GitExecutor2(options.binary, options.baseDir, new Scheduler2(options.maxConcurrentProcesses), plugins);
+    }
+    (Git2.prototype = Object.create(SimpleGitApi2.prototype)).constructor = Git2;
+    Git2.prototype.customBinary = function(command) {
+      this._executor.binary = command;
+      return this;
+    };
+    Git2.prototype.env = function(name, value) {
+      if (arguments.length === 1 && typeof name === "object") {
+        this._executor.env = name;
+      } else {
+        (this._executor.env = this._executor.env || {})[name] = value;
+      }
+      return this;
+    };
+    Git2.prototype.stashList = function(options) {
+      return this._runTask(stashListTask2(trailingOptionsArgument2(arguments) || {}, filterArray2(options) && options || []), trailingFunctionArgument2(arguments));
+    };
+    function createCloneTask(api, task, repoPath, localPath) {
+      if (typeof repoPath !== "string") {
+        return configurationErrorTask2(`git.${api}() requires a string 'repoPath'`);
+      }
+      return task(repoPath, filterType2(localPath, filterString2), getTrailingOptions2(arguments));
+    }
+    Git2.prototype.clone = function() {
+      return this._runTask(createCloneTask("clone", cloneTask2, ...arguments), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.mirror = function() {
+      return this._runTask(createCloneTask("mirror", cloneMirrorTask2, ...arguments), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.mv = function(from, to) {
+      return this._runTask(moveTask2(from, to), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.checkoutLatestTag = function(then) {
+      var git = this;
+      return this.pull(function() {
+        git.tags(function(err, tags) {
+          git.checkout(tags.latest, then);
+        });
+      });
+    };
+    Git2.prototype.pull = function(remote, branch, options, then) {
+      return this._runTask(pullTask2(filterType2(remote, filterString2), filterType2(branch, filterString2), getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.fetch = function(remote, branch) {
+      return this._runTask(fetchTask2(filterType2(remote, filterString2), filterType2(branch, filterString2), getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.silent = function(silence) {
+      console.warn("simple-git deprecation notice: git.silent: logging should be configured using the `debug` library / `DEBUG` environment variable, this will be an error in version 3");
+      return this;
+    };
+    Git2.prototype.tags = function(options, then) {
+      return this._runTask(tagListTask2(getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.rebase = function() {
+      return this._runTask(straightThroughStringTask2(["rebase", ...getTrailingOptions2(arguments)]), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.reset = function(mode) {
+      return this._runTask(resetTask2(getResetMode2(mode), getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.revert = function(commit) {
+      const next = trailingFunctionArgument2(arguments);
+      if (typeof commit !== "string") {
+        return this._runTask(configurationErrorTask2("Commit must be a string"), next);
+      }
+      return this._runTask(straightThroughStringTask2(["revert", ...getTrailingOptions2(arguments, 0, true), commit]), next);
+    };
+    Git2.prototype.addTag = function(name) {
+      const task = typeof name === "string" ? addTagTask2(name) : configurationErrorTask2("Git.addTag requires a tag name");
+      return this._runTask(task, trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.addAnnotatedTag = function(tagName, tagMessage) {
+      return this._runTask(addAnnotatedTagTask2(tagName, tagMessage), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.checkout = function() {
+      const commands = ["checkout", ...getTrailingOptions2(arguments, true)];
+      return this._runTask(straightThroughStringTask2(commands), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.checkoutBranch = function(branchName, startPoint, then) {
+      return this.checkout(["-b", branchName, startPoint], trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.checkoutLocalBranch = function(branchName, then) {
+      return this.checkout(["-b", branchName], trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.deleteLocalBranch = function(branchName, forceDelete, then) {
+      return this._runTask(deleteBranchTask2(branchName, typeof forceDelete === "boolean" ? forceDelete : false), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.deleteLocalBranches = function(branchNames, forceDelete, then) {
+      return this._runTask(deleteBranchesTask2(branchNames, typeof forceDelete === "boolean" ? forceDelete : false), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.branch = function(options, then) {
+      return this._runTask(branchTask2(getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.branchLocal = function(then) {
+      return this._runTask(branchLocalTask2(), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.raw = function(commands) {
+      const createRestCommands = !Array.isArray(commands);
+      const command = [].slice.call(createRestCommands ? arguments : commands, 0);
+      for (let i = 0; i < command.length && createRestCommands; i++) {
+        if (!filterPrimitives2(command[i])) {
+          command.splice(i, command.length - i);
+          break;
+        }
+      }
+      command.push(...getTrailingOptions2(arguments, 0, true));
+      var next = trailingFunctionArgument2(arguments);
+      if (!command.length) {
+        return this._runTask(configurationErrorTask2("Raw: must supply one or more command to execute"), next);
+      }
+      return this._runTask(straightThroughStringTask2(command), next);
+    };
+    Git2.prototype.submoduleAdd = function(repo, path, then) {
+      return this._runTask(addSubModuleTask2(repo, path), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.submoduleUpdate = function(args, then) {
+      return this._runTask(updateSubModuleTask2(getTrailingOptions2(arguments, true)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.submoduleInit = function(args, then) {
+      return this._runTask(initSubModuleTask2(getTrailingOptions2(arguments, true)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.subModule = function(options, then) {
+      return this._runTask(subModuleTask2(getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.listRemote = function() {
+      return this._runTask(listRemotesTask2(getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.addRemote = function(remoteName, remoteRepo, then) {
+      return this._runTask(addRemoteTask2(remoteName, remoteRepo, getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.removeRemote = function(remoteName, then) {
+      return this._runTask(removeRemoteTask2(remoteName), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.getRemotes = function(verbose, then) {
+      return this._runTask(getRemotesTask2(verbose === true), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.remote = function(options, then) {
+      return this._runTask(remoteTask2(getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.tag = function(options, then) {
+      const command = getTrailingOptions2(arguments);
+      if (command[0] !== "tag") {
+        command.unshift("tag");
+      }
+      return this._runTask(straightThroughStringTask2(command), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.updateServerInfo = function(then) {
+      return this._runTask(straightThroughStringTask2(["update-server-info"]), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.pushTags = function(remote, then) {
+      const task = pushTagsTask2({ remote: filterType2(remote, filterString2) }, getTrailingOptions2(arguments));
+      return this._runTask(task, trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.rm = function(files) {
+      return this._runTask(straightThroughStringTask2(["rm", "-f", ...asArray2(files)]), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.rmKeepLocal = function(files) {
+      return this._runTask(straightThroughStringTask2(["rm", "--cached", ...asArray2(files)]), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.catFile = function(options, then) {
+      return this._catFile("utf-8", arguments);
+    };
+    Git2.prototype.binaryCatFile = function() {
+      return this._catFile("buffer", arguments);
+    };
+    Git2.prototype._catFile = function(format, args) {
+      var handler = trailingFunctionArgument2(args);
+      var command = ["cat-file"];
+      var options = args[0];
+      if (typeof options === "string") {
+        return this._runTask(configurationErrorTask2("Git.catFile: options must be supplied as an array of strings"), handler);
+      }
+      if (Array.isArray(options)) {
+        command.push.apply(command, options);
+      }
+      const task = format === "buffer" ? straightThroughBufferTask2(command) : straightThroughStringTask2(command);
+      return this._runTask(task, handler);
+    };
+    Git2.prototype.diff = function(options, then) {
+      const task = filterString2(options) ? configurationErrorTask2("git.diff: supplying options as a single string is no longer supported, switch to an array of strings") : straightThroughStringTask2(["diff", ...getTrailingOptions2(arguments)]);
+      return this._runTask(task, trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.diffSummary = function() {
+      return this._runTask(diffSummaryTask2(getTrailingOptions2(arguments, 1)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.applyPatch = function(patches) {
+      const task = !filterStringOrStringArray2(patches) ? configurationErrorTask2(`git.applyPatch requires one or more string patches as the first argument`) : applyPatchTask2(asArray2(patches), getTrailingOptions2([].slice.call(arguments, 1)));
+      return this._runTask(task, trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.revparse = function() {
+      const commands = ["rev-parse", ...getTrailingOptions2(arguments, true)];
+      return this._runTask(straightThroughStringTask2(commands, true), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.show = function(options, then) {
+      return this._runTask(straightThroughStringTask2(["show", ...getTrailingOptions2(arguments, 1)]), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.clean = function(mode, options, then) {
+      const usingCleanOptionsArray = isCleanOptionsArray2(mode);
+      const cleanMode = usingCleanOptionsArray && mode.join("") || filterType2(mode, filterString2) || "";
+      const customArgs = getTrailingOptions2([].slice.call(arguments, usingCleanOptionsArray ? 1 : 0));
+      return this._runTask(cleanWithOptionsTask2(cleanMode, customArgs), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.exec = function(then) {
+      const task = {
+        commands: [],
+        format: "utf-8",
+        parser() {
+          if (typeof then === "function") {
+            then();
+          }
+        }
+      };
+      return this._runTask(task);
+    };
+    Git2.prototype.clearQueue = function() {
+      return this;
+    };
+    Git2.prototype.checkIgnore = function(pathnames, then) {
+      return this._runTask(checkIgnoreTask2(asArray2(filterType2(pathnames, filterStringOrStringArray2, []))), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.checkIsRepo = function(checkType, then) {
+      return this._runTask(checkIsRepoTask2(filterType2(checkType, filterString2)), trailingFunctionArgument2(arguments));
+    };
+    module.exports = Git2;
+  }
+});
+
+// src/lib/errors/git-construct-error.ts
+init_git_error();
+var GitConstructError = class extends GitError {
+  constructor(config, message) {
+    super(void 0, message);
+    this.config = config;
+  }
+};
+
+// src/lib/api.ts
+init_git_error();
+
+// src/lib/errors/git-plugin-error.ts
+init_git_error();
+var GitPluginError = class extends GitError {
+  constructor(task, plugin, message) {
+    super(task, message);
+    this.task = task;
+    this.plugin = plugin;
+    Object.setPrototypeOf(this, new.target.prototype);
+  }
+};
+
+// src/lib/api.ts
+init_git_response_error();
+init_task_configuration_error();
+init_check_is_repo();
+init_clean();
+init_config();
+init_grep();
+init_reset();
+
+// src/lib/plugins/command-config-prefixing-plugin.ts
+init_utils();
+function commandConfigPrefixingPlugin(configuration) {
+  const prefix = prefixedArray(configuration, "-c");
+  return {
+    type: "spawn.args",
+    action(data) {
+      return [...prefix, ...data];
+    }
+  };
+}
+
+// src/lib/plugins/completion-detection.plugin.ts
+init_utils();
+
+var never = (0,promise_deferred_dist/* deferred */.gX)().promise;
+function completionDetectionPlugin({
+  onClose = true,
+  onExit = 50
+} = {}) {
+  function createEvents() {
+    let exitCode = -1;
+    const events = {
+      close: (0,promise_deferred_dist/* deferred */.gX)(),
+      closeTimeout: (0,promise_deferred_dist/* deferred */.gX)(),
+      exit: (0,promise_deferred_dist/* deferred */.gX)(),
+      exitTimeout: (0,promise_deferred_dist/* deferred */.gX)()
+    };
+    const result = Promise.race([
+      onClose === false ? never : events.closeTimeout.promise,
+      onExit === false ? never : events.exitTimeout.promise
+    ]);
+    configureTimeout(onClose, events.close, events.closeTimeout);
+    configureTimeout(onExit, events.exit, events.exitTimeout);
+    return {
+      close(code) {
+        exitCode = code;
+        events.close.done();
+      },
+      exit(code) {
+        exitCode = code;
+        events.exit.done();
+      },
+      get exitCode() {
+        return exitCode;
+      },
+      result
+    };
+  }
+  function configureTimeout(flag, event, timeout) {
+    if (flag === false) {
+      return;
+    }
+    (flag === true ? event.promise : event.promise.then(() => delay(flag))).then(timeout.done);
+  }
+  return {
+    type: "spawn.after",
+    action(_0, _1) {
+      return __async(this, arguments, function* (_data, { spawned, close }) {
+        var _a2, _b;
+        const events = createEvents();
+        let deferClose = true;
+        let quickClose = () => void (deferClose = false);
+        (_a2 = spawned.stdout) == null ? void 0 : _a2.on("data", quickClose);
+        (_b = spawned.stderr) == null ? void 0 : _b.on("data", quickClose);
+        spawned.on("error", quickClose);
+        spawned.on("close", (code) => events.close(code));
+        spawned.on("exit", (code) => events.exit(code));
+        try {
+          yield events.result;
+          if (deferClose) {
+            yield delay(50);
+          }
+          close(events.exitCode);
+        } catch (err) {
+          close(events.exitCode, err);
+        }
+      });
+    }
+  };
+}
+
+// src/lib/plugins/error-detection.plugin.ts
+init_git_error();
+function isTaskError(result) {
+  return !!(result.exitCode && result.stdErr.length);
+}
+function getErrorMessage(result) {
+  return Buffer.concat([...result.stdOut, ...result.stdErr]);
+}
+function errorDetectionHandler(overwrite = false, isError = isTaskError, errorMessage = getErrorMessage) {
+  return (error, result) => {
+    if (!overwrite && error || !isError(result)) {
+      return error;
+    }
+    return errorMessage(result);
+  };
+}
+function errorDetectionPlugin(config) {
+  return {
+    type: "task.error",
+    action(data, context) {
+      const error = config(data.error, {
+        stdErr: context.stdErr,
+        stdOut: context.stdOut,
+        exitCode: context.exitCode
+      });
+      if (Buffer.isBuffer(error)) {
+        return { error: new GitError(void 0, error.toString("utf-8")) };
+      }
+      return {
+        error
+      };
+    }
+  };
+}
+
+// src/lib/plugins/plugin-store.ts
+init_utils();
+var PluginStore = class {
+  constructor() {
+    this.plugins = /* @__PURE__ */ new Set();
+  }
+  add(plugin) {
+    const plugins = [];
+    asArray(plugin).forEach((plugin2) => plugin2 && this.plugins.add(append(plugins, plugin2)));
+    return () => {
+      plugins.forEach((plugin2) => this.plugins.delete(plugin2));
+    };
+  }
+  exec(type, data, context) {
+    let output = data;
+    const contextual = Object.freeze(Object.create(context));
+    for (const plugin of this.plugins) {
+      if (plugin.type === type) {
+        output = plugin.action(output, contextual);
+      }
+    }
+    return output;
+  }
+};
+
+// src/lib/plugins/progress-monitor-plugin.ts
+init_utils();
+function progressMonitorPlugin(progress) {
+  const progressCommand = "--progress";
+  const progressMethods = ["checkout", "clone", "fetch", "pull", "push"];
+  const onProgress = {
+    type: "spawn.after",
+    action(_data, context) {
+      var _a2;
+      if (!context.commands.includes(progressCommand)) {
+        return;
+      }
+      (_a2 = context.spawned.stderr) == null ? void 0 : _a2.on("data", (chunk) => {
+        const message = /^([\s\S]+?):\s*(\d+)% \((\d+)\/(\d+)\)/.exec(chunk.toString("utf8"));
+        if (!message) {
+          return;
+        }
+        progress({
+          method: context.method,
+          stage: progressEventStage(message[1]),
+          progress: asNumber(message[2]),
+          processed: asNumber(message[3]),
+          total: asNumber(message[4])
+        });
+      });
+    }
+  };
+  const onArgs = {
+    type: "spawn.args",
+    action(args, context) {
+      if (!progressMethods.includes(context.method)) {
+        return args;
+      }
+      return including(args, progressCommand);
+    }
+  };
+  return [onArgs, onProgress];
+}
+function progressEventStage(input) {
+  return String(input.toLowerCase().split(" ", 1)) || "unknown";
+}
+
+// src/lib/plugins/spawn-options-plugin.ts
+init_utils();
+function spawnOptionsPlugin(spawnOptions) {
+  const options = pick(spawnOptions, ["uid", "gid"]);
+  return {
+    type: "spawn.options",
+    action(data) {
+      return __spreadValues(__spreadValues({}, options), data);
+    }
+  };
+}
+
+// src/lib/plugins/timout-plugin.ts
+function timeoutPlugin({ block }) {
+  if (block > 0) {
+    return {
+      type: "spawn.after",
+      action(_data, context) {
+        var _a2, _b;
+        let timeout;
+        function wait() {
+          timeout && clearTimeout(timeout);
+          timeout = setTimeout(kill, block);
+        }
+        function stop() {
+          var _a3, _b2;
+          (_a3 = context.spawned.stdout) == null ? void 0 : _a3.off("data", wait);
+          (_b2 = context.spawned.stderr) == null ? void 0 : _b2.off("data", wait);
+          context.spawned.off("exit", stop);
+          context.spawned.off("close", stop);
+          timeout && clearTimeout(timeout);
+        }
+        function kill() {
+          stop();
+          context.kill(new GitPluginError(void 0, "timeout", `block timeout reached`));
+        }
+        (_a2 = context.spawned.stdout) == null ? void 0 : _a2.on("data", wait);
+        (_b = context.spawned.stderr) == null ? void 0 : _b.on("data", wait);
+        context.spawned.on("exit", stop);
+        context.spawned.on("close", stop);
+        wait();
+      }
+    };
+  }
+}
+
+// src/lib/git-factory.ts
+init_utils();
+var Git = require_git();
+function gitInstanceFactory(baseDir, options) {
+  const plugins = new PluginStore();
+  const config = createInstanceConfig(baseDir && (typeof baseDir === "string" ? { baseDir } : baseDir) || {}, options);
+  if (!folderExists(config.baseDir)) {
+    throw new GitConstructError(config, `Cannot use simple-git on a directory that does not exist`);
+  }
+  if (Array.isArray(config.config)) {
+    plugins.add(commandConfigPrefixingPlugin(config.config));
+  }
+  plugins.add(completionDetectionPlugin(config.completion));
+  config.progress && plugins.add(progressMonitorPlugin(config.progress));
+  config.timeout && plugins.add(timeoutPlugin(config.timeout));
+  config.spawnOptions && plugins.add(spawnOptionsPlugin(config.spawnOptions));
+  plugins.add(errorDetectionPlugin(errorDetectionHandler(true)));
+  config.errors && plugins.add(errorDetectionPlugin(config.errors));
+  return new Git(config, plugins);
+}
+
+// src/lib/runners/promise-wrapped.ts
+init_git_response_error();
+var functionNamesBuilderApi = (/* unused pure expression or super */ null && ([
+  "customBinary",
+  "env",
+  "outputHandler",
+  "silent"
+]));
+var functionNamesPromiseApi = (/* unused pure expression or super */ null && ([
+  "add",
+  "addAnnotatedTag",
+  "addConfig",
+  "addRemote",
+  "addTag",
+  "applyPatch",
+  "binaryCatFile",
+  "branch",
+  "branchLocal",
+  "catFile",
+  "checkIgnore",
+  "checkIsRepo",
+  "checkout",
+  "checkoutBranch",
+  "checkoutLatestTag",
+  "checkoutLocalBranch",
+  "clean",
+  "clone",
+  "commit",
+  "cwd",
+  "deleteLocalBranch",
+  "deleteLocalBranches",
+  "diff",
+  "diffSummary",
+  "exec",
+  "fetch",
+  "getRemotes",
+  "init",
+  "listConfig",
+  "listRemote",
+  "log",
+  "merge",
+  "mergeFromTo",
+  "mirror",
+  "mv",
+  "pull",
+  "push",
+  "pushTags",
+  "raw",
+  "rebase",
+  "remote",
+  "removeRemote",
+  "reset",
+  "revert",
+  "revparse",
+  "rm",
+  "rmKeepLocal",
+  "show",
+  "stash",
+  "stashList",
+  "status",
+  "subModule",
+  "submoduleAdd",
+  "submoduleInit",
+  "submoduleUpdate",
+  "tag",
+  "tags",
+  "updateServerInfo"
+]));
+function gitP(...args) {
+  let git;
+  let chain = Promise.resolve();
+  try {
+    git = gitInstanceFactory(...args);
+  } catch (e) {
+    chain = Promise.reject(e);
+  }
+  function builderReturn() {
+    return promiseApi;
+  }
+  function chainReturn() {
+    return chain;
+  }
+  const promiseApi = [...functionNamesBuilderApi, ...functionNamesPromiseApi].reduce((api, name) => {
+    const isAsync = functionNamesPromiseApi.includes(name);
+    const valid = isAsync ? asyncWrapper(name, git) : syncWrapper(name, git, api);
+    const alternative = isAsync ? chainReturn : builderReturn;
+    Object.defineProperty(api, name, {
+      enumerable: false,
+      configurable: false,
+      value: git ? valid : alternative
+    });
+    return api;
+  }, {});
+  return promiseApi;
+  function asyncWrapper(fn, git2) {
+    return function(...args2) {
+      if (typeof args2[args2.length] === "function") {
+        throw new TypeError("Promise interface requires that handlers are not supplied inline, trailing function not allowed in call to " + fn);
+      }
+      return chain.then(function() {
+        return new Promise(function(resolve, reject) {
+          const callback = (err, result) => {
+            if (err) {
+              return reject(toError(err));
+            }
+            resolve(result);
+          };
+          args2.push(callback);
+          git2[fn].apply(git2, args2);
+        });
+      });
+    };
+  }
+  function syncWrapper(fn, git2, api) {
+    return (...args2) => {
+      git2[fn](...args2);
+      return api;
+    };
+  }
+}
+function toError(error) {
+  if (error instanceof Error) {
+    return error;
+  }
+  if (typeof error === "string") {
+    return new Error(error);
+  }
+  return new GitResponseError(error);
+}
+
+// src/esm.mjs
+var esm_default = gitInstanceFactory;
+
+//# sourceMappingURL=index.js.map
+
+;// CONCATENATED MODULE: ./src/index.js
 
 
 
 
-const git = simple_git__WEBPACK_IMPORTED_MODULE_2___default()(process.cwd())
+const git = esm_default(process.cwd())
 
 const logOpts = {
-  from: _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('from'),
-  to: _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('to'),
+  from: core.getInput('from'),
+  to: core.getInput('to'),
   symmetric: false,
 }
 
 const extractOpts = {
-  format: _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('format'),
-  reverse: _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('reverse') == 'true',
+  format: core.getInput('format'),
+  reverse: core.getInput('reverse') == 'true',
 }
 
 const logHandler = (err, result) => {
   if (err) {
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(err)
+    core.setFailed(err)
     return
   }
-  _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`${result.all.length} commits`)
-  result.all.forEach(log => _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`- ${log.message}`))
-  _actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput('titles', extract_pr_titles__WEBPACK_IMPORTED_MODULE_1___default()(result.all, extractOpts).join('\n'))
+  core.info(`${result.all.length} commits`)
+  result.all.forEach(log => core.info(`- ${log.message}`))
+  core.setOutput('titles', extract_pr_titles_default()(result.all, extractOpts).join('\n'))
 }
 
 git.log(logOpts, logHandler)
