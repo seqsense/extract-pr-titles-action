@@ -12,7 +12,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@actions/core": "1.8.0",
-    "extract-pr-titles": "1.1.0"
+    "extract-pr-titles": "1.1.0",
+    "simple-git": "3.7.1"
   },
   "devDependencies": {
     "@vercel/ncc": "0.33.4",
