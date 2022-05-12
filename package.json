@@ -15,7 +15,7 @@
     "extract-pr-titles": "1.1.0"
   },
   "devDependencies": {
-    "@vercel/ncc": "0.30.0",
+    "@vercel/ncc": "0.33.4",
     "eslint": "7.32.0",
     "prettier": "2.6.2"
   }
