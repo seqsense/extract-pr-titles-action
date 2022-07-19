@@ -13,7 +13,7 @@ jobs:
     name: Update dist
     if: >-
       (
-        github.event_name == 'pull_requests' &&
+        github.event_name == 'pull_request' &&
         startsWith(github.event.pull_request.head.ref, 'renovate/')
       ) || (
         github.event.issue.pull_request &&
