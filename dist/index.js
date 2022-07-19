@@ -7369,6 +7369,7 @@ function toError(error) {
 }
 
 // src/esm.mjs
+var simpleGit = (/* unused pure expression or super */ null && (gitInstanceFactory));
 var esm_default = gitInstanceFactory;
 
 //# sourceMappingURL=index.js.map
