@@ -2,6 +2,8 @@ name: update-dist
 on:
   issue_comment:
     types: [created]
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: write
@@ -9,15 +11,24 @@ permissions:
 jobs:
   update-dist:
     name: Update dist
-    if: github.event.issue.pull_request
-      && (github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'MEMBER')
-      && contains(github.event.comment.body, '/update-dist')
+    if: >-
+      (
+        github.event_name == 'pull_requests' &&
+        startsWith(github.event.pull_request.head.ref, 'renovate/')
+      ) || (
+        github.event.issue.pull_request &&
+        (github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'MEMBER') &&
+        contains(github.event.comment.body, '/update-dist')
+      )
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v6
-        id: get-pr
+        id: get-ref
         with:
           script: |
+            if (context?.pull_request?.head?.ref) {
+              return {ref: context.pull_request.head.ref}
+            }
             const req = {
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -26,13 +37,13 @@ jobs:
             core.info(`Getting PR ${req.pull_number}`)
             try {
               const result = await github.rest.pulls.get(req)
-              return result.data
+              return {ref: result.data.head.ref}
             } catch (err) {
               core.setFailed(`Request failed with error ${err}`)
             }
       - uses: actions/checkout@v3
         with:
-          ref: ${{ fromJSON(steps.get-pr.outputs.result).head.ref }}
+          ref: ${{ fromJSON(steps.get-ref.outputs.result).ref }}
       - uses: actions/setup-node@v3
       - uses: actions/cache@v3
         with:
@@ -56,4 +67,4 @@ jobs:
           git add dist
           git commit -m "Update dist"
 
-          git push origin ${{ fromJSON(steps.get-pr.outputs.result).head.ref }}
+          git push origin ${{ fromJSON(steps.get-ref.outputs.result).ref }}
