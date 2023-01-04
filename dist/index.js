@@ -7805,7 +7805,7 @@ function abortPlugin(signal) {
 
 // src/lib/plugins/block-unsafe-operations-plugin.ts
 function isConfigSwitch(arg) {
-  return arg.trim().toLowerCase() === "-c";
+  return typeof arg === "string" && arg.trim().toLowerCase() === "-c";
 }
 function preventProtocolOverride(arg, next) {
   if (!isConfigSwitch(arg)) {
