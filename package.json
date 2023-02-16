@@ -13,7 +13,7 @@
   "dependencies": {
     "@actions/core": "1.10.0",
     "extract-pr-titles": "1.1.0",
-    "simple-git": "3.16.0"
+    "simple-git": "3.16.1"
   },
   "devDependencies": {
     "@vercel/ncc": "0.36.1",
