@@ -22,7 +22,7 @@ jobs:
       )
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v6
+      - uses: actions/github-script@v7
         id: get-ref
         with:
           script: |
@@ -44,7 +44,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ fromJSON(steps.get-ref.outputs.result).ref }}
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
       - uses: actions/cache@v3
         with:
           path: ~/.npm
