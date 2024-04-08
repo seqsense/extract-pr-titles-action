@@ -3,7 +3,6 @@
   "private": true,
   "description": "Extract PR titles between the given two git refs",
   "main": "src/index.js",
-  "type": "module",
   "scripts": {
     "build": "ncc build",
     "fmt": "prettier --write src/*.js",
