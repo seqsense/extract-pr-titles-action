@@ -3,10 +3,11 @@
   "private": true,
   "description": "Extract PR titles between the given two git refs",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "build": "ncc build",
     "fmt": "prettier --write src/*.js",
-    "lint": "eslint \"./src/*.js\""
+    "lint": "eslint"
   },
   "author": "SEQSENSE",
   "license": "Apache-2.0",
@@ -16,6 +17,7 @@
     "simple-git": "3.23.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.0.0",
     "@vercel/ncc": "0.38.1",
     "eslint": "9.4.0",
     "prettier": "3.2.5"
