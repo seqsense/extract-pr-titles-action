@@ -6,7 +6,7 @@
   "scripts": {
     "build": "ncc build",
     "fmt": "prettier --write src/*.js",
-    "lint": "eslint \"./src/*.js\""
+    "lint": "eslint"
   },
   "author": "SEQSENSE",
   "license": "Apache-2.0",
@@ -16,8 +16,9 @@
     "simple-git": "3.24.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.0.0",
     "@vercel/ncc": "0.38.1",
-    "eslint": "8.57.0",
+    "eslint": "9.4.0",
     "prettier": "3.2.5"
   }
 }
