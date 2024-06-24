@@ -1786,7 +1786,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const fs_1 = __nccwpck_require__(7147);
-const debug_1 = __importDefault(__nccwpck_require__(1433));
+const debug_1 = __importDefault(__nccwpck_require__(4472));
 const log = debug_1.default('@kwsites/file-exists');
 function check(path, isFile, isDirectory) {
     log(`checking %s`, path);
@@ -1905,7 +1905,7 @@ __webpack_unused_export__ = deferred;
 
 /***/ }),
 
-/***/ 2367:
+/***/ 3777:
 /***/ ((module, exports, __nccwpck_require__) => {
 
 /* eslint-env browser */
@@ -2162,7 +2162,7 @@ function localstorage() {
 	}
 }
 
-module.exports = __nccwpck_require__(6005)(exports);
+module.exports = __nccwpck_require__(9598)(exports);
 
 const {formatters} = module.exports;
 
@@ -2181,7 +2181,7 @@ formatters.j = function (v) {
 
 /***/ }),
 
-/***/ 6005:
+/***/ 9598:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -2462,7 +2462,7 @@ module.exports = setup;
 
 /***/ }),
 
-/***/ 1433:
+/***/ 4472:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 /**
@@ -2471,15 +2471,15 @@ module.exports = setup;
  */
 
 if (typeof process === 'undefined' || process.type === 'renderer' || process.browser === true || process.__nwjs) {
-	module.exports = __nccwpck_require__(2367);
+	module.exports = __nccwpck_require__(3777);
 } else {
-	module.exports = __nccwpck_require__(9603);
+	module.exports = __nccwpck_require__(5916);
 }
 
 
 /***/ }),
 
-/***/ 9603:
+/***/ 5916:
 /***/ ((module, exports, __nccwpck_require__) => {
 
 /**
@@ -2671,11 +2671,11 @@ function getDate() {
 }
 
 /**
- * Invokes `util.format()` with the specified arguments and writes to stderr.
+ * Invokes `util.formatWithOptions()` with the specified arguments and writes to stderr.
  */
 
 function log(...args) {
-	return process.stderr.write(util.format(...args) + '\n');
+	return process.stderr.write(util.formatWithOptions(exports.inspectOpts, ...args) + '\n');
 }
 
 /**
@@ -2721,7 +2721,7 @@ function init(debug) {
 	}
 }
 
-module.exports = __nccwpck_require__(6005)(exports);
+module.exports = __nccwpck_require__(9598)(exports);
 
 const {formatters} = module.exports;
 
@@ -4334,15 +4334,15 @@ var extract_pr_titles = __nccwpck_require__(3947);
 var extract_pr_titles_default = /*#__PURE__*/__nccwpck_require__.n(extract_pr_titles);
 // EXTERNAL MODULE: ./node_modules/.pnpm/@kwsites+file-exists@1.1.1/node_modules/@kwsites/file-exists/dist/index.js
 var dist = __nccwpck_require__(3639);
-// EXTERNAL MODULE: ./node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/index.js
-var src = __nccwpck_require__(1433);
+// EXTERNAL MODULE: ./node_modules/.pnpm/debug@4.3.5/node_modules/debug/src/index.js
+var src = __nccwpck_require__(4472);
 ;// CONCATENATED MODULE: external "child_process"
 const external_child_process_namespaceObject = require("child_process");
 // EXTERNAL MODULE: ./node_modules/.pnpm/@kwsites+promise-deferred@1.1.1/node_modules/@kwsites/promise-deferred/dist/index.js
 var promise_deferred_dist = __nccwpck_require__(8156);
 ;// CONCATENATED MODULE: external "node:events"
 const external_node_events_namespaceObject = require("node:events");
-;// CONCATENATED MODULE: ./node_modules/.pnpm/simple-git@3.24.0/node_modules/simple-git/dist/esm/index.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/simple-git@3.25.0/node_modules/simple-git/dist/esm/index.js
 var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -4538,6 +4538,11 @@ function remove(target, item) {
 }
 function asArray(source) {
   return Array.isArray(source) ? source : [source];
+}
+function asCamelCase(str) {
+  return str.replace(/[\s-]+(.)/g, (_all, chr) => {
+    return chr.toUpperCase();
+  });
 }
 function asStringArray(source) {
   return asArray(source).map(String);
@@ -4790,8 +4795,8 @@ var init_task_options = __esm({
 });
 
 // src/lib/utils/task-parser.ts
-function callTaskParser(parser3, streams) {
-  return parser3(streams.stdOut, streams.stdErr);
+function callTaskParser(parser4, streams) {
+  return parser4(streams.stdOut, streams.stdErr);
 }
 function parseStringResponse(result, parsers12, texts, trim = true) {
   asArray(texts).forEach((text) => {
@@ -4826,6 +4831,7 @@ __export(utils_exports, {
   append: () => append,
   appendTaskOptions: () => appendTaskOptions,
   asArray: () => asArray,
+  asCamelCase: () => asCamelCase,
   asFunction: () => asFunction,
   asNumber: () => asNumber,
   asStringArray: () => asStringArray,
@@ -4984,11 +4990,11 @@ __export(task_exports, {
   straightThroughBufferTask: () => straightThroughBufferTask,
   straightThroughStringTask: () => straightThroughStringTask
 });
-function adhocExecTask(parser3) {
+function adhocExecTask(parser4) {
   return {
     commands: EMPTY_COMMANDS,
     format: "empty",
-    parser: parser3
+    parser: parser4
   };
 }
 function configurationErrorTask(error) {
@@ -5948,6 +5954,49 @@ var init_checkout = __esm({
   }
 });
 
+// src/lib/tasks/count-objects.ts
+function countObjectsResponse() {
+  return {
+    count: 0,
+    garbage: 0,
+    inPack: 0,
+    packs: 0,
+    prunePackable: 0,
+    size: 0,
+    sizeGarbage: 0,
+    sizePack: 0
+  };
+}
+function count_objects_default() {
+  return {
+    countObjects() {
+      return this._runTask({
+        commands: ["count-objects", "--verbose"],
+        format: "utf-8",
+        parser(stdOut) {
+          return parseStringResponse(countObjectsResponse(), [parser2], stdOut);
+        }
+      });
+    }
+  };
+}
+var parser2;
+var init_count_objects = __esm({
+  "src/lib/tasks/count-objects.ts"() {
+    "use strict";
+    init_utils();
+    parser2 = new LineParser(
+      /([a-z-]+): (\d+)$/,
+      (result, [key, value]) => {
+        const property = asCamelCase(key);
+        if (result.hasOwnProperty(property)) {
+          result[property] = asNumber(value);
+        }
+      }
+    );
+  }
+});
+
 // src/lib/parsers/parse-commit.ts
 function parseCommitResult(stdOut) {
   const result = {
@@ -6189,8 +6238,8 @@ var init_DiffSummary = __esm({
 
 // src/lib/parsers/parse-diff-summary.ts
 function getDiffParser(format = "" /* NONE */) {
-  const parser3 = diffSummaryParsers[format];
-  return (stdOut) => parseStringResponse(new DiffSummary(), parser3, stdOut, false);
+  const parser4 = diffSummaryParsers[format];
+  return (stdOut) => parseStringResponse(new DiffSummary(), parser4, stdOut, false);
 }
 var statParser, numStatParser, nameOnlyParser, nameStatusParser, diffSummaryParsers;
 var init_parse_diff_summary = __esm({
@@ -6446,11 +6495,11 @@ function parseLogOptions(opt = {}, customArgs = []) {
   };
 }
 function logTask(splitter, fields, customArgs) {
-  const parser3 = createListLogSummaryParser(splitter, fields, logFormatFromCommand(customArgs));
+  const parser4 = createListLogSummaryParser(splitter, fields, logFormatFromCommand(customArgs));
   return {
     commands: ["log", ...customArgs],
     format: "utf-8",
-    parser: parser3
+    parser: parser4
   };
 }
 function log_default() {
@@ -6969,11 +7018,11 @@ function renamedFile(line) {
     to
   };
 }
-function parser2(indexX, indexY, handler) {
+function parser3(indexX, indexY, handler) {
   return [`${indexX}${indexY}`, handler];
 }
 function conflicts(indexX, ...indexY) {
-  return indexY.map((y) => parser2(indexX, y, (result, file) => append(result.conflicted, file)));
+  return indexY.map((y) => parser3(indexX, y, (result, file) => append(result.conflicted, file)));
 }
 function splitLine(result, lineStr) {
   const trimmed2 = lineStr.trim();
@@ -7024,58 +7073,58 @@ var init_StatusSummary = __esm({
       }
     };
     parsers6 = new Map([
-      parser2(
+      parser3(
         " " /* NONE */,
         "A" /* ADDED */,
         (result, file) => append(result.created, file)
       ),
-      parser2(
+      parser3(
         " " /* NONE */,
         "D" /* DELETED */,
         (result, file) => append(result.deleted, file)
       ),
-      parser2(
+      parser3(
         " " /* NONE */,
         "M" /* MODIFIED */,
         (result, file) => append(result.modified, file)
       ),
-      parser2(
+      parser3(
         "A" /* ADDED */,
         " " /* NONE */,
         (result, file) => append(result.created, file) && append(result.staged, file)
       ),
-      parser2(
+      parser3(
         "A" /* ADDED */,
         "M" /* MODIFIED */,
         (result, file) => append(result.created, file) && append(result.staged, file) && append(result.modified, file)
       ),
-      parser2(
+      parser3(
         "D" /* DELETED */,
         " " /* NONE */,
         (result, file) => append(result.deleted, file) && append(result.staged, file)
       ),
-      parser2(
+      parser3(
         "M" /* MODIFIED */,
         " " /* NONE */,
         (result, file) => append(result.modified, file) && append(result.staged, file)
       ),
-      parser2(
+      parser3(
         "M" /* MODIFIED */,
         "M" /* MODIFIED */,
         (result, file) => append(result.modified, file) && append(result.staged, file)
       ),
-      parser2("R" /* RENAMED */, " " /* NONE */, (result, file) => {
+      parser3("R" /* RENAMED */, " " /* NONE */, (result, file) => {
         append(result.renamed, renamedFile(file));
       }),
-      parser2("R" /* RENAMED */, "M" /* MODIFIED */, (result, file) => {
+      parser3("R" /* RENAMED */, "M" /* MODIFIED */, (result, file) => {
         const renamed = renamedFile(file);
         append(result.renamed, renamed);
         append(result.modified, renamed.to);
       }),
-      parser2("!" /* IGNORED */, "!" /* IGNORED */, (_result, _file) => {
+      parser3("!" /* IGNORED */, "!" /* IGNORED */, (_result, _file) => {
         append(_result.ignored = _result.ignored || [], _file);
       }),
-      parser2(
+      parser3(
         "?" /* UNTRACKED */,
         "?" /* UNTRACKED */,
         (result, file) => append(result.not_added, file)
@@ -7244,6 +7293,7 @@ var init_simple_git_api = __esm({
     init_task_callback();
     init_change_working_directory();
     init_checkout();
+    init_count_objects();
     init_commit();
     init_config();
     init_first_commit();
@@ -7362,6 +7412,7 @@ var init_simple_git_api = __esm({
       checkout_default(),
       commit_default(),
       config_default(),
+      count_objects_default(),
       first_commit_default(),
       grep_default(),
       log_default(),
@@ -7603,11 +7654,11 @@ function branchTask(customArgs) {
   };
 }
 function branchLocalTask() {
-  const parser3 = parseBranchSummary;
+  const parser4 = parseBranchSummary;
   return {
     format: "utf-8",
     commands: ["branch", "-v"],
-    parser: parser3
+    parser: parser4
   };
 }
 function deleteBranchesTask(branches, forceDelete = false) {
@@ -7960,7 +8011,7 @@ __export(stash_list_exports, {
 function stashListTask(opt = {}, customArgs) {
   const options = parseLogOptions(opt);
   const commands = ["stash", "list", ...options.commands, ...customArgs];
-  const parser3 = createListLogSummaryParser(
+  const parser4 = createListLogSummaryParser(
     options.splitter,
     options.fields,
     logFormatFromCommand(commands)
@@ -7968,7 +8019,7 @@ function stashListTask(opt = {}, customArgs) {
   return validateLogFormatConfig(commands) || {
     commands,
     format: "utf-8",
-    parser: parser3
+    parser: parser4
   };
 }
 var init_stash_list = __esm({
