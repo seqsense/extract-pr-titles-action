@@ -15,8 +15,8 @@ importers:
         specifier: 1.1.0
         version: 1.1.0
       simple-git:
-        specifier: 3.25.0
-        version: 3.25.0
+        specifier: 3.27.0
+        version: 3.27.0
     devDependencies:
       '@eslint/js':
         specifier: ^9.0.0
@@ -400,8 +400,8 @@ packages:
   simple-git@1.132.0:
     resolution: {integrity: sha512-xauHm1YqCTom1sC9eOjfq3/9RKiUA9iPnxBbrY2DdL8l4ADMu0jjM5l5lphQP5YWNqAL2aXC/OeuQ76vHtW5fg==}
 
-  simple-git@3.25.0:
-    resolution: {integrity: sha512-KIY5sBnzc4yEcJXW7Tdv4viEz8KyG+nU0hay+DWZasvdFOYKeUZ6Xc25LUHHjw0tinPT7O1eY6pzX7pRT1K8rw==}
+  simple-git@3.27.0:
+    resolution: {integrity: sha512-ivHoFS9Yi9GY49ogc6/YAi3Fl9ROnF4VyubNylgCkA+RVqLaKWnDSzXOVzya8csELIaWaYNutsEuAhZrtOjozA==}
 
   strip-ansi@6.0.1:
     resolution: {integrity: sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==}
@@ -800,7 +800,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  simple-git@3.25.0:
+  simple-git@3.27.0:
     dependencies:
       '@kwsites/file-exists': 1.1.1
       '@kwsites/promise-deferred': 1.1.1
