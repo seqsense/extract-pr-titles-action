@@ -19,7 +19,7 @@
     "@eslint/js": "^9.0.0",
     "@vercel/ncc": "0.38.1",
     "eslint": "9.9.1",
-    "prettier": "3.3.3"
+    "prettier": "3.4.2"
   },
   "packageManager": "pnpm@9.9.0"
 }
