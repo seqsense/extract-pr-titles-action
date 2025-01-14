@@ -1,9 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    "schedule:weekends"
-  ],
+  "extends": ["config:recommended", "schedule:weekends"],
   "timezone": "Asia/Tokyo",
   "gitIgnoredAuthors": ["30003564+sqbot@users.noreply.github.com"]
 }
