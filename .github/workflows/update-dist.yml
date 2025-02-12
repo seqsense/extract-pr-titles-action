@@ -44,8 +44,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ fromJSON(steps.get-ref.outputs.result).ref }}
-      - name: Enable pnpm
-        run: corepack enable pnpm
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
