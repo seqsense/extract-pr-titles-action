@@ -2,5 +2,15 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended", "schedule:weekends"],
   "timezone": "Asia/Tokyo",
-  "gitIgnoredAuthors": ["30003564+sqbot@users.noreply.github.com"]
+  "gitIgnoredAuthors": ["30003564+sqbot@users.noreply.github.com"],
+  "packageRules": [
+    {
+      "groupName": "js formatter and linter",
+      "matchPackageNames": [
+        "/^@eslint\/js$/",
+        "/^eslint$/",
+        "/^prettier$/"
+      ]
+    }
+  ]
 }
