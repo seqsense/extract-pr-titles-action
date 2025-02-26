@@ -7,7 +7,7 @@
     {
       "groupName": "js formatter and linter",
       "matchPackageNames": [
-        "/^@eslint\/js$/",
+        "/^@eslint/js$/",
         "/^eslint$/",
         "/^prettier$/"
       ]
