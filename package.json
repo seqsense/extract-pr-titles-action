@@ -21,7 +21,7 @@
     "eslint": "9.30.0",
     "prettier": "3.6.2"
   },
-  "packageManager": "pnpm@10.12.4",
+  "packageManager": "pnpm@10.18.2",
   "pnpm": {
     "overrides": {
       "simple-git@<3.16.0": ">=3.16.0"
