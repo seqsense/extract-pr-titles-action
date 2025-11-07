@@ -18,8 +18,8 @@ importers:
         specifier: 1.1.0
         version: 1.1.0
       simple-git:
-        specifier: 3.28.0
-        version: 3.28.0
+        specifier: 3.30.0
+        version: 3.30.0
     devDependencies:
       '@eslint/js':
         specifier: ^9.0.0
@@ -394,8 +394,8 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  simple-git@3.28.0:
-    resolution: {integrity: sha512-Rs/vQRwsn1ILH1oBUy8NucJlXmnnLeLCfcvbSehkPzbv3wwoFWIdtfd6Ndo6ZPhlPsCZ60CPI4rxurnwAa+a2w==}
+  simple-git@3.30.0:
+    resolution: {integrity: sha512-q6lxyDsCmEal/MEGhP1aVyQ3oxnagGlBDOVSIB4XUVLl1iZh0Pah6ebC9V4xBap/RfgP2WlI8EKs0WS0rMEJHg==}
 
   strip-json-comments@3.1.1:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
@@ -644,7 +644,7 @@ snapshots:
     dependencies:
       minimisted: 2.0.1
       pupa: 2.1.1
-      simple-git: 3.28.0
+      simple-git: 3.30.0
     transitivePeerDependencies:
       - supports-color
 
@@ -777,7 +777,7 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  simple-git@3.28.0:
+  simple-git@3.30.0:
     dependencies:
       '@kwsites/file-exists': 1.1.1
       '@kwsites/promise-deferred': 1.1.1
