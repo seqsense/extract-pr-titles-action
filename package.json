@@ -13,7 +13,7 @@
   "dependencies": {
     "@actions/core": "3.0.0",
     "extract-pr-titles": "1.1.0",
-    "simple-git": "3.32.3"
+    "simple-git": "3.36.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.0",
