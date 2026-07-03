@@ -18,8 +18,8 @@
   "devDependencies": {
     "@eslint/js": "^10.0.0",
     "@vercel/ncc": "0.44.0",
-    "eslint": "10.5.0",
-    "prettier": "3.8.4"
+    "eslint": "10.6.0",
+    "prettier": "3.9.4"
   },
   "packageManager": "pnpm@11.8.0"
 }
