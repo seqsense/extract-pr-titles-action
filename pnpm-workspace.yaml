@@ -1,4 +1,4 @@
 overrides:
   brace-expansion@>=5.0.0 <5.0.6: 5.0.7
-  flatted@<3.4.2: 3.4.2
+  flatted@<3.4.2: 3.4.4
   simple-git@<3.36.0: 3.36.0
