@@ -1,6 +1,6 @@
 import * as core from '@actions/core'
 import extractPRTitles from 'extract-pr-titles'
-import simpleGit from 'simple-git'
+import { simpleGit } from 'simple-git'
 
 const git = simpleGit(process.cwd())
 
