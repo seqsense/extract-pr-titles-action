@@ -1,5 +1,5 @@
 import * as core from '@actions/core'
-import extractPRTitles from 'extract-pr-titles'
+import extractPRTitles from './extract-pr-titles'
 import { simpleGit } from 'simple-git'
 
 const git = simpleGit(process.cwd())
@@ -21,7 +21,7 @@ const logHandler = (err, result) => {
     return
   }
   core.info(`${result.all.length} commits`)
-  result.all.forEach(log => core.info(`- ${log.message}`))
+  result.all.forEach((log) => core.info(`- ${log.message}`))
   core.setOutput('titles', extractPRTitles(result.all, extractOpts).join('\n'))
 }
 
