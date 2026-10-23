@@ -10,7 +10,7 @@
     "lint": "eslint"
   },
   "author": "SEQSENSE",
-  "license": "Apache-2.0",
+  "license": "(Apache-2.0 AND MIT)",
   "dependencies": {
     "@actions/core": "3.0.1",
     "pupa": "3.3.0",
