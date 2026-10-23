@@ -4,10 +4,19 @@ import extractPRTitles from './index.js'
 
 const fixture = [
   {
+    hash: '5fd1bede253a3340b99cd298561c360d7cdc6132',
+    date: '2020-01-02 03:04:05 +0100',
+    message: 'Placeholder {hoge} in commit message (#5)',
+    refs: 'HEAD -> master, origin/master, origin/HEAD',
+    body: '',
+    author_name: 'Atsushi Watanabe',
+    author_email: 'example@example.com',
+  },
+  {
     hash: 'ee1dad69024fab4193bdbbb2541a50fa42784d6f',
     date: '2019-11-18 21:31:04 +0100',
     message: 'Update README.md (#4)',
-    refs: 'HEAD -> master, origin/master, origin/HEAD',
+    refs: '',
     body: '',
     author_name: 'Yoshiya Hinosawa',
     author_email: 'example@gmail.com',
@@ -71,6 +80,7 @@ const fixture = [
 describe('extractPRTitles', () => {
   it('extracts the pr titles and numbers', () => {
     expect(extractPRTitles(fixture)).toEqual([
+      'Placeholder {hoge} in commit message #5',
       'Update README.md #4',
       'Update README.md C #3',
       'Update README.md #2',
@@ -81,6 +91,7 @@ describe('extractPRTitles', () => {
   it('changes the format according to the give format option', () => {
     const format = '* {title} (#{number})'
     expect(extractPRTitles(fixture, { format })).toEqual([
+      '* Placeholder {hoge} in commit message (#5)',
       '* Update README.md (#4)',
       '* Update README.md C (#3)',
       '* Update README.md (#2)',
@@ -94,6 +105,18 @@ describe('extractPRTitles', () => {
       'Update README.md #2',
       'Update README.md C #3',
       'Update README.md #4',
+      'Placeholder {hoge} in commit message #5',
+    ])
+  })
+
+  it('changes the format to have double curly brackets', () => {
+    const format = '{{title}} #{number}'
+    expect(extractPRTitles(fixture, { format })).toEqual([
+      'Placeholder {hoge} in commit message #5',
+      'Update README.md #4',
+      'Update README.md C #3',
+      'Update README.md #2',
+      'Update README.md A #1',
     ])
   })
 })

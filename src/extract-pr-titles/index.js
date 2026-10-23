@@ -22,7 +22,7 @@ const extractPRTitles = (logLines, { format, reverse } = {}) => {
     result.reverse()
   }
 
-  return result.map((pr) => pupa(format, pr))
+  return result.map((pr) => pupa(format, pr, { ignoreMissing: true }))
 }
 
 export default extractPRTitles
