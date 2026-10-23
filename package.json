@@ -6,7 +6,7 @@
   "scripts": {
     "build": "ncc build",
     "test": "vitest run",
-    "fmt": "prettier --write src/**/*.js",
+    "fmt": "prettier --write \"src/**/*.js\"",
     "lint": "eslint"
   },
   "author": "SEQSENSE",
