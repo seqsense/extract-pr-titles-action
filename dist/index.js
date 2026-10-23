@@ -32608,7 +32608,7 @@ const extractPRTitles = (logLines, { format, reverse } = {}) => {
     result.reverse()
   }
 
-  return result.map((pr) => pupa(format, pr))
+  return result.map((pr) => pupa(format, pr, { ignoreMissing: true }))
 }
 
 /* harmony default export */ const extract_pr_titles = (extractPRTitles);
