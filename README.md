@@ -20,3 +20,9 @@ jobs:
           reverse: true
       - run: echo ${{ steps.titles.outputs.titles }}
 ```
+
+## Licenses
+
+- [LICENSE](https://github.com/seqsense/extract-pr-titles-action/blob/main/LICENSE)
+- [src/extract-pr-titles/LICENSE](https://github.com/seqsense/extract-pr-titles-action/blob/main/src/extract-pr-titles/LICENSE)
+  - `extract-pr-titles` was originally at https://github.com/kt3k/extract-pr-titles (archived)
