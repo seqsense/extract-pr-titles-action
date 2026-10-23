@@ -29466,26 +29466,11 @@ module.exports = require("util");
 /******/ 		__nccwpck_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__nccwpck_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-
-// NAMESPACE OBJECT: ./node_modules/.pnpm/simple-git@4.0.1/node_modules/simple-git/dist/index.mjs
-var simple_git_dist_namespaceObject = {};
-__nccwpck_require__.r(simple_git_dist_namespaceObject);
 
 ;// CONCATENATED MODULE: external "os"
 const external_os_namespaceObject = require("os");
@@ -32444,7 +32429,7 @@ function dist_c(...n) {
 function dist_r(n) {
   return n instanceof String && t.has(n);
 }
-function o(n) {
+function dist_o(n) {
   return t.get(n) ?? [];
 }
 
@@ -32467,7 +32452,7 @@ function* x(e, n) {
   for (const o of e)
     o.isGlobal === t && (yield o);
 }
-const dist_P = /* @__PURE__ */ new Set([
+const P = /* @__PURE__ */ new Set([
   "--add",
   "--edit",
   "--remove-section",
@@ -32494,7 +32479,7 @@ const dist_P = /* @__PURE__ */ new Set([
 ]), F = /* @__PURE__ */ new Set(["get", "get-color", "get-colorbool", "list"]);
 function A(e, n) {
   for (const { name: o } of x(e, "task")) {
-    if (dist_P.has(o))
+    if (P.has(o))
       return w(!0, n);
     if (S.has(o))
       return w(!1, n);
@@ -32553,7 +32538,7 @@ function* $(e) {
     });
   }
 }
-function dist_D(e, n, t) {
+function D(e, n, t) {
   const o = {
     read: [],
     write: [...$(n)]
@@ -32752,15 +32737,15 @@ function V(e, n, t = []) {
   let r = 0;
   for (; r < e.length; ) {
     const i = e[r];
-    if (v(i)) {
-      s.push(...U(i)), r++;
+    if (dist_r(i)) {
+      s.push(...dist_o(i)), r++;
       continue;
     }
     const p = String(i);
     if (p === "--") {
       for (let d = r + 1; d < e.length; d++) {
         const g = e[d];
-        v(g) ? s.push(...U(g)) : s.push(String(g));
+        dist_r(g) ? s.push(...dist_o(g)) : s.push(String(g));
       }
       break;
     }
@@ -32777,7 +32762,7 @@ function V(e, n, t = []) {
         absorbedNext: !1,
         isGlobal: !1
       };
-      d.needsNext && g.value === void 0 && u < e.length && !v(e[u]) && (g.value = String(e[u]), g.absorbedNext = !0, u++), t.push(g);
+      d.needsNext && g.value === void 0 && u < e.length && !dist_r(e[u]) && (g.value = String(e[u]), g.absorbedNext = !0, u++), t.push(g);
     }
     r = u;
   }
@@ -32880,7 +32865,7 @@ function k(e, n, t) {
   return [...H(e, n), ...q(t)];
 }
 function Y(...e) {
-  const { flags: n, taskIndex: t } = W(e), o = t < e.length ? String(e[t]).toLowerCase() : null, a = o !== null ? e.slice(t + 1) : [], { positionals: s, pathspecs: r } = V(a, o, n), i = dist_D(o, n, s);
+  const { flags: n, taskIndex: t } = W(e), o = t < e.length ? String(e[t]).toLowerCase() : null, a = o !== null ? e.slice(t + 1) : [], { positionals: s, pathspecs: r } = V(a, o, n), i = D(o, n, s);
   return {
     task: o,
     flags: n.map(J),
@@ -33052,14 +33037,14 @@ function ct(t, e) {
   return e;
 }
 const ft = Object.prototype.toString.call.bind(Object.prototype.toString);
-function dist_v(t) {
+function v(t) {
   return Array.isArray(t) ? t : [t];
 }
 function jt(t) {
   return t.replace(/[\s-]+(.)/g, (e, n) => n.toUpperCase());
 }
 function dist_L(t) {
-  return dist_v(t).map((e) => e instanceof String ? e : String(e));
+  return v(t).map((e) => e instanceof String ? e : String(e));
 }
 function p(t, e = 0) {
   if (t == null)
@@ -33067,7 +33052,7 @@ function p(t, e = 0) {
   const n = parseInt(t, 10);
   return Number.isNaN(n) ? e : n;
 }
-function dist_U(t, e) {
+function U(t, e) {
   const n = [];
   for (let r = 0, s = t.length; r < s; r++)
     n.push(e, t[r]);
@@ -33196,7 +33181,7 @@ function Tt(t, e) {
   return t(e.stdOut, e.stdErr);
 }
 function dist_E(t, e, n, r = !0) {
-  return dist_v(n).forEach((s) => {
+  return v(n).forEach((s) => {
     for (let o = dist_H(s, r), i = 0, a = o.length; i < a; i++) {
       const c = (y = 0) => {
         if (!(i + y >= a))
@@ -33478,10 +33463,10 @@ class En {
       yield e;
   }
   and(...e) {
-    return e.length && this[dist_j].push("--and", "(", ...dist_U(e, "-e"), ")"), this;
+    return e.length && this[dist_j].push("--and", "(", ...U(e, "-e"), ")"), this;
   }
   param(...e) {
-    return this[dist_j].push(...dist_U(e, "-e")), this;
+    return this[dist_j].push(...U(e, "-e")), this;
   }
 }
 function Sn(...t) {
@@ -33915,7 +33900,7 @@ function Gn(t, e, n) {
       "-c",
       "core.abbrev=40",
       "commit",
-      ...dist_U(t, "-m"),
+      ...U(t, "-m"),
       ...e,
       ...n
     ],
@@ -33927,8 +33912,8 @@ function zn() {
   return {
     commit(e, ...n) {
       const r = u(arguments), s = t(e) || Gn(
-        dist_v(e),
-        dist_v(d(n[0], dist_G, [])),
+        v(e),
+        v(d(n[0], dist_G, [])),
         [
           ...dist_L(d(n[1], dist_K, [])),
           ...dist_h(arguments, 0, !0)
@@ -34750,7 +34735,7 @@ class le {
   }
   add(e) {
     return this._runTask(
-      g(["add", ...dist_v(e)]),
+      g(["add", ...v(e)]),
       u(arguments)
     );
   }
@@ -35083,7 +35068,7 @@ function ws(t) {
 }
 function bs(t, e) {
   return {
-    commands: ["mv", "-v", ...dist_v(t), e],
+    commands: ["mv", "-v", ...v(t), e],
     format: "utf-8",
     parser: ws
   };
@@ -35421,13 +35406,13 @@ dist_f.prototype.pushTags = function(t, e) {
 };
 dist_f.prototype.rm = function(t) {
   return this._runTask(
-    g(["rm", "-f", ...dist_v(t)]),
+    g(["rm", "-f", ...v(t)]),
     u(arguments)
   );
 };
 dist_f.prototype.rmKeepLocal = function(t) {
   return this._runTask(
-    g(["rm", "--cached", ...dist_v(t)]),
+    g(["rm", "--cached", ...v(t)]),
     u(arguments)
   );
 };
@@ -35461,7 +35446,7 @@ dist_f.prototype.diffSummary = function() {
   );
 };
 dist_f.prototype.applyPatch = function(t) {
-  const e = dist_G(t) ? Yr(dist_v(t), dist_h([].slice.call(arguments, 1))) : dist_b(
+  const e = dist_G(t) ? Yr(v(t), dist_h([].slice.call(arguments, 1))) : dist_b(
     "git.applyPatch requires one or more string patches as the first argument"
   );
   return this._runTask(e, u(arguments));
@@ -35492,7 +35477,7 @@ dist_f.prototype.exec = function(t) {
 };
 dist_f.prototype.checkIgnore = function(t, e) {
   return this._runTask(
-    dist_fs(dist_v(d(t, dist_G, []))),
+    dist_fs(v(d(t, dist_G, []))),
     u(arguments)
   );
 };
@@ -35551,13 +35536,13 @@ function Fs(t, e = !1) {
 }
 function Gs(t) {
   const e = t.toLowerCase().trim();
-  return e.startsWith("git_") || Re(e);
+  return e.startsWith("git_") || _(e);
 }
 function zs(t = {}) {
   return {
     type: "spawn.args",
     action(e, { env: n }) {
-      for (const r of Oe(e, n))
+      for (const r of oe(e, n))
         if (t[r.category] !== !0)
           throw new dist_A(void 0, "unsafe", r.message);
       return e;
@@ -35565,7 +35550,7 @@ function zs(t = {}) {
   };
 }
 function qs(t) {
-  const e = dist_U(t, "-c");
+  const e = U(t, "-c");
   return {
     type: "spawn.args",
     action(n) {
@@ -35581,10 +35566,10 @@ function Ws({
   function n() {
     let s = -1;
     const o = {
-      close: P(),
-      closeTimeout: P(),
-      exit: P(),
-      exitTimeout: P()
+      close: (0,promise_deferred_dist/* deferred */.yX)(),
+      closeTimeout: (0,promise_deferred_dist/* deferred */.yX)(),
+      exit: (0,promise_deferred_dist/* deferred */.yX)(),
+      exitTimeout: (0,promise_deferred_dist/* deferred */.yX)()
     }, i = Promise.race([
       t === !1 ? $t : o.closeTimeout.promise,
       e === !1 ? $t : o.exitTimeout.promise
@@ -35640,9 +35625,9 @@ function Pt(t, e) {
   };
 }
 function Xs(t, e = ["git"], n = !1) {
-  let r = Pt(dist_v(e), n);
+  let r = Pt(v(e), n);
   t.on("binary", (s) => {
-    r = Pt(dist_v(s), n), we.info("reconfiguring %o", r);
+    r = Pt(v(s), n), we.info("reconfiguring %o", r);
   }), t.append("spawn.binary", () => r.binary), t.append("spawn.args", (s) => r.prefix ? [r.prefix, ...s] : s);
 }
 const be = {
@@ -35716,7 +35701,7 @@ function no(t) {
 }
 class ro {
   constructor() {
-    this.plugins = /* @__PURE__ */ new Set(), this.events = new Ce();
+    this.plugins = /* @__PURE__ */ new Set(), this.events = new external_node_events_.EventEmitter();
   }
   on(e, n) {
     this.events.on(e, n);
@@ -35730,7 +35715,7 @@ class ro {
   }
   add(e) {
     const n = [];
-    return dist_v(e).forEach(
+    return v(e).forEach(
       (r) => {
         r && this.plugins.add(dist_S(n, r));
       }
@@ -35794,13 +35779,13 @@ function ao() {
       }
       for (let s = 0; s < t.length; s++) {
         const o = t[s];
-        if (D(o)) {
-          r(yt(o));
+        if (dist_r(o)) {
+          r(dist_o(o));
           continue;
         }
         if (o === "--") {
           r(
-            t.slice(s + 1).flatMap((i) => D(i) && yt(i) || i)
+            t.slice(s + 1).flatMap((i) => dist_r(i) && dist_o(i) || i)
           );
           break;
         }
@@ -35855,7 +35840,7 @@ const wo = (t, e) => {
 
 
 
-const git = (0,simple_git_dist_namespaceObject["default"])(process.cwd())
+const git = wo(process.cwd())
 
 const logOpts = {
   from: getInput('from'),
