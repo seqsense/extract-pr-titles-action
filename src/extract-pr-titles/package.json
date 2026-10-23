@@ -1,0 +1,7 @@
+{
+  "name": "extract-pr-titles",
+  "description": "Extract PR Titles between the given 2 git refs.",
+  "main": "index.js",
+  "author": "Yoshiya Hinosawa",
+  "license": "MIT"
+}
