@@ -14,7 +14,7 @@
   "dependencies": {
     "@actions/core": "3.0.1",
     "pupa": "3.3.0",
-    "simple-git": "4.0.1"
+    "simple-git": "4.0.2"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
