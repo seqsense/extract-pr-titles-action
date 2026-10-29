@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 1993:
+/***/ 4224:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -10,12 +10,12 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-__export(__nccwpck_require__(7288));
+__export(__nccwpck_require__(3689));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 7288:
+/***/ 3689:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -25,7 +25,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const fs_1 = __nccwpck_require__(9896);
-const debug_1 = __importDefault(__nccwpck_require__(7741));
+const debug_1 = __importDefault(__nccwpck_require__(2902));
 const log = debug_1.default('@kwsites/file-exists');
 function check(path, isFile, isDirectory) {
     log(`checking %s`, path);
@@ -144,7 +144,7 @@ __webpack_unused_export__ = deferred;
 
 /***/ }),
 
-/***/ 8685:
+/***/ 3990:
 /***/ ((module, exports, __nccwpck_require__) => {
 
 /* eslint-env browser */
@@ -404,7 +404,7 @@ function localstorage() {
 	}
 }
 
-module.exports = __nccwpck_require__(6220)(exports);
+module.exports = __nccwpck_require__(2233)(exports);
 
 const {formatters} = module.exports;
 
@@ -423,7 +423,7 @@ formatters.j = function (v) {
 
 /***/ }),
 
-/***/ 6220:
+/***/ 2233:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -722,7 +722,7 @@ module.exports = setup;
 
 /***/ }),
 
-/***/ 7741:
+/***/ 2902:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 /**
@@ -731,15 +731,15 @@ module.exports = setup;
  */
 
 if (typeof process === 'undefined' || process.type === 'renderer' || process.browser === true || process.__nwjs) {
-	module.exports = __nccwpck_require__(8685);
+	module.exports = __nccwpck_require__(3990);
 } else {
-	module.exports = __nccwpck_require__(8485);
+	module.exports = __nccwpck_require__(8636);
 }
 
 
 /***/ }),
 
-/***/ 8485:
+/***/ 8636:
 /***/ ((module, exports, __nccwpck_require__) => {
 
 /**
@@ -773,7 +773,7 @@ exports.colors = [6, 2, 3, 4, 5, 1];
 try {
 	// Optional dependency (as in, doesn't need to be installed, NOT like optionalDependencies in package.json)
 	// eslint-disable-next-line import/no-extraneous-dependencies
-	const supportsColor = __nccwpck_require__(6048);
+	const supportsColor = __nccwpck_require__(2331);
 
 	if (supportsColor && (supportsColor.stderr || supportsColor).level >= 2) {
 		exports.colors = [
@@ -981,7 +981,7 @@ function init(debug) {
 	}
 }
 
-module.exports = __nccwpck_require__(6220)(exports);
+module.exports = __nccwpck_require__(2233)(exports);
 
 const {formatters} = module.exports;
 
@@ -1009,98 +1009,18 @@ formatters.O = function (v) {
 
 /***/ }),
 
-/***/ 2247:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ 5719:
+/***/ ((module) => {
 
 "use strict";
 
 
-exports.htmlEscape = string => string
-	.replace(/&/g, '&amp;')
-	.replace(/"/g, '&quot;')
-	.replace(/'/g, '&#39;')
-	.replace(/</g, '&lt;')
-	.replace(/>/g, '&gt;');
-
-exports.htmlUnescape = htmlString => htmlString
-	.replace(/&gt;/g, '>')
-	.replace(/&lt;/g, '<')
-	.replace(/&#0?39;/g, '\'')
-	.replace(/&quot;/g, '"')
-	.replace(/&amp;/g, '&');
-
-exports.htmlEscapeTag = (strings, ...values) => {
-	let output = strings[0];
-	for (let i = 0; i < values.length; i++) {
-		output = output + exports.htmlEscape(String(values[i])) + strings[i + 1];
-	}
-
-	return output;
+module.exports = (flag, argv = process.argv) => {
+	const prefix = flag.startsWith('-') ? '' : (flag.length === 1 ? '-' : '--');
+	const position = argv.indexOf(prefix + flag);
+	const terminatorPosition = argv.indexOf('--');
+	return position !== -1 && (terminatorPosition === -1 || position < terminatorPosition);
 };
-
-exports.htmlUnescapeTag = (strings, ...values) => {
-	let output = strings[0];
-	for (let i = 0; i < values.length; i++) {
-		output = output + exports.htmlUnescape(String(values[i])) + strings[i + 1];
-	}
-
-	return output;
-};
-
-
-/***/ }),
-
-/***/ 739:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-const pupa = __nccwpck_require__(7737)
-
-const DEFAULT_FORMAT = '{title} #{number}'
-
-/**
- * @param {Array<ListLogLine>} logLines
- * @param {string} format The format for PR in pupa format. Default is {title} #{number}.
- * @param {boolean} reverse Reverse the order of the output
- */
-module.exports = (logLines, { format, reverse } = {}) => {
-  format = format || DEFAULT_FORMAT
-  const result = []
-  for (line of logLines) {
-    if (isMergedPRCommit(line)) {
-      result.push(extractMergedPR(line))
-    } else if (isSquashedPRCommit(line)) {
-      result.push(extractSquashedPR(line))
-    }
-  }
-
-  if (reverse) {
-    result.reverse()
-  }
-
-  return result.map(pr => pupa(format, pr))
-}
-
-const RE_PR_NUMBER = /\#(\d+)/
-
-const isMergedPRCommit = line => {
-  return /^Merge pull request \#\d+/.test(line.message)
-}
-
-const isSquashedPRCommit = line => {
-  return / \(\#\d+\)$/.test(line.message)
-}
-
-const extractMergedPR = line => {
-  const title = line.body
-  const number = line.message.match(RE_PR_NUMBER)[1]
-  return { title, number }
-}
-
-const extractSquashedPR = line => {
-  const title = line.message.replace(/ \(\#\d+\)$/, '')
-  const number = line.message.match(RE_PR_NUMBER)[1]
-  return { title, number }
-}
 
 
 /***/ }),
@@ -1274,48 +1194,161 @@ function plural(ms, msAbs, n, name) {
 
 /***/ }),
 
-/***/ 7737:
+/***/ 2331:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
-const {htmlEscape} = __nccwpck_require__(2247);
+const os = __nccwpck_require__(857);
+const tty = __nccwpck_require__(2018);
+const hasFlag = __nccwpck_require__(5719);
 
-module.exports = (template, data) => {
-	if (typeof template !== 'string') {
-		throw new TypeError(`Expected a \`string\` in the first argument, got \`${typeof template}\``);
-	}
+const {env} = process;
 
-	if (typeof data !== 'object') {
-		throw new TypeError(`Expected an \`object\` or \`Array\` in the second argument, got \`${typeof data}\``);
-	}
+let flagForceColor;
+if (hasFlag('no-color') ||
+	hasFlag('no-colors') ||
+	hasFlag('color=false') ||
+	hasFlag('color=never')) {
+	flagForceColor = 0;
+} else if (hasFlag('color') ||
+	hasFlag('colors') ||
+	hasFlag('color=true') ||
+	hasFlag('color=always')) {
+	flagForceColor = 1;
+}
 
-	// The regex tries to match either a number inside `{{ }}` or a valid JS identifier or key path.
-	const doubleBraceRegex = /{{(\d+|[a-z$_][a-z\d$_]*?(?:\.[a-z\d$_]*?)*?)}}/gi;
-
-	if (doubleBraceRegex.test(template)) {
-		template = template.replace(doubleBraceRegex, (_, key) => {
-			let result = data;
-
-			for (const property of key.split('.')) {
-				result = result ? result[property] : '';
-			}
-
-			return htmlEscape(String(result));
-		});
-	}
-
-	const braceRegex = /{(\d+|[a-z$_][a-z\d$_]*?(?:\.[a-z\d$_]*?)*?)}/gi;
-
-	return template.replace(braceRegex, (_, key) => {
-		let result = data;
-
-		for (const property of key.split('.')) {
-			result = result ? result[property] : '';
+function envForceColor() {
+	if ('FORCE_COLOR' in env) {
+		if (env.FORCE_COLOR === 'true') {
+			return 1;
 		}
 
-		return String(result);
+		if (env.FORCE_COLOR === 'false') {
+			return 0;
+		}
+
+		return env.FORCE_COLOR.length === 0 ? 1 : Math.min(Number.parseInt(env.FORCE_COLOR, 10), 3);
+	}
+}
+
+function translateLevel(level) {
+	if (level === 0) {
+		return false;
+	}
+
+	return {
+		level,
+		hasBasic: true,
+		has256: level >= 2,
+		has16m: level >= 3
+	};
+}
+
+function supportsColor(haveStream, {streamIsTTY, sniffFlags = true} = {}) {
+	const noFlagForceColor = envForceColor();
+	if (noFlagForceColor !== undefined) {
+		flagForceColor = noFlagForceColor;
+	}
+
+	const forceColor = sniffFlags ? flagForceColor : noFlagForceColor;
+
+	if (forceColor === 0) {
+		return 0;
+	}
+
+	if (sniffFlags) {
+		if (hasFlag('color=16m') ||
+			hasFlag('color=full') ||
+			hasFlag('color=truecolor')) {
+			return 3;
+		}
+
+		if (hasFlag('color=256')) {
+			return 2;
+		}
+	}
+
+	if (haveStream && !streamIsTTY && forceColor === undefined) {
+		return 0;
+	}
+
+	const min = forceColor || 0;
+
+	if (env.TERM === 'dumb') {
+		return min;
+	}
+
+	if (process.platform === 'win32') {
+		// Windows 10 build 10586 is the first Windows release that supports 256 colors.
+		// Windows 10 build 14931 is the first release that supports 16m/TrueColor.
+		const osRelease = os.release().split('.');
+		if (
+			Number(osRelease[0]) >= 10 &&
+			Number(osRelease[2]) >= 10586
+		) {
+			return Number(osRelease[2]) >= 14931 ? 3 : 2;
+		}
+
+		return 1;
+	}
+
+	if ('CI' in env) {
+		if (['TRAVIS', 'CIRCLECI', 'APPVEYOR', 'GITLAB_CI', 'GITHUB_ACTIONS', 'BUILDKITE', 'DRONE'].some(sign => sign in env) || env.CI_NAME === 'codeship') {
+			return 1;
+		}
+
+		return min;
+	}
+
+	if ('TEAMCITY_VERSION' in env) {
+		return /^(9\.(0*[1-9]\d*)\.|\d{2,}\.)/.test(env.TEAMCITY_VERSION) ? 1 : 0;
+	}
+
+	if (env.COLORTERM === 'truecolor') {
+		return 3;
+	}
+
+	if ('TERM_PROGRAM' in env) {
+		const version = Number.parseInt((env.TERM_PROGRAM_VERSION || '').split('.')[0], 10);
+
+		switch (env.TERM_PROGRAM) {
+			case 'iTerm.app':
+				return version >= 3 ? 3 : 2;
+			case 'Apple_Terminal':
+				return 2;
+			// No default
+		}
+	}
+
+	if (/-256(color)?$/i.test(env.TERM)) {
+		return 2;
+	}
+
+	if (/^screen|^xterm|^vt100|^vt220|^rxvt|color|ansi|cygwin|linux/i.test(env.TERM)) {
+		return 1;
+	}
+
+	if ('COLORTERM' in env) {
+		return 1;
+	}
+
+	return min;
+}
+
+function getSupportLevel(stream, options = {}) {
+	const level = supportsColor(stream, {
+		streamIsTTY: stream && stream.isTTY,
+		...options
 	});
+
+	return translateLevel(level);
+}
+
+module.exports = {
+	supportsColor: getSupportLevel,
+	stdout: getSupportLevel({isTTY: tty.isatty(1)}),
+	stderr: getSupportLevel({isTTY: tty.isatty(2)})
 };
 
 
@@ -29153,14 +29186,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ 6048:
-/***/ ((module) => {
-
-module.exports = eval("require")("supports-color");
-
-
-/***/ }),
-
 /***/ 2613:
 /***/ ((module) => {
 
@@ -29369,6 +29394,14 @@ module.exports = require("node:zlib");
 
 /***/ }),
 
+/***/ 857:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("os");
+
+/***/ }),
+
 /***/ 3193:
 /***/ ((module) => {
 
@@ -29437,43 +29470,14 @@ module.exports = require("util");
 /******/ 	/* webpack/runtime/asset-relocator-loader */
 /******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";
 /******/ 	
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nccwpck_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__nccwpck_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__nccwpck_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__nccwpck_require__.o(definition, key) && !__nccwpck_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__nccwpck_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
 
-;// CONCATENATED MODULE: external "os"
-const external_os_namespaceObject = require("os");
+// EXTERNAL MODULE: external "os"
+var external_os_ = __nccwpck_require__(857);
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.1/node_modules/@actions/core/lib/utils.js
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -29548,7 +29552,7 @@ function utils_toCommandProperties(annotationProperties) {
  */
 function command_issueCommand(command, properties, message) {
     const cmd = new Command(command, properties, message);
-    process.stdout.write(cmd.toString() + external_os_namespaceObject.EOL);
+    process.stdout.write(cmd.toString() + external_os_.EOL);
 }
 function command_issue(name, message = '') {
     command_issueCommand(name, {}, message);
@@ -29622,7 +29626,7 @@ function file_command_issueFileCommand(command, message) {
     if (!external_fs_.existsSync(filePath)) {
         throw new Error(`Missing file at path: ${filePath}`);
     }
-    external_fs_.appendFileSync(filePath, `${utils_toCommandValue(message)}${external_os_namespaceObject.EOL}`, {
+    external_fs_.appendFileSync(filePath, `${utils_toCommandValue(message)}${external_os_.EOL}`, {
         encoding: 'utf8'
     });
 }
@@ -29638,7 +29642,7 @@ function file_command_prepareKeyValueMessage(key, value) {
     if (convertedValue.includes(delimiter)) {
         throw new Error(`Unexpected input: value should not contain the delimiter "${delimiter}"`);
     }
-    return `${key}<<${delimiter}${external_os_namespaceObject.EOL}${convertedValue}${external_os_namespaceObject.EOL}${delimiter}`;
+    return `${key}<<${delimiter}${external_os_.EOL}${convertedValue}${external_os_.EOL}${delimiter}`;
 }
 //# sourceMappingURL=file-command.js.map
 ;// CONCATENATED MODULE: external "path"
@@ -30720,7 +30724,7 @@ class Summary {
      * @returns {Summary} summary instance
      */
     addEOL() {
-        return this.addRaw(external_os_namespaceObject.EOL);
+        return this.addRaw(external_os_.EOL);
     }
     /**
      * Adds an HTML codeblock to the summary buffer
@@ -31444,13 +31448,13 @@ class ToolRunner extends external_events_.EventEmitter {
     _processLineBuffer(data, strBuffer, onLine) {
         try {
             let s = strBuffer + data.toString();
-            let n = s.indexOf(external_os_namespaceObject.EOL);
+            let n = s.indexOf(external_os_.EOL);
             while (n > -1) {
                 const line = s.substring(0, n);
                 onLine(line);
                 // the rest of the string ...
-                s = s.substring(n + external_os_namespaceObject.EOL.length);
-                n = s.indexOf(external_os_namespaceObject.EOL);
+                s = s.substring(n + external_os_.EOL.length);
+                n = s.indexOf(external_os_.EOL);
             }
             return s;
         }
@@ -31741,7 +31745,7 @@ class ToolRunner extends external_events_.EventEmitter {
                 }
                 const optionsNonNull = this._cloneExecOptions(this.options);
                 if (!optionsNonNull.silent && optionsNonNull.outStream) {
-                    optionsNonNull.outStream.write(this._getCommandString(optionsNonNull) + external_os_namespaceObject.EOL);
+                    optionsNonNull.outStream.write(this._getCommandString(optionsNonNull) + external_os_.EOL);
                 }
                 const state = new ExecState(optionsNonNull, this.toolPath);
                 state.on('debug', (message) => {
@@ -32080,8 +32084,8 @@ const getLinuxInfo = () => platform_awaiter(void 0, void 0, void 0, function* ()
         version
     };
 });
-const platform = external_os_namespaceObject.platform();
-const arch = external_os_namespaceObject.arch();
+const platform = external_os_.platform();
+const arch = external_os_.arch();
 const isWindows = platform === 'win32';
 const isMacOS = platform === 'darwin';
 const isLinux = platform === 'linux';
@@ -32262,7 +32266,7 @@ function setOutput(name, value) {
     if (filePath) {
         return file_command_issueFileCommand('OUTPUT', file_command_prepareKeyValueMessage(name, value));
     }
-    process.stdout.write(external_os_namespaceObject.EOL);
+    process.stdout.write(external_os_.EOL);
     command_issueCommand('set-output', { name }, utils_toCommandValue(value));
 }
 /**
@@ -32330,7 +32334,7 @@ function notice(message, properties = {}) {
  * @param message info message
  */
 function info(message) {
-    process.stdout.write(message + external_os_namespaceObject.EOL);
+    process.stdout.write(message + external_os_.EOL);
 }
 /**
  * Begin an output group.
@@ -32417,9 +32421,220 @@ function getIDToken(aud) {
  */
 
 //# sourceMappingURL=core.js.map
-// EXTERNAL MODULE: ./node_modules/.pnpm/extract-pr-titles@1.1.0/node_modules/extract-pr-titles/index.js
-var extract_pr_titles = __nccwpck_require__(739);
-var extract_pr_titles_default = /*#__PURE__*/__nccwpck_require__.n(extract_pr_titles);
+;// CONCATENATED MODULE: ./node_modules/.pnpm/escape-goat@4.0.0/node_modules/escape-goat/index.js
+const _htmlEscape = string => string
+	.replace(/&/g, '&amp;')
+	.replace(/"/g, '&quot;')
+	.replace(/'/g, '&#39;')
+	.replace(/</g, '&lt;')
+	.replace(/>/g, '&gt;');
+
+const _htmlUnescape = htmlString => htmlString
+	.replace(/&gt;/g, '>')
+	.replace(/&lt;/g, '<')
+	.replace(/&#0?39;/g, '\'')
+	.replace(/&quot;/g, '"')
+	.replace(/&amp;/g, '&');
+
+function htmlEscape(strings, ...values) {
+	if (typeof strings === 'string') {
+		return _htmlEscape(strings);
+	}
+
+	let output = strings[0];
+	for (const [index, value] of values.entries()) {
+		output = output + _htmlEscape(String(value)) + strings[index + 1];
+	}
+
+	return output;
+}
+
+function htmlUnescape(strings, ...values) {
+	if (typeof strings === 'string') {
+		return _htmlUnescape(strings);
+	}
+
+	let output = strings[0];
+	for (const [index, value] of values.entries()) {
+		output = output + _htmlUnescape(String(value)) + strings[index + 1];
+	}
+
+	return output;
+}
+
+;// CONCATENATED MODULE: ./node_modules/.pnpm/pupa@3.3.0/node_modules/pupa/index.js
+
+
+class MissingValueError extends Error {
+	constructor(key) {
+		super(`Missing a value for ${key ? `the placeholder: ${key}` : 'a placeholder'}`, key);
+		this.name = 'MissingValueError';
+		this.key = key;
+	}
+}
+
+class MissingFilterError extends Error {
+	constructor(filterName) {
+		super(`Missing filter: ${filterName}`);
+		this.name = 'MissingFilterError';
+		this.filterName = filterName;
+	}
+}
+
+function pupa(template, data, {ignoreMissing = false, transform = ({value}) => value, filters = {}} = {}) {
+	if (typeof template !== 'string') {
+		throw new TypeError(`Expected a \`string\` in the first argument, got \`${typeof template}\``);
+	}
+
+	if (typeof data !== 'object') {
+		throw new TypeError(`Expected an \`object\` or \`Array\` in the second argument, got \`${typeof data}\``);
+	}
+
+	// Handle escape sequences for literal braces
+	const escapedLeftBrace = '\uE000\uE001\uE002'; // Private use characters as temporary marker
+	const escapedRightBrace = '\uE003\uE004\uE005'; // Private use characters as temporary marker
+
+	template = template.replace(/\\{/g, escapedLeftBrace);
+	template = template.replace(/\\}/g, escapedRightBrace);
+
+	const parseKeyPath = key => {
+		const segments = [];
+		let segment = '';
+
+		for (let index = 0; index < key.length; index++) {
+			if (key[index] === '\\' && key[index + 1] === '.') {
+				segment += '.';
+				index++; // Skip escaped dot
+			} else if (key[index] === '.') {
+				segments.push(segment);
+				segment = '';
+			} else {
+				segment += key[index];
+			}
+		}
+
+		segments.push(segment);
+		return segments;
+	};
+
+	const replace = (placeholder, keyWithFilters) => {
+		// Parse filters from the key (e.g., "name | capitalize | upper")
+		const parts = keyWithFilters.split('|').map(part => part.trim());
+		const key = parts[0];
+		const filterChain = parts.slice(1);
+
+		// Navigate object path
+		const segments = parseKeyPath(key);
+		let value = data;
+		for (const property of segments) {
+			/// value = value?.[property];
+
+			if (value) {
+				value = value[property];
+			}
+		}
+
+		// Apply filters
+		for (const filterName of filterChain) {
+			const filter = filters[filterName];
+
+			if (!filter) {
+				if (ignoreMissing) {
+					return placeholder;
+				}
+
+				throw new MissingFilterError(filterName);
+			}
+
+			if (value !== undefined) {
+				value = filter(value);
+			}
+		}
+
+		const transformedValue = transform({value, key});
+		if (transformedValue === undefined) {
+			if (ignoreMissing) {
+				return placeholder;
+			}
+
+			throw new MissingValueError(key);
+		}
+
+		return String(transformedValue);
+	};
+
+	// ReDoS-safe regex to capture keys with optional filters
+	// Matches: {key} or {key | filter} or {key | filter1 | filter2}
+	const keyPattern = '(\\d+|[a-z$_][\\w\\-.$\\\\]*)';
+	const filterPattern = '(?:\\|\\s*[a-z$_][\\w$]*\\s*)*';
+	const keyWithFiltersPattern = `(${keyPattern}\\s*${filterPattern})`;
+
+	const doubleBraceRegex = new RegExp(`{{${keyWithFiltersPattern}}}`, 'gi');
+	const singleBraceRegex = new RegExp(`{${keyWithFiltersPattern}}`, 'gi');
+
+	template = template.replace(doubleBraceRegex, (...arguments_) => htmlEscape(replace(...arguments_)));
+
+	template = template.replace(singleBraceRegex, replace);
+
+	// Replace temporary markers with literal braces
+	template = template.replace(new RegExp(escapedLeftBrace, 'g'), '{');
+	template = template.replace(new RegExp(escapedRightBrace, 'g'), '}');
+
+	return template;
+}
+
+;// CONCATENATED MODULE: ./src/extract-pr-titles/index.js
+
+
+const DEFAULT_FORMAT = '{title} #{number}'
+
+/**
+ * @param {Array<ListLogLine>} logLines
+ * @param {string} format The format for PR in pupa format. Default is {title} #{number}.
+ * @param {boolean} reverse Reverse the order of the output
+ */
+const extractPRTitles = (logLines, { format, reverse } = {}) => {
+  format = format || DEFAULT_FORMAT
+  const result = []
+  for (const line of logLines) {
+    if (isMergedPRCommit(line)) {
+      result.push(extractMergedPR(line))
+    } else if (isSquashedPRCommit(line)) {
+      result.push(extractSquashedPR(line))
+    }
+  }
+
+  if (reverse) {
+    result.reverse()
+  }
+
+  return result.map((pr) => pupa(format, pr, { ignoreMissing: true }))
+}
+
+/* harmony default export */ const extract_pr_titles = (extractPRTitles);
+
+const RE_PR_NUMBER = /#(\d+)/
+
+const isMergedPRCommit = (line) => {
+  return /^Merge pull request #\d+/.test(line.message)
+}
+
+const isSquashedPRCommit = (line) => {
+  return / \(#\d+\)$/.test(line.message)
+}
+
+const extractMergedPR = (line) => {
+  const title = line.body
+  const number = line.message.match(RE_PR_NUMBER)[1]
+  return { title, number }
+}
+
+const extractSquashedPR = (line) => {
+  const title = line.message.replace(/ \(#\d+\)$/, '')
+  const number = line.message.match(RE_PR_NUMBER)[1]
+  return { title, number }
+}
+
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/@simple-git+args-pathspec@1.0.4/node_modules/@simple-git/args-pathspec/dist/index.mjs
 const t = /* @__PURE__ */ new WeakMap();
 function dist_c(...n) {
@@ -32435,12 +32650,12 @@ function dist_o(n) {
 
 //# sourceMappingURL=index.mjs.map
 
-// EXTERNAL MODULE: ./node_modules/.pnpm/@kwsites+file-exists@1.1.1/node_modules/@kwsites/file-exists/dist/index.js
-var dist = __nccwpck_require__(1993);
+// EXTERNAL MODULE: ./node_modules/.pnpm/@kwsites+file-exists@1.1.1_supports-color@8.1.1/node_modules/@kwsites/file-exists/dist/index.js
+var dist = __nccwpck_require__(4224);
 ;// CONCATENATED MODULE: external "node:child_process"
 const external_node_child_process_namespaceObject = require("node:child_process");
-// EXTERNAL MODULE: ./node_modules/.pnpm/debug@4.4.1/node_modules/debug/src/index.js
-var src = __nccwpck_require__(7741);
+// EXTERNAL MODULE: ./node_modules/.pnpm/debug@4.4.1_supports-color@8.1.1/node_modules/debug/src/index.js
+var src = __nccwpck_require__(2902);
 // EXTERNAL MODULE: ./node_modules/.pnpm/@kwsites+promise-deferred@1.1.1/node_modules/@kwsites/promise-deferred/dist/index.js
 var promise_deferred_dist = __nccwpck_require__(4203);
 ;// CONCATENATED MODULE: external "node:path"
@@ -32952,7 +33167,7 @@ function oe(e, n) {
 
 // EXTERNAL MODULE: external "node:events"
 var external_node_events_ = __nccwpck_require__(8474);
-;// CONCATENATED MODULE: ./node_modules/.pnpm/simple-git@4.0.1/node_modules/simple-git/dist/index.mjs
+;// CONCATENATED MODULE: ./node_modules/.pnpm/simple-git@4.0.1_supports-color@8.1.1/node_modules/simple-git/dist/index.mjs
 
 
 
@@ -35859,8 +36074,8 @@ const logHandler = (err, result) => {
     return
   }
   info(`${result.all.length} commits`)
-  result.all.forEach(log => info(`- ${log.message}`))
-  setOutput('titles', extract_pr_titles_default()(result.all, extractOpts).join('\n'))
+  result.all.forEach((log) => info(`- ${log.message}`))
+  setOutput('titles', extract_pr_titles(result.all, extractOpts).join('\n'))
 }
 
 git.log(logOpts, logHandler)
