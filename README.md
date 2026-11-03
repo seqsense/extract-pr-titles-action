@@ -29,7 +29,8 @@ jobs:
 - `{number}`: PR number
 - `{author}`: PR author
   - If `github-token` is set, it is the GitHub login of the PR author (without `@`) fetched via GitHub API.
-    Add `@` in the format (e.g. `@{author}`) to mention the author.
+    Bot login has `[bot]` suffix (e.g. `renovate[bot]`), so `@{author}` doesn't work as a mention for bots
+    (GitHub treats `@renovate[bot]` as a mention to the user `renovate`).
   - Otherwise, it is the git commit author name.
     Note that the author of a merge commit is the person who merged the PR.
 
