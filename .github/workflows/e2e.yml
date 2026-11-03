@@ -21,8 +21,9 @@ jobs:
         with:
           from: origin/${{ github.event.pull_request.base.ref }}^
           to: origin/${{ github.event.pull_request.base.ref }}
-          format: "- {title} #{number}"
+          format: "- {title} #{number} by {author}"
           reverse: true
+          github-token: ${{ github.token }}
 
       - uses: at-wat/setup-gh-pr-comment@v0
       - name: Post comment

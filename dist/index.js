@@ -32590,11 +32590,10 @@ const DEFAULT_FORMAT = '{title} #{number}'
 
 /**
  * @param {Array<ListLogLine>} logLines
- * @param {string} format The format for PR in pupa format. Default is {title} #{number}.
  * @param {boolean} reverse Reverse the order of the output
+ * @returns {Array<{title: string, number: string, author: string}>}
  */
-const extractPRTitles = (logLines, { format, reverse } = {}) => {
-  format = format || DEFAULT_FORMAT
+const extractPRs = (logLines, { reverse } = {}) => {
   const result = []
   for (const line of logLines) {
     if (isMergedPRCommit(line)) {
@@ -32608,10 +32607,27 @@ const extractPRTitles = (logLines, { format, reverse } = {}) => {
     result.reverse()
   }
 
-  return result.map((pr) => pupa(format, pr, { ignoreMissing: true }))
+  return result
 }
 
-/* harmony default export */ const extract_pr_titles = (extractPRTitles);
+/**
+ * @param {Array<{title: string, number: string, author: string}>} prs
+ * @param {string} format The format for PR in pupa format. Default is {title} #{number}.
+ */
+const formatPRs = (prs, format) => {
+  format = format || DEFAULT_FORMAT
+  return prs.map((pr) => pupa(format, pr, { ignoreMissing: true }))
+}
+
+/**
+ * @param {Array<ListLogLine>} logLines
+ * @param {string} format The format for PR in pupa format. Default is {title} #{number}.
+ * @param {boolean} reverse Reverse the order of the output
+ */
+const extractPRTitles = (logLines, { format, reverse } = {}) =>
+  formatPRs(extractPRs(logLines, { reverse }), format)
+
+/* harmony default export */ const extract_pr_titles = ((/* unused pure expression or super */ null && (extractPRTitles)));
 
 const RE_PR_NUMBER = /#(\d+)/
 
@@ -32623,16 +32639,52 @@ const isSquashedPRCommit = (line) => {
   return / \(#\d+\)$/.test(line.message)
 }
 
+// author is the git commit author name. For merge commits, it is the person who merged the PR, not the PR author.
 const extractMergedPR = (line) => {
   const title = line.body
   const number = line.message.match(RE_PR_NUMBER)[1]
-  return { title, number }
+  return { title, number, author: line.author_name }
 }
 
 const extractSquashedPR = (line) => {
   const title = line.message.replace(/ \(#\d+\)$/, '')
   const number = line.message.match(RE_PR_NUMBER)[1]
-  return { title, number }
+  return { title, number, author: line.author_name }
+}
+
+;// CONCATENATED MODULE: ./src/github.js
+/**
+ * Fetch the login of the PR author via GitHub API.
+ * git log doesn't provide the GitHub login, and the author of a merge commit is the person who merged it.
+ *
+ * @param {object} opts
+ * @param {string} opts.token GitHub token
+ * @param {string} opts.repository owner/repo
+ * @param {string} opts.number PR number
+ * @param {string} [opts.apiUrl] GitHub API URL
+ * @returns {Promise<string>} login of the PR author
+ */
+const fetchPRAuthor = async ({
+  token,
+  repository,
+  number,
+  apiUrl = 'https://api.github.com',
+}) => {
+  const res = await fetch(`${apiUrl}/repos/${repository}/pulls/${number}`, {
+    headers: {
+      Accept: 'application/vnd.github+json',
+      Authorization: `Bearer ${token}`,
+      'X-GitHub-Api-Version': '2022-11-28',
+    },
+    signal: AbortSignal.timeout(30000),
+  })
+  if (!res.ok) {
+    throw new Error(
+      `failed to get PR #${number} of ${repository}: ${res.status} ${res.statusText}`,
+    )
+  }
+  const pr = await res.json()
+  return pr.user.login
 }
 
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/@simple-git+args-pathspec@1.0.4/node_modules/@simple-git/args-pathspec/dist/index.mjs
@@ -36056,30 +36108,41 @@ const wo = (t, e) => {
 
 
 
-const git = wo(process.cwd())
 
-const logOpts = {
-  from: getInput('from'),
-  to: getInput('to'),
-  symmetric: false,
-}
+const run = async () => {
+  const git = wo(process.cwd())
 
-const extractOpts = {
-  format: getInput('format'),
-  reverse: getInput('reverse') == 'true',
-}
+  const format = getInput('format')
+  const token = getInput('github-token')
 
-const logHandler = (err, result) => {
-  if (err) {
-    setFailed(err)
-    return
-  }
+  const result = await git.log({
+    from: getInput('from'),
+    to: getInput('to'),
+    symmetric: false,
+  })
   info(`${result.all.length} commits`)
   result.all.forEach((log) => info(`- ${log.message}`))
-  setOutput('titles', extract_pr_titles(result.all, extractOpts).join('\n'))
+
+  const prs = extractPRs(result.all, {
+    reverse: getInput('reverse') == 'true',
+  })
+
+  // Without token, author falls back to the git commit author name
+  if (token && format.includes('{author}')) {
+    for (const pr of prs) {
+      pr.author = await fetchPRAuthor({
+        token,
+        repository: process.env.GITHUB_REPOSITORY,
+        number: pr.number,
+        apiUrl: process.env.GITHUB_API_URL,
+      })
+    }
+  }
+
+  setOutput('titles', formatPRs(prs, format).join('\n'))
 }
 
-git.log(logOpts, logHandler)
+run().catch((err) => setFailed(err))
 
 })();
 

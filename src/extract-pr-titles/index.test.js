@@ -109,6 +109,15 @@ describe('extractPRTitles', () => {
     ])
   })
 
+  it('fills author with the git commit author name', () => {
+    const format = '* #{number} {author}'
+    expect(extractPRTitles(fixture.slice(0, 3), { format })).toEqual([
+      '* #5 Atsushi Watanabe',
+      '* #4 Yoshiya Hinosawa',
+      '* #3 Yoshiya Hinosawa',
+    ])
+  })
+
   it('changes the format to have double curly brackets', () => {
     const format = '{{title}} #{number}'
     expect(extractPRTitles(fixture, { format })).toEqual([
