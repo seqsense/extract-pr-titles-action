@@ -32319,7 +32319,7 @@ function error(message, properties = {}) {
  * @param properties optional properties to add to the annotation.
  */
 function warning(message, properties = {}) {
-    issueCommand('warning', toCommandProperties(properties), message instanceof Error ? message.toString() : message);
+    command_issueCommand('warning', utils_toCommandProperties(properties), message instanceof Error ? message.toString() : message);
 }
 /**
  * Adds a notice issue
@@ -32653,38 +32653,93 @@ const extractSquashedPR = (line) => {
 }
 
 ;// CONCATENATED MODULE: ./src/github.js
+const CHUNK_SIZE = 100
+
 /**
- * Fetch the login of the PR author via GitHub API.
+ * Fetch the logins of the PR authors via GitHub GraphQL API.
  * git log doesn't provide the GitHub login, and the author of a merge commit is the person who merged it.
+ *
+ * PRs are fetched in chunks of CHUNK_SIZE per request to save the rate limit.
+ * PRs not found or whose author is deleted are not included in the result.
  *
  * @param {object} opts
  * @param {string} opts.token GitHub token
  * @param {string} opts.repository owner/repo
- * @param {string} opts.number PR number
- * @param {string} [opts.apiUrl] GitHub API URL
- * @returns {Promise<string>} login of the PR author
+ * @param {Array<string>} opts.numbers PR numbers
+ * @param {string} [opts.graphqlUrl] GitHub GraphQL API URL
+ * @returns {Promise<Map<string, string>>} map from PR number to login of the PR author
  */
-const fetchPRAuthor = async ({
+const fetchPRAuthors = async ({
   token,
   repository,
-  number,
-  apiUrl = 'https://api.github.com',
+  numbers,
+  graphqlUrl = 'https://api.github.com/graphql',
 }) => {
-  const res = await fetch(`${apiUrl}/repos/${repository}/pulls/${number}`, {
+  const [owner, name] = repository.split('/')
+  const uniqueNumbers = [...new Set(numbers)]
+  const authors = new Map()
+
+  for (let i = 0; i < uniqueNumbers.length; i += CHUNK_SIZE) {
+    const chunk = uniqueNumbers.slice(i, i + CHUNK_SIZE)
+    const data = await query({
+      token,
+      graphqlUrl,
+      query: buildQuery(chunk),
+      variables: { owner, name },
+    })
+    for (const number of chunk) {
+      const author = data.repository?.[`pr${number}`]?.author
+      if (author) {
+        authors.set(number, toLogin(author))
+      }
+    }
+  }
+  return authors
+}
+
+// numbers are extracted by /#(\d+)/, so they are safe to be embedded in the query
+const buildQuery = (numbers) => {
+  const prs = numbers
+    .map(
+      (n) =>
+        `pr${n}: pullRequest(number: ${n}) { author { __typename login } }`,
+    )
+    .join('\n')
+  return `query($owner: String!, $name: String!) {
+  repository(owner: $owner, name: $name) {
+${prs}
+  }
+}`
+}
+
+// GraphQL API returns bot login without "[bot]" suffix (e.g. "renovate"),
+// which can be a different user. Add the suffix to match REST API.
+const toLogin = (author) =>
+  author.__typename === 'Bot' ? `${author.login}[bot]` : author.login
+
+const query = async ({ token, graphqlUrl, query, variables }) => {
+  const res = await fetch(graphqlUrl, {
+    method: 'POST',
     headers: {
-      Accept: 'application/vnd.github+json',
       Authorization: `Bearer ${token}`,
-      'X-GitHub-Api-Version': '2022-11-28',
+      'Content-Type': 'application/json',
     },
+    body: JSON.stringify({ query, variables }),
     signal: AbortSignal.timeout(30000),
   })
   if (!res.ok) {
     throw new Error(
-      `failed to get PR #${number} of ${repository}: ${res.status} ${res.statusText}`,
+      `failed to query GitHub GraphQL API: ${res.status} ${res.statusText}`,
     )
   }
-  const pr = await res.json()
-  return pr.user.login
+  const json = await res.json()
+  // errors with data means partial failure (e.g. some PRs not found)
+  if (!json.data) {
+    throw new Error(
+      `failed to query GitHub GraphQL API: ${JSON.stringify(json.errors)}`,
+    )
+  }
+  return json.data
 }
 
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/@simple-git+args-pathspec@1.0.4/node_modules/@simple-git/args-pathspec/dist/index.mjs
@@ -36128,14 +36183,21 @@ const run = async () => {
   })
 
   // Without token, author falls back to the git commit author name
-  if (token && format.includes('{author}')) {
+  if (token && format.includes('{author}') && prs.length > 0) {
+    const authors = await fetchPRAuthors({
+      token,
+      repository: process.env.GITHUB_REPOSITORY,
+      numbers: prs.map((pr) => pr.number),
+      graphqlUrl: process.env.GITHUB_GRAPHQL_URL,
+    })
     for (const pr of prs) {
-      pr.author = await fetchPRAuthor({
-        token,
-        repository: process.env.GITHUB_REPOSITORY,
-        number: pr.number,
-        apiUrl: process.env.GITHUB_API_URL,
-      })
+      if (authors.has(pr.number)) {
+        pr.author = authors.get(pr.number)
+      } else {
+        warning(
+          `failed to get author of #${pr.number}, use git commit author name instead`,
+        )
+      }
     }
   }
 

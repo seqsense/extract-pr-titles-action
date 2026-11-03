@@ -1,6 +1,6 @@
 import * as core from '@actions/core'
 import { extractPRs, formatPRs } from './extract-pr-titles'
-import { fetchPRAuthor } from './github'
+import { fetchPRAuthors } from './github'
 import { simpleGit } from 'simple-git'
 
 const run = async () => {
@@ -22,14 +22,21 @@ const run = async () => {
   })
 
   // Without token, author falls back to the git commit author name
-  if (token && format.includes('{author}')) {
+  if (token && format.includes('{author}') && prs.length > 0) {
+    const authors = await fetchPRAuthors({
+      token,
+      repository: process.env.GITHUB_REPOSITORY,
+      numbers: prs.map((pr) => pr.number),
+      graphqlUrl: process.env.GITHUB_GRAPHQL_URL,
+    })
     for (const pr of prs) {
-      pr.author = await fetchPRAuthor({
-        token,
-        repository: process.env.GITHUB_REPOSITORY,
-        number: pr.number,
-        apiUrl: process.env.GITHUB_API_URL,
-      })
+      if (authors.has(pr.number)) {
+        pr.author = authors.get(pr.number)
+      } else {
+        core.warning(
+          `failed to get author of #${pr.number}, use git commit author name instead`,
+        )
+      }
     }
   }
 
