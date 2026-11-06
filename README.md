@@ -21,6 +21,28 @@ jobs:
       - run: echo ${{ steps.titles.outputs.titles }}
 ```
 
+## Format
+
+`format` is a [pupa](https://github.com/sindresorhus/pupa) template with the following placeholders:
+
+- `{title}`: PR title
+- `{number}`: PR number
+- `{author}`: PR author
+  - If `github-token` is set, it is the GitHub login of the PR author (without `@`) fetched via GitHub API.
+    Bot login has `[bot]` suffix (e.g. `renovate[bot]`), so `@{author}` doesn't work as a mention for bots
+    (GitHub treats `@renovate[bot]` as a mention to the user `renovate`).
+  - Otherwise, it is the git commit author name.
+    Note that the author of a merge commit is the person who merged the PR.
+
+```yaml
+      - uses: seqsense/extract-pr-titles-action@v0
+        with:
+          from: origin/main
+          to: origin/release
+          format: "- #{number} by {author}"
+          github-token: ${{ github.token }}
+```
+
 ## Licenses
 
 - [LICENSE](https://github.com/seqsense/extract-pr-titles-action/blob/main/LICENSE)

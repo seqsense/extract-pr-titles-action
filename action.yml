@@ -14,6 +14,9 @@ inputs:
   reverse:
     description: 'Reverse order when "true" is set'
     required: false
+  github-token:
+    description: 'GitHub token used to fetch the PR author login for {author}. If not set, {author} is the git commit author name'
+    required: false
 outputs:
   titles:
     description: 'Extracted PR titles'

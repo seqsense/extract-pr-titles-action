@@ -1,28 +1,46 @@
 import * as core from '@actions/core'
-import extractPRTitles from './extract-pr-titles'
+import { extractPRs, formatPRs } from './extract-pr-titles'
+import { fetchPRAuthors } from './github'
 import { simpleGit } from 'simple-git'
 
-const git = simpleGit(process.cwd())
+const run = async () => {
+  const git = simpleGit(process.cwd())
 
-const logOpts = {
-  from: core.getInput('from'),
-  to: core.getInput('to'),
-  symmetric: false,
-}
+  const format = core.getInput('format')
+  const token = core.getInput('github-token')
 
-const extractOpts = {
-  format: core.getInput('format'),
-  reverse: core.getInput('reverse') == 'true',
-}
-
-const logHandler = (err, result) => {
-  if (err) {
-    core.setFailed(err)
-    return
-  }
+  const result = await git.log({
+    from: core.getInput('from'),
+    to: core.getInput('to'),
+    symmetric: false,
+  })
   core.info(`${result.all.length} commits`)
   result.all.forEach((log) => core.info(`- ${log.message}`))
-  core.setOutput('titles', extractPRTitles(result.all, extractOpts).join('\n'))
+
+  const prs = extractPRs(result.all, {
+    reverse: core.getInput('reverse') == 'true',
+  })
+
+  // Without token, author falls back to the git commit author name
+  if (token && format.includes('{author}') && prs.length > 0) {
+    const authors = await fetchPRAuthors({
+      token,
+      repository: process.env.GITHUB_REPOSITORY,
+      numbers: prs.map((pr) => pr.number),
+      graphqlUrl: process.env.GITHUB_GRAPHQL_URL,
+    })
+    for (const pr of prs) {
+      if (authors.has(pr.number)) {
+        pr.author = authors.get(pr.number)
+      } else {
+        core.warning(
+          `failed to get author of #${pr.number}, use git commit author name instead`,
+        )
+      }
+    }
+  }
+
+  core.setOutput('titles', formatPRs(prs, format).join('\n'))
 }
 
-git.log(logOpts, logHandler)
+run().catch((err) => core.setFailed(err))

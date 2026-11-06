@@ -32319,7 +32319,7 @@ function error(message, properties = {}) {
  * @param properties optional properties to add to the annotation.
  */
 function warning(message, properties = {}) {
-    issueCommand('warning', toCommandProperties(properties), message instanceof Error ? message.toString() : message);
+    command_issueCommand('warning', utils_toCommandProperties(properties), message instanceof Error ? message.toString() : message);
 }
 /**
  * Adds a notice issue
@@ -32590,11 +32590,10 @@ const DEFAULT_FORMAT = '{title} #{number}'
 
 /**
  * @param {Array<ListLogLine>} logLines
- * @param {string} format The format for PR in pupa format. Default is {title} #{number}.
  * @param {boolean} reverse Reverse the order of the output
+ * @returns {Array<{title: string, number: string, author: string}>}
  */
-const extractPRTitles = (logLines, { format, reverse } = {}) => {
-  format = format || DEFAULT_FORMAT
+const extractPRs = (logLines, { reverse } = {}) => {
   const result = []
   for (const line of logLines) {
     if (isMergedPRCommit(line)) {
@@ -32608,10 +32607,27 @@ const extractPRTitles = (logLines, { format, reverse } = {}) => {
     result.reverse()
   }
 
-  return result.map((pr) => pupa(format, pr, { ignoreMissing: true }))
+  return result
 }
 
-/* harmony default export */ const extract_pr_titles = (extractPRTitles);
+/**
+ * @param {Array<{title: string, number: string, author: string}>} prs
+ * @param {string} format The format for PR in pupa format. Default is {title} #{number}.
+ */
+const formatPRs = (prs, format) => {
+  format = format || DEFAULT_FORMAT
+  return prs.map((pr) => pupa(format, pr, { ignoreMissing: true }))
+}
+
+/**
+ * @param {Array<ListLogLine>} logLines
+ * @param {string} format The format for PR in pupa format. Default is {title} #{number}.
+ * @param {boolean} reverse Reverse the order of the output
+ */
+const extractPRTitles = (logLines, { format, reverse } = {}) =>
+  formatPRs(extractPRs(logLines, { reverse }), format)
+
+/* harmony default export */ const extract_pr_titles = ((/* unused pure expression or super */ null && (extractPRTitles)));
 
 const RE_PR_NUMBER = /#(\d+)/
 
@@ -32623,16 +32639,107 @@ const isSquashedPRCommit = (line) => {
   return / \(#\d+\)$/.test(line.message)
 }
 
+// author is the git commit author name. For merge commits, it is the person who merged the PR, not the PR author.
 const extractMergedPR = (line) => {
   const title = line.body
   const number = line.message.match(RE_PR_NUMBER)[1]
-  return { title, number }
+  return { title, number, author: line.author_name }
 }
 
 const extractSquashedPR = (line) => {
   const title = line.message.replace(/ \(#\d+\)$/, '')
   const number = line.message.match(RE_PR_NUMBER)[1]
-  return { title, number }
+  return { title, number, author: line.author_name }
+}
+
+;// CONCATENATED MODULE: ./src/github.js
+const CHUNK_SIZE = 100
+
+/**
+ * Fetch the logins of the PR authors via GitHub GraphQL API.
+ * git log doesn't provide the GitHub login, and the author of a merge commit is the person who merged it.
+ *
+ * PRs are fetched in chunks of CHUNK_SIZE per request to save the rate limit.
+ * PRs not found or whose author is deleted are not included in the result.
+ *
+ * @param {object} opts
+ * @param {string} opts.token GitHub token
+ * @param {string} opts.repository owner/repo
+ * @param {Array<string>} opts.numbers PR numbers
+ * @param {string} [opts.graphqlUrl] GitHub GraphQL API URL
+ * @returns {Promise<Map<string, string>>} map from PR number to login of the PR author
+ */
+const fetchPRAuthors = async ({
+  token,
+  repository,
+  numbers,
+  graphqlUrl = 'https://api.github.com/graphql',
+}) => {
+  const [owner, name] = repository.split('/')
+  const uniqueNumbers = [...new Set(numbers)]
+  const authors = new Map()
+
+  for (let i = 0; i < uniqueNumbers.length; i += CHUNK_SIZE) {
+    const chunk = uniqueNumbers.slice(i, i + CHUNK_SIZE)
+    const data = await query({
+      token,
+      graphqlUrl,
+      query: buildQuery(chunk),
+      variables: { owner, name },
+    })
+    for (const number of chunk) {
+      const author = data.repository?.[`pr${number}`]?.author
+      if (author) {
+        authors.set(number, toLogin(author))
+      }
+    }
+  }
+  return authors
+}
+
+// numbers are extracted by /#(\d+)/, so they are safe to be embedded in the query
+const buildQuery = (numbers) => {
+  const prs = numbers
+    .map(
+      (n) =>
+        `pr${n}: pullRequest(number: ${n}) { author { __typename login } }`,
+    )
+    .join('\n')
+  return `query($owner: String!, $name: String!) {
+  repository(owner: $owner, name: $name) {
+${prs}
+  }
+}`
+}
+
+// GraphQL API returns bot login without "[bot]" suffix (e.g. "renovate"),
+// which can be a different user. Add the suffix to match REST API.
+const toLogin = (author) =>
+  author.__typename === 'Bot' ? `${author.login}[bot]` : author.login
+
+const query = async ({ token, graphqlUrl, query, variables }) => {
+  const res = await fetch(graphqlUrl, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ query, variables }),
+    signal: AbortSignal.timeout(30000),
+  })
+  if (!res.ok) {
+    throw new Error(
+      `failed to query GitHub GraphQL API: ${res.status} ${res.statusText}`,
+    )
+  }
+  const json = await res.json()
+  // errors with data means partial failure (e.g. some PRs not found)
+  if (!json.data) {
+    throw new Error(
+      `failed to query GitHub GraphQL API: ${JSON.stringify(json.errors)}`,
+    )
+  }
+  return json.data
 }
 
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/@simple-git+args-pathspec@1.0.4/node_modules/@simple-git/args-pathspec/dist/index.mjs
@@ -36056,30 +36163,48 @@ const wo = (t, e) => {
 
 
 
-const git = wo(process.cwd())
 
-const logOpts = {
-  from: getInput('from'),
-  to: getInput('to'),
-  symmetric: false,
-}
+const run = async () => {
+  const git = wo(process.cwd())
 
-const extractOpts = {
-  format: getInput('format'),
-  reverse: getInput('reverse') == 'true',
-}
+  const format = getInput('format')
+  const token = getInput('github-token')
 
-const logHandler = (err, result) => {
-  if (err) {
-    setFailed(err)
-    return
-  }
+  const result = await git.log({
+    from: getInput('from'),
+    to: getInput('to'),
+    symmetric: false,
+  })
   info(`${result.all.length} commits`)
   result.all.forEach((log) => info(`- ${log.message}`))
-  setOutput('titles', extract_pr_titles(result.all, extractOpts).join('\n'))
+
+  const prs = extractPRs(result.all, {
+    reverse: getInput('reverse') == 'true',
+  })
+
+  // Without token, author falls back to the git commit author name
+  if (token && format.includes('{author}') && prs.length > 0) {
+    const authors = await fetchPRAuthors({
+      token,
+      repository: process.env.GITHUB_REPOSITORY,
+      numbers: prs.map((pr) => pr.number),
+      graphqlUrl: process.env.GITHUB_GRAPHQL_URL,
+    })
+    for (const pr of prs) {
+      if (authors.has(pr.number)) {
+        pr.author = authors.get(pr.number)
+      } else {
+        warning(
+          `failed to get author of #${pr.number}, use git commit author name instead`,
+        )
+      }
+    }
+  }
+
+  setOutput('titles', formatPRs(prs, format).join('\n'))
 }
 
-git.log(logOpts, logHandler)
+run().catch((err) => setFailed(err))
 
 })();
 
