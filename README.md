@@ -43,6 +43,23 @@ jobs:
           github-token: ${{ github.token }}
 ```
 
+### Format for bots
+
+`bot-format` is used instead of `format` for PRs authored by bots.
+Authors with `[bot]` suffix (e.g. `renovate[bot]`) and the ones listed in `bots` are treated as bots.
+`github-token` should be set to get the PR author login.
+
+```yaml
+      - uses: seqsense/extract-pr-titles-action@v0
+        with:
+          from: origin/main
+          to: origin/release
+          format: "- [ ] #{number} by {author}"
+          bot-format: "- #{number} by {author}"
+          bots: machine-user
+          github-token: ${{ github.token }}
+```
+
 ## Licenses
 
 - [LICENSE](https://github.com/seqsense/extract-pr-titles-action/blob/main/LICENSE)

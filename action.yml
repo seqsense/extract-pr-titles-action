@@ -11,6 +11,12 @@ inputs:
     description: 'Pupa template of the output format'
     default: '{title} ${number}'
     required: true
+  bot-format:
+    description: 'Pupa template of the output format for PRs authored by bots. If not set, format is used'
+    required: false
+  bots:
+    description: 'Comma or newline separated authors treated as bots in addition to the ones with "[bot]" suffix (e.g. machine users)'
+    required: false
   reverse:
     description: 'Reverse order when "true" is set'
     required: false

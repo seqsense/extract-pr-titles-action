@@ -118,6 +118,34 @@ describe('extractPRTitles', () => {
     ])
   })
 
+  it('uses botFormat for PRs authored by bots', () => {
+    const lines = [
+      { message: 'Human change (#3)', body: '', author_name: 'octocat' },
+      { message: 'Update dep (#2)', body: '', author_name: 'renovate[bot]' },
+      { message: 'Update assets (#1)', body: '', author_name: 'sqbot' },
+    ]
+    const format = '* [ ] #{number} {author}'
+    const botFormat = '* #{number} {author}'
+    expect(extractPRTitles(lines, { format, botFormat })).toEqual([
+      '* [ ] #3 octocat',
+      '* #2 renovate[bot]',
+      '* [ ] #1 sqbot',
+    ])
+    expect(
+      extractPRTitles(lines, { format, botFormat, bots: ['sqbot'] }),
+    ).toEqual(['* [ ] #3 octocat', '* #2 renovate[bot]', '* #1 sqbot'])
+  })
+
+  it('uses format for bots if botFormat is not given', () => {
+    const lines = [
+      { message: 'Update dep (#2)', body: '', author_name: 'renovate[bot]' },
+    ]
+    const format = '* [ ] #{number} {author}'
+    expect(extractPRTitles(lines, { format })).toEqual([
+      '* [ ] #2 renovate[bot]',
+    ])
+  })
+
   it('changes the format to have double curly brackets', () => {
     const format = '{{title}} #{number}'
     expect(extractPRTitles(fixture, { format })).toEqual([
