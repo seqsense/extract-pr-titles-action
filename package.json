@@ -21,7 +21,7 @@
     "@vercel/ncc": "0.45.0",
     "eslint": "10.13.0",
     "prettier": "3.9.10",
-    "vitest": "5.0.5"
+    "vitest": "5.1.0"
   },
   "packageManager": "pnpm@12.15.0"
 }
