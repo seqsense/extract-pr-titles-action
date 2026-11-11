@@ -33243,19 +33243,31 @@ const extractPRs = (logLines, { reverse } = {}) => {
 /**
  * @param {Array<{title: string, number: string, author: string}>} prs
  * @param {string} format The format for PR in pupa format. Default is {title} #{number}.
+ * @param {string} botFormat The format for PR authored by bots. Default is the same as format.
+ * @param {Array<string>} bots Authors treated as bots in addition to the ones with "[bot]" suffix.
  */
-const formatPRs = (prs, format) => {
+const formatPRs = (prs, format, { botFormat, bots = [] } = {}) => {
   format = format || DEFAULT_FORMAT
-  return prs.map((pr) => pupa(format, pr, { ignoreMissing: true }))
+  botFormat = botFormat || format
+  return prs.map((pr) =>
+    pupa(isBot(pr.author, bots) ? botFormat : format, pr, {
+      ignoreMissing: true,
+    }),
+  )
 }
+
+const isBot = (author, bots) =>
+  !!author && (author.endsWith('[bot]') || bots.includes(author))
 
 /**
  * @param {Array<ListLogLine>} logLines
  * @param {string} format The format for PR in pupa format. Default is {title} #{number}.
+ * @param {string} botFormat The format for PR authored by bots. Default is the same as format.
+ * @param {Array<string>} bots Authors treated as bots in addition to the ones with "[bot]" suffix.
  * @param {boolean} reverse Reverse the order of the output
  */
-const extractPRTitles = (logLines, { format, reverse } = {}) =>
-  formatPRs(extractPRs(logLines, { reverse }), format)
+const extractPRTitles = (logLines, { format, botFormat, bots, reverse } = {}) =>
+  formatPRs(extractPRs(logLines, { reverse }), format, { botFormat, bots })
 
 /* harmony default export */ const extract_pr_titles = ((/* unused pure expression or super */ null && (extractPRTitles)));
 
@@ -36798,6 +36810,10 @@ const run = async () => {
   const git = wo(process.cwd())
 
   const format = getInput('format')
+  const botFormat = getInput('bot-format')
+  const bots = getInput('bots')
+    .split(/[\s,]+/)
+    .filter((b) => b)
   const token = getInput('github-token')
 
   const result = await git.log({
@@ -36813,7 +36829,9 @@ const run = async () => {
   })
 
   // Without token, author falls back to the git commit author name
-  if (token && format.includes('{author}') && prs.length > 0) {
+  // author is also needed to choose bot-format
+  const needsAuthor = format.includes('{author}') || !!botFormat
+  if (token && needsAuthor && prs.length > 0) {
     const authors = await fetchPRAuthors({
       token,
       repository: process.env.GITHUB_REPOSITORY,
@@ -36831,7 +36849,10 @@ const run = async () => {
     }
   }
 
-  setOutput('titles', formatPRs(prs, format).join('\n'))
+  setOutput(
+    'titles',
+    formatPRs(prs, format, { botFormat, bots }).join('\n'),
+  )
 }
 
 run().catch((err) => setFailed(err))

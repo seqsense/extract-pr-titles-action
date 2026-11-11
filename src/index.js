@@ -7,6 +7,11 @@ const run = async () => {
   const git = simpleGit(process.cwd())
 
   const format = core.getInput('format')
+  const botFormat = core.getInput('bot-format')
+  const bots = core
+    .getInput('bots')
+    .split(/[\s,]+/)
+    .filter((b) => b)
   const token = core.getInput('github-token')
 
   const result = await git.log({
@@ -22,7 +27,9 @@ const run = async () => {
   })
 
   // Without token, author falls back to the git commit author name
-  if (token && format.includes('{author}') && prs.length > 0) {
+  // author is also needed to choose bot-format
+  const needsAuthor = format.includes('{author}') || !!botFormat
+  if (token && needsAuthor && prs.length > 0) {
     const authors = await fetchPRAuthors({
       token,
       repository: process.env.GITHUB_REPOSITORY,
@@ -40,7 +47,10 @@ const run = async () => {
     }
   }
 
-  core.setOutput('titles', formatPRs(prs, format).join('\n'))
+  core.setOutput(
+    'titles',
+    formatPRs(prs, format, { botFormat, bots }).join('\n'),
+  )
 }
 
 run().catch((err) => core.setFailed(err))

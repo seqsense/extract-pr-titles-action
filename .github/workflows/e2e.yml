@@ -22,6 +22,7 @@ jobs:
           from: origin/${{ github.event.pull_request.base.ref }}^
           to: origin/${{ github.event.pull_request.base.ref }}
           format: "- {title} #{number} by {author}"
+          bot-format: "- {title} #{number} by {author} (bot)"
           reverse: true
           github-token: ${{ github.token }}
 
